@@ -4,7 +4,7 @@ import path from "path";
 
 dotenv.config();
 
-const app : Express = express();
+const app: Express = express();
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -24,3 +24,4 @@ app.get("/", (req, res) => {
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost:" + app.get("port"));
 });
+// test
