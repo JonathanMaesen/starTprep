@@ -1,15 +1,3 @@
----
-body_class: markdown-body
-highlight_style: monokai
-pdf_options:
-  margin: 10mm
-  printBackground: true
----
-
-<style>
-
-</style>
-
 # General Rules
 
 ### Naming rules and languege
