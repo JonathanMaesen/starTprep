@@ -1,5 +1,5 @@
 /* Start Screen */
-.startScreen {
+.start-screen {
   box-sizing: border-box;
   display: flex;
 
@@ -172,6 +172,94 @@ main {
   transform: translateY(-0.25rem) scale(0.98);
   box-shadow: 0rem 0.1875rem 0.4375rem rgba(0, 0, 0, 0.85);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+}
+
+.front-of-house{
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Main content */
+main {
+  display: grid;
+  overflow: scroll;
+  grid-template-rows: 0.05fr 1fr 0.05fr;
+  height: 100vh;
+  padding: 0;
+}
+
+/* Sorting dropdown (navy blue top bar) */
+form {
+  background-color: #081534;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0.5rem;
+}
+
+form select {
+  margin-right: 1%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Table section */
+section#floor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  padding: 2vh 5vw;
+  justify-content: center;
+}
+
+.table {
+  background-color: #ffff;
+  border: none;
+  color: black;
+  padding: 1rem;
+  border-radius: 2rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.295);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Hover effect for interactive feel */
+.table:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom navigation (brown bar) */
+aside {
+  display: flex;
+  background-color: #ffff;
+  justify-content: space-around;
+  padding: 1rem;
+  gap: 5rem;
+}
+
+.sectionSelector {
+  background-color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  border-radius: 10rem;
+  box-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.363);
 }
 }
 /*  */

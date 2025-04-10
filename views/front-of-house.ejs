@@ -1,0 +1,21 @@
+<%- include('./partials/head') %>
+
+<body class="front-of-house">
+    <script src="scripts/nav.js" id="nav"></script>
+    <main>
+      <form>
+        <select name="sortOptions" id="">
+          <option value="default">default</option>
+          <option value="DESC" id="sortFloorDESC">DESC</option>
+          <option value="ASC" id="sortFloorASC">ASC</option>
+        </select>
+      </form>
+      <section id="floor"></section>
+      <aside>
+        <button class="sectionSelector" id="sortFloorInside">Inside</button
+        ><button class="sectionSelector" id="sortFloorOutside">Outside</button>
+      </aside>
+    </main>
+  </body>
+
+  <%- include('./partials/footer') %>
