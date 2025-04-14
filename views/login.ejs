@@ -1,0 +1,19 @@
+<%- include('./partials/head') %>
+<body>
+  <main>
+    <h1>StarTprep</h1>
+    <p>User name:</p>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="User_Name_Log_In" placeholder="User name">
+      <label for="User_Name_Log_In">User name</label>
+    </div>
+    <p>Password:</p>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="User_Password_Log_In" placeholder="Password">
+      <label for="User_Password_Log_In">password</label>
+    </div>
+    <br><br>
+    <button type="button"  class="btn btn-primary"onclick="Check_Password()">Log In</button>
+  </main> 
+</body>
+<%- include('./partials/footer') %>

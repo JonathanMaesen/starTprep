@@ -1,8 +1,8 @@
 import express, { Express } from "express";
-import dotenv from "dotenv";
 import path from "path";
-
-dotenv.config();
+import mainRoutes from "./routes/mainRoutes";
+import userRoutes from "./routes/userRoutes";
+import { PORT } from "./config/config";
 
 const app: Express = express();
 
@@ -14,15 +14,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", path.join(__dirname, "views"));
 
-app.set("port", process.env.PORT ?? 3000);
+// Use the routes
+app.use("/", mainRoutes);
+app.use("/user", userRoutes);
 
-app.get("/", (req, res) => {
-    res.render("index", {
-        title: "Start Screen",
-        message: "Hello World"
-    })
+// Centralized error handling middleware
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
 });
 
-app.listen(app.get("port"), () => {
-    console.log("Server started on http://localhost:" + app.get("port"));
+app.listen(PORT, () => {
+    console.log(`Server started on http://localhost:${PORT}`);
 });
