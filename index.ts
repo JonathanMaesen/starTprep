@@ -15,9 +15,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 
 
-//r outes
+//routes
 app.use("/", mainRoutes);
-app.use("/user", userRoutes);
+// app.use("/user", userRoutes); this is for when we start using logins correctly
 
 // middelware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
