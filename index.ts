@@ -14,11 +14,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", path.join(__dirname, "views"));
 
-// Use the routes
+
+//r outes
 app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 
-// Centralized error handling middleware
+// middelware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
     console.error(err.stack);
     res.status(500).send("Something broke!");
