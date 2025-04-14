@@ -1,0 +1,62 @@
+<%- include('./partials/head') %>
+<script type="module" src="scripts/floor.js" defer></script>
+
+  <body class="floor">
+    <%- include('./partials/nav') %>
+
+    <main>
+        <div class="modal fade" id="tablemodle" tabindex="-1" aria-labelledby="tablemodleLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="tablemodleLabel">Create table</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="follownummer" placeholder="follownummer">
+              <label for="follownummer">follownummer</label>
+            </div>
+          </div>
+        <div class="input-group mb-3">
+            <div class="form-floating">
+                <input type="number" class="form-control" id="amountstools" placeholder="amount of chairs for table">
+                <label for="amountstools">Amount of chairs for table</label>
+            </div>
+        </div>
+        <div class="form-floating">
+          <select class="form-select" id="Create-Table-Multi">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <label for="floatingSelectGrid">Works with selects</label>
+        </div>
+        <br>
+        <button id="btncreatetable" class="btn btn-primary" onclick="Button_Table_Create_Clicked()">Create table</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modalfill" tabindex="-1" aria-labelledby="modalfillLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modal${i}Label">table editor</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="fillmodal">
+                 
+              </div>
+            </div>
+          </div>
+          </div>
+    <div id="showtables">
+        <button type="button" class="table" data-bs-toggle="modal" data-bs-target="#tablemodle">+</button>
+    </div>
+    <button onclick="Download_Json_Floor()" class="btn btn-success">download json</button>
+    </main>
+  </body>
+  <%- include('./partials/footer') %>

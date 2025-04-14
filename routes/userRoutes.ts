@@ -2,8 +2,8 @@ import express, { Router } from "express";
 
 const router: Router = express.Router();
 
-router.get("/front-of-house", (req, res) => {
-    res.render("front-of-house", {
+router.get("/foh", (req, res) => {
+    res.render("foh", {
     });
 });
 

@@ -1,0 +1,131 @@
+<%- include('./partials/head') %>
+<script type="module" src="scripts/scanner.js" defer></script>
+
+  <body class="scanner">
+    <main>
+      <div class="customnavscanner">
+        <div>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">
+            Lookup barcode
+          </button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            Add new product
+          </button>
+          <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal">
+    Add new ingredient and product
+  </button> -->
+        </div>
+      </div>
+      <!-- Search Modal -->
+      <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="searchModalLabel">Search</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="SearchBarcodeInput" placeholder="name@example.com">
+                <label for="SearchBarcodeInput">Barconde</label>
+                <button type="button" class="btn btn-primary" id="SearchBarCode">Search</button>
+              </div>
+              <div id="search-results">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Modal -->
+      <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="addProductModalLabel">Add new product</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-danger" role="alert" id="Alert-Made-Products">
+
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" step="any" class="form-control" id="unitPriceInput" placeholder="Enter unit price"
+                  required>
+                <label for="unitPriceInput">Unit Price</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="quantityInput" placeholder="Enter quantity">
+                <label for="quantityInput">Quantity</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" step="any" class="form-control" id="weightKgInput" placeholder="Enter weight (kg)">
+                <label for="weightKgInput">Quantity Weight (kg)</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="productBarcodeInput" placeholder="Enter product barcode"
+                  required>
+                <label for="productBarcodeInput">Product barcode</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="search" class="form-control" id="ingredientidinput" placeholder="Search for ingredient...">
+                <label for="ingredientidinput">ID ingredient</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="search" class="form-control" id="productSearchInput" placeholder="Search for product...">
+                <label for="productSearchInput">Search product</label>
+              </div>
+              <div id="product-recommendations">
+              </div>
+              <button class="btn btn-primary" onclick="createNewProduct()">Add product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- detail modal -->
+      <div class="modal fade" id="UpdateProductModal" tabindex="-1" aria-labelledby="UpdateProductModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title fs-5" id="addProductModalLabel">Alter Product</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-danger" role="alert" id="Alert-Made-Products">
+
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" step="any" class="form-control" id="unitPriceUpdate" placeholder="Enter unit price"
+                  required>
+                <label for="unitPriceUpdate">Unit Price</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="quantityUpdate" placeholder="Enter quantity">
+                <label for="quantityUpdate">Quantity</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" step="any" class="form-control" id="weightKgUpdate"
+                  placeholder="Enter weight (kg)">
+                <label for="weightKgUpdate">Quantity Weight (kg)</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="productBarcodeUpdate" placeholder="Enter product barcode"
+                  required>
+                <label for="productBarcodeUpdate">Product barcode</label>
+              </div>
+              <button class="btn btn-danger" onclick="" id="DeleteProduct">Delete product</button>
+              <button class="btn btn-primary" onclick="" id="UpdateProduct">Update product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Card-Container">
+
+      </div>
+    </main>
+  </body>
+  
+  <%- include('./partials/footer') %>
