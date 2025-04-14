@@ -1,13 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <title><%= title %></title>
-  </head>
-  <body>
-    <p>test</p>
-    <%= message %>
+<%- include('./partials/head') %>
+
+  <body class="index">
+    <nav>
+      <figure>
+        <img src="./assets/logos/fulllogo.jpg" alt="" width="100px" />
+      </figure>
+      <a href="./login"><button class="login">Login</button></a>
+      <a href="./register"><button class="register">Register</button></a>
+      <a href="./foh"><button class="exit">Exit</button></a>
+    </nav>
+    <main>
+      <section class="lesserPrograms">
+        <button>
+          <img src="./assets/start-screen/fifaPicture.webp" alt="Fifa" width="200px" /></button><button>
+          <img src="./assets/start-screen/Fortnite.webp" alt="Fortnite" width="200px" /></button><button>
+          <img src="./assets/start-screen/lego-masters.webp" alt="LegoMasters" width="200px" /></button><button>
+          <img src="./assets/start-screen/lord-of-the-rings.webp" alt="Lord of the Rings" width="200px" />
+        </button>
+        <button>
+          <img src="./assets/start-screen/magic-the-gathering.webp" alt="Magic the gathering"
+            width="200px" /></button><button>
+          <img src="./assets/start-screen/Pokemon.webp" alt="Pokemon" width="200px" />
+        </button>
+      </section>
+      <section class="bestProgram">
+        <button class="bestButton">
+          <a href="./login">
+            <img src="./assets/logos/fulllogo.jpg" alt="StarTprep" /></a>
+        </button>
+      </section>
   </body>
-</html>
+
+  <%- include('./partials/footer') %>

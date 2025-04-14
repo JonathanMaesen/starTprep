@@ -1,0 +1,59 @@
+<%- include('./partials/head') %>
+<script type="module" src="scripts/recipes.js" defer></script>
+
+  <body class="recipes">
+    <script src="scripts/nav.js"></script>
+    <section class="grid-container" id="gridContainer"></section>
+
+    <section class="add-button">
+      <img src="assets/add button.png" alt="add button" />
+    </section>
+
+    <section class="popup-overlay" id="popupOverlay">
+      <article class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+
+        <main class="recipe-info">
+          <section class="search-container">
+            <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." />
+            <article id="searchResults" class="dropdown"></article>
+          </section>
+
+          <section class="recipe-name-box">
+            <label>Gerechtsnaam:</label>
+            <span id="recipeName"></span>
+          </section>
+
+          <section class="ingredients-preparation">
+            <article class="info-box ingredienten-box">
+              <label>IngrediëntenLijst:</label>
+              <ul id="ingredientenList"></ul>
+
+              <article class="plusmin-box">
+                <button id="minusBtn">-</button>
+                <span id="quantity">1</span>
+                <button id="plusBtn">+</button>
+              </article>
+            </article>
+
+            <article class="info-box">
+              <label>Bereidingswijze:</label>
+              <ol id="bereidingswijzeList"></ol>
+            </article>
+          </section>
+
+          <section class="price-container">
+            <article class="price-box">
+              <label>AankoopPrijs:</label>
+              <span id="aankoopPrijs"></span>
+            </article>
+            <article class="price-box">
+              <label>VerkoopPrijs:</label>
+              <span id="verkoopPrijs"></span>
+            </article>
+          </section>
+        </main>
+      </article>
+    </section>
+  </body>
+<%- include('./partials/footer') %>

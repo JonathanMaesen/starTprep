@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      color: #dc3545;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Error <span id="errorCode">404</span></h1>
+    <p>Something went wrong. Try again later.</p>
+    <img id="errorImage" src="https://http.cat/404" alt="Error Image" />
+  </div>
+  <script>
+    function getErrorCodeFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("code") || "404";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const errorCode = getErrorCodeFromURL();
+      document.getElementById("errorCode").textContent = errorCode;
+      document.getElementById(
+        "errorImage"
+      ).src = `https://http.cat/${errorCode}`;
+    });
+  </script>
+  <a href="frontOfHouse.html">Back to Front of House</a>
+</body>
+<%- include('./partials/head') %>
+  <!-- alles in deze pagina is gelocalizeerd zodat ze altijd werkt ook bij overwachte omstandigheiden. -->
