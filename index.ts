@@ -3,6 +3,7 @@ import path from "path";
 import mainRoutes from "./routes/mainRoutes";
 import userRoutes from "./routes/userRoutes";
 import { PORT } from "./config/config";
+import { closeConnection } from "./data/database";
 
 const app: Express = express();
 
@@ -27,4 +28,16 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
+});
+
+process.on("SIGINT", async () => {
+    console.log("SIGINT received, shutting down...");
+    await closeConnection();
+    process.exit(0);
+});
+
+process.on("SIGTERM", async () => {
+    console.log("SIGTERM received, shutting down...");
+    await closeConnection();
+    process.exit(0);
 });
