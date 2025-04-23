@@ -46,5 +46,7 @@ router.get("/scanner", (req, res) => {
 router.get("/storage", (req, res) => {
     res.render("storage");
 });
-
+router.get("/haccp", (req, res) => {
+    res.render("haccp");
+});
 export default router;
