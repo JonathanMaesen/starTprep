@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { MongoClient } from "mongodb"
 dotenv.config();
 let client: MongoClient;
+
 function createClient() {
     try {
         const uri = `mongodb+srv://${process.env.MONGODBUSERNAME}:${process.env.MONGODBPASSWORD}@${process.env.MONGODBCLUSTERURL}/`;
@@ -94,11 +95,11 @@ export async function getSortedCollection(collectionin: string, sortparameter: a
     } 
 }
 //parse the sortparameter and the collactionparameter you want to sort on it
-export async function getSortedCollectionCollaction(collectionin: string, sortparameter: any, collactionparameter: any) {
+export async function getSortedCollectionCollection(collectionin: string, sortparameter: any, collationParameter: any) {
     try {
         await client.connect();
         const collection = await client.db("StarTprep").collection(collectionin);
-        const result = await collection.find({}).sort(sortparameter).collation(collactionparameter).toArray();
+        const result = await collection.find({}).sort(sortparameter).collation(collationParameter).toArray();
         return result
     } catch (e) {
         console.error(e);
@@ -126,34 +127,32 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
         console.error(e);
     } 
 }
-//apparently update parameters are not allowed to be parsed as 1 object but as 2 or 3
-//this means that update has to be done for eachimplication seperatly
 // //update 1 element 
-// export async function updateElement(db:string, collectionin:string, updatequery:any) {
-//     try {
-//         await client.connect();
-//         const collection = await client.db("StarTprep").collection(collectionin);
-//         const result = await collection.updateOne(updatequery);
-//         return result
-//     } catch (e) {
-//         console.error(e);
-//     } finally {
-//         await client.close();
-//     }
-// }
+export async function updateElement(db:string, collectionin:string, updatequeryset1:any,updatequeryset2:any) {
+    try {
+        await client.connect();
+        const collection = await client.db("StarTprep").collection(collectionin);
+        const result = await collection.updateOne(updatequeryset1, updatequeryset2);
+        return result
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 // //update elements 
-// export async function updateElements(db:string, collectionin:string, updatequery:any) {
-//     try {
-//         await client.connect();
-//         const collection = await client.db("StarTprep").collection(collectionin);
-//         const result = await collection.updateMany(updatequery);
-//         return result
-//     } catch (e) {
-//         console.error(e);
-//     } finally {
-//         await client.close();
-//     }
-// }
+export async function updateElements(db:string, collectionin:string,updatequeryset1:any,updatequeryset2:any) {
+    try {
+        await client.connect();
+        const collection = await client.db("StarTprep").collection(collectionin);
+        const result = await collection.updateMany(updatequeryset1, updatequeryset2);
+        return result
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 //delete 1 element 
 export async function deleteElement(collectionin: string, updatequery: any) {
     try {
