@@ -1,7 +1,7 @@
 import express, { Express } from "express";
 import path from "path";
 import mainRoutes from "./routes/mainRoutes";
-import userRoutes from "./routes/userRoutes";
+import userRoutes from "./routes/login";
 import { PORT } from "./config/config";
 import { closeConnection } from "./data/database";
 
