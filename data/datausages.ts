@@ -1,39 +1,6 @@
-import { getAllDataMongoDB, insertOneObjMongodb, deleteElement, insertArrObjMongodb, getCollectionObj } from "./database";
+import { getAllDataMongoDB, insertOneObjMongodb, deleteElement, insertArrObjMongodb, getCollectionObj, updateElement, updateElements } from "./database";
 import { ObjectId } from "mongodb";
-
-interface Ingredient {
-    _id: ObjectId,
-    id: number,
-    name: string;
-    pricepk: number,
-    barcode: string | number,
-    unitprice: number,
-    quantity: number,
-    quantityWeightKg: number
-}
-
-export interface Dish {
-    dishId: number;
-    name: string;
-    category: string[];
-    proteinType: string[];
-    ingredients: Ingredientdish[];
-    supplements: Supplement[];
-}
-
-export interface Ingredientdish {
-    ingredientId: number;
-    name: string;
-}
-
-export interface Supplement {
-    supplementId: number;
-    name: string;
-}
-export interface Floorelement {
-    follownummer: string,
-    amount: number
-}
+import { Ingredient, Dish, Floorelement } from "./types";
 export let ingredients: Ingredient[];
 export let dishes: Dish[];
 export let floor: Floorelement[];
@@ -43,7 +10,7 @@ async function getDataIngredients() {
     if (data) {
         ingredients = data;
     } else {
-        logbackend("Error when fetching ingredients\nExiting the proccess");
+        logbackend("Error when fetching ingredients\nExiting the process");
         process.exit(1);
     }
 }
@@ -53,7 +20,7 @@ async function getDishes() {
     if (data) {
         dishes = data;
     } else {
-        logbackend("Error when fetching dishes\nExiting the proccess");
+        logbackend("Error when fetching dishes\nExiting the process");
         process.exit(1);
     }
 }
@@ -185,14 +152,14 @@ export async function updateFloorElement(follownummer: string, updateData: Parti
     }
 }
 
-//need to impliment the log database and function
+//need to implement the log database and function
 function logbackend(error: string) {
     console.log(error);
 };
 async function fetchStartDatabase() {
     const functionarr = [getDataIngredients, getDishes, getFloor]
-    functionarr.forEach(async (element) => {
+    for (const element of functionarr) {
         await element();
-    });
+    }
 }
 fetchStartDatabase();

@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { MongoClient } from "mongodb"
 dotenv.config();
 let client: MongoClient;
+
 function createClient() {
     try {
         const uri = `mongodb+srv://${process.env.MONGODBUSERNAME}:${process.env.MONGODBPASSWORD}@${process.env.MONGODBCLUSTERURL}/`;
@@ -30,7 +31,7 @@ export async function insertOneObjMongodb(collectionin: string, obj: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 // insert arr of objects in a collection
 export async function insertArrObjMongodb(collectionin: string, objarr: any) {
@@ -40,7 +41,7 @@ export async function insertArrObjMongodb(collectionin: string, objarr: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //returns the first element of an collection
 export async function getFirstElementMongoDb(collectionin: string) {
@@ -50,7 +51,7 @@ export async function getFirstElementMongoDb(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //parse an parameter that will filter on all the data of a collection and give the first one back
 export async function getFirstElementMongoDbWithParameter(collectionin: string, parameter: any) {
@@ -60,7 +61,7 @@ export async function getFirstElementMongoDbWithParameter(collectionin: string, 
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //get an array of data based on the database and the collection given
 export async function getAllDataQueryMongoDB(collectionin: string, query: any) {
@@ -70,17 +71,17 @@ export async function getAllDataQueryMongoDB(collectionin: string, query: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //get an array of data based on the database and the collection given with queryparameter
-export async function getAllDataMongoDB(collectionin: string) : Promise<any> {
+export async function getAllDataMongoDB(collectionin: string): Promise<any> {
     try {
         await client.connect();
         const result = await client.db("StarTprep").collection(collectionin).find({}).toArray();
         return result;
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //parse the sortparameter you want to sort on it
 export async function getSortedCollection(collectionin: string, sortparameter: any) {
@@ -91,18 +92,18 @@ export async function getSortedCollection(collectionin: string, sortparameter: a
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //parse the sortparameter and the collactionparameter you want to sort on it
-export async function getSortedCollectionCollaction(collectionin: string, sortparameter: any, collactionparameter: any) {
+export async function getSortedCollectionCollection(collectionin: string, sortparameter: any, collationParameter: any) {
     try {
         await client.connect();
         const collection = await client.db("StarTprep").collection(collectionin);
-        const result = await collection.find({}).sort(sortparameter).collation(collactionparameter).toArray();
+        const result = await collection.find({}).sort(sortparameter).collation(collationParameter).toArray();
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //limit the return arr 
 export async function getDataWithLimit(collectionin: string, limitamount: number) {
@@ -113,7 +114,7 @@ export async function getDataWithLimit(collectionin: string, limitamount: number
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //skip an amount and limit the return arr
 export async function getDataWithLimitSkip(collectionin: string, skipamount: number, limitamount: number) {
@@ -124,36 +125,34 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
-//apparently update parameters are not allowed to be parsed as 1 object but as 2 or 3
-//this means that update has to be done for eachimplication seperatly
 // //update 1 element 
-// export async function updateElement(db:string, collectionin:string, updatequery:any) {
-//     try {
-//         await client.connect();
-//         const collection = await client.db("StarTprep").collection(collectionin);
-//         const result = await collection.updateOne(updatequery);
-//         return result
-//     } catch (e) {
-//         console.error(e);
-//     } finally {
-//         await client.close();
-//     }
-// }
+export async function updateElement(db: string, collectionin: string, updatequeryset1: any, updatequeryset2: any) {
+    try {
+        await client.connect();
+        const collection = await client.db("StarTprep").collection(collectionin);
+        const result = await collection.updateOne(updatequeryset1, updatequeryset2);
+        return result
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 // //update elements 
-// export async function updateElements(db:string, collectionin:string, updatequery:any) {
-//     try {
-//         await client.connect();
-//         const collection = await client.db("StarTprep").collection(collectionin);
-//         const result = await collection.updateMany(updatequery);
-//         return result
-//     } catch (e) {
-//         console.error(e);
-//     } finally {
-//         await client.close();
-//     }
-// }
+export async function updateElements(db: string, collectionin: string, updatequeryset1: any, updatequeryset2: any) {
+    try {
+        await client.connect();
+        const collection = await client.db("StarTprep").collection(collectionin);
+        const result = await collection.updateMany(updatequeryset1, updatequeryset2);
+        return result
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 //delete 1 element 
 export async function deleteElement(collectionin: string, updatequery: any) {
     try {
@@ -163,7 +162,7 @@ export async function deleteElement(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //delete elements 
 export async function deleteElements(collectionin: string, updatequery: any) {
@@ -174,7 +173,7 @@ export async function deleteElements(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //creates a index
 export async function createMongodbindex(collectionin: string, indexquery: any) {
@@ -184,7 +183,7 @@ export async function createMongodbindex(collectionin: string, indexquery: any) 
         await collection.createIndex(indexquery);
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 //use this to get a the collection obj so you can do custom operations with it
@@ -195,7 +194,7 @@ export async function getCollectionObj(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 //when the app shutdowns, shut down the connection
 process.on("SIGINT", async () => {
