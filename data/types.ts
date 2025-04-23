@@ -39,3 +39,6 @@ export interface User{
     role: string,
     password : string
 }
+// export interface Token{
+
+// }
