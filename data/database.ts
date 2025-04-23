@@ -46,7 +46,7 @@ export async function insertOneObjMongodb(collectionin: string, obj: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -63,7 +63,7 @@ export async function insertArrObjMongodb(collectionin: string, objarr: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -79,7 +79,7 @@ export async function getFirstElementMongoDb(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -96,7 +96,7 @@ export async function getFirstElementMongoDbWithParameter(collectionin: string, 
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -113,23 +113,17 @@ export async function getAllDataQueryMongoDB(collectionin: string, query: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
-
-/**
- * Retrieves all data from a specified MongoDB collection.
- * 
- * @param collectionin - The name of the collection.
- * @returns An array of all data in the collection.
- */
-export async function getAllDataMongoDB(collectionin: string) : Promise<any> {
+//get an array of data based on the database and the collection given with queryparameter
+export async function getAllDataMongoDB(collectionin: string): Promise<any> {
     try {
         await client.connect();
         const result = await client.db("StarTprep").collection(collectionin).find({}).toArray();
         return result;
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -147,7 +141,7 @@ export async function getSortedCollection(collectionin: string, sortparameter: a
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -166,7 +160,7 @@ export async function getSortedCollectionCollection(collectionin: string, sortpa
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -184,7 +178,7 @@ export async function getDataWithLimit(collectionin: string, limitamount: number
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -203,7 +197,7 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -216,7 +210,7 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
  * @returns The result of the update operation.
  */
 // //update 1 element 
-export async function updateElement(db:string, collectionin:string, updatequeryset1:any,updatequeryset2:any) {
+export async function updateElement(db: string, collectionin: string, updatequeryset1: any, updatequeryset2: any) {
     try {
         await client.connect();
         const collection = await client.db("StarTprep").collection(collectionin);
@@ -239,26 +233,18 @@ export async function updateElement(db:string, collectionin:string, updatequerys
  * @returns The result of the update operation.
  */
 // //update elements 
-export async function updateElements(db:string, collectionin:string,updatequeryset1:any,updatequeryset2:any) {
-    try {
-        await client.connect();
-        const collection = await client.db("StarTprep").collection(collectionin);
-        const result = await collection.updateMany(updatequeryset1, updatequeryset2);
-        return result
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-}
-
-/**
- * Deletes a single element from a specified MongoDB collection.
- * 
- * @param collectionin - The name of the collection.
- * @param updatequery - The query to find the element to delete.
- * @returns The result of the delete operation.
- */
+// export async function updateElements(db:string, collectionin:string, updatequery:any) {
+//     try {
+//         await client.connect();
+//         const collection = await client.db("StarTprep").collection(collectionin);
+//         const result = await collection.updateMany(updatequery);
+//         return result
+//     } catch (e) {
+//         console.error(e); 
+//     } finally {
+//         await client.close();
+//     }
+// }
 //delete 1 element 
 export async function deleteElement(collectionin: string, updatequery: any) {
     try {
@@ -268,7 +254,7 @@ export async function deleteElement(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -287,7 +273,7 @@ export async function deleteElements(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -304,7 +290,7 @@ export async function createMongodbindex(collectionin: string, indexquery: any) 
         await collection.createIndex(indexquery);
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -321,7 +307,7 @@ export async function getCollectionObj(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**

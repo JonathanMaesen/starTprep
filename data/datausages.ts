@@ -1,5 +1,5 @@
 import { getAllDataMongoDB, insertOneObjMongodb, deleteElement, insertArrObjMongodb, getCollectionObj, updateElement, updateElements } from "./database";
-import {Ingredient, Dish, Floorelement, Proteintype, Categorytype} from "./types";
+import { Ingredient, Dish, Floorelement, Proteintype, Categorytype } from "./types";
 export let ingredients: Ingredient[];
 export let dishes: Dish[];
 export let floor: Floorelement[];
@@ -47,7 +47,7 @@ async function makeDishmaster() {
 /**
  * Fetches all ingredient data from the "ingredients" collection and sets it to the ingredients array.
  */
-async function getDataIngredients() { 
+async function getDataIngredients() {
     const data: Ingredient[] | undefined = await getAllDataMongoDB("ingredients");
     if (data) {
         ingredients = data;
@@ -132,7 +132,7 @@ export async function pushFloorElement(floorElement: Floorelement) {
  */
 export async function deleteIngredient(idin: number) {
     try {
-        const indexofelement = ingredients.findIndex((e) => { return e.id == idin});
+        const indexofelement = ingredients.findIndex((e) => { return e.id == idin });
         ingredients.splice(indexofelement, 1);
         const response = await deleteElement("ingredients", { id: idin });
     } catch (e) {
@@ -147,7 +147,7 @@ export async function deleteIngredient(idin: number) {
  */
 export async function deleteDish(dishId: number) {
     try {
-        const indexofelement = dishes.findIndex((e) => { return e.dishId == dishId});
+        const indexofelement = dishes.findIndex((e) => { return e.dishId == dishId });
         dishes.splice(indexofelement, 1);
         const response = await deleteElement("dishes", { dishId: dishId });
     } catch (e) {
@@ -162,7 +162,7 @@ export async function deleteDish(dishId: number) {
  */
 export async function deleteFloorElemenut(follownummer: string) {
     try {
-        const indexofelement = floor.findIndex((e) => { return e.follownummer == follownummer});
+        const indexofelement = floor.findIndex((e) => { return e.follownummer == follownummer });
         floor.splice(indexofelement, 1);
         const response = await deleteElement("floor", { follownummer: follownummer });
     } catch (e) {
