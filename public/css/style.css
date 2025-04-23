@@ -5,24 +5,54 @@ body {
 
 }
 
-.floor{}
+.floor {}
 
 .foh {}
 
-.home{}
+.home {}
 
 .index {}
 
 .login {}
 
-.menu{}
+.menu { /*I'll continue working later, me go on a mental nap, see ya, zzz*/
+  display: flex;
 
-.order{}
+  .stoolContainer {
+    width: 10vw;
 
-.recipes{}
+    H2 {
+      background-color: white;
+      border: solid gray;
+      border-bottom: 0;
+      font-size: 5vh;
+      text-align: center;
+    }
 
-.register{}
+    button {
+      border: solid gray;
+      background-color: lightgray;
+      border-bottom: 0;
+      font-size: 10vh;
+      width: 10vw;
+      text-align: center;
+    }
 
-.scanner{}
+    #addStool {
+      background-color: white;
+      border: solid gray;
+      font-size: 4vh;
+      width: 10vw;
+    }
+  }
+}
 
-.storage{}
+.order {}
+
+.recipes {}
+
+.register {}
+
+.scanner {}
+
+.storage {}
