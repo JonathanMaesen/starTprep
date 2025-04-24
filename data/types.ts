@@ -39,6 +39,14 @@ export interface User{
     role: string,
     password : string
 }
+
+export interface Proteintype{
+    nameofprotein : string
+}
+
+export interface Categorytype{
+    nameofcategorie : string
+}
 // export interface Token{
 
 // }
