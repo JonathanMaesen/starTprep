@@ -5,15 +5,26 @@
     <%- include('./partials/nav') %>
 
       <main>
-        <form>
+        <form action="/foh/sortfloor" method="post">
           <select name="sortOptions" id="">
-            <option value="default">default</option>
-            <option value="DESC" id="sortFloorDESC">DESC</option>
-            <option value="ASC" id="sortFloorASC">ASC</option>
+            <label for="sortOptions">SortOptions</label>
+            <option value="asc">asc</option>
+            <option value="desc">desc</option>
+            <option value="chairsAsc">chairs asc</option>
+            <option value="chairsDesc">chairs desc</option>
           </select>
+          <button type="submit">submit</button>
         </form>
-        <section id="floor">
+        <form action="/foh/addtable" method="post">
+          <button type="submit"><svg id="fi_16845694" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m4 22.5h4c1.37842 0 2.5-1.12109 2.5-2.5v-4c0-1.37891-1.12158-2.5-2.5-2.5h-4c-1.37842 0-2.5 1.12109-2.5 2.5v4c0 1.37891 1.12158 2.5 2.5 2.5zm-1.5-6.5c0-.82715.67285-1.5 1.5-1.5h4c.82715 0 1.5.67285 1.5 1.5v4c0 .82715-.67285 1.5-1.5 1.5h-4c-.82715 0-1.5-.67285-1.5-1.5zm17.5-2.5h-4c-1.37842 0-2.5 1.12109-2.5 2.5v4c0 1.37891 1.12158 2.5 2.5 2.5h4c1.37842 0 2.5-1.12109 2.5-2.5v-4c0-1.37891-1.12158-2.5-2.5-2.5zm1.5 6.5c0 .82715-.67285 1.5-1.5 1.5h-4c-.82715 0-1.5-.67285-1.5-1.5v-4c0-.82715.67285-1.5 1.5-1.5h4c.82715 0 1.5.67285 1.5 1.5zm-17.5-9.5h4c1.37842 0 2.5-1.12109 2.5-2.5v-4c0-1.37891-1.12158-2.5-2.5-2.5h-4c-1.37842 0-2.5 1.12109-2.5 2.5v4c0 1.37891 1.12158 2.5 2.5 2.5zm-1.5-6.5c0-.82715.67285-1.5 1.5-1.5h4c.82715 0 1.5.67285 1.5 1.5v4c0 .82715-.67285 1.5-1.5 1.5h-4c-.82715 0-1.5-.67285-1.5-1.5zm20 2c0 .27637-.22363.5-.5.5h-3.5v3.5c0 .27637-.22363.5-.5.5s-.5-.22363-.5-.5v-3.5h-3.5c-.27637 0-.5-.22363-.5-.5s.22363-.5.5-.5h3.5v-3.5c0-.27637.22363-.5.5-.5s.5.22363.5.5v3.5h3.5c.27637 0 .5.22363.5.5z"></path></svg></button>       
+         </form>
+        <section class="floor">
           <a href="./menu"><button>go to menu</button></a>
+          <% tables.forEach(table=> { %>
+            <a href="./menu/:<%= table.follownummer %>"><button class="<%= table.follownummer %>">
+              table <%= table.follownummer %>
+            </button></a>
+            <% }) %>
         </section>
         <aside>
           <button class="sectionSelector" id="sortFloorInside">Inside</button><button class="sectionSelector"
