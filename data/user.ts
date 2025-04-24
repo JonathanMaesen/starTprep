@@ -1,7 +1,7 @@
 import { getAllDataMongoDB, insertOneObjMongodb, deleteElement, insertArrObjMongodb, getCollectionObj, updateElement, updateElements } from "./database";
-import {Token, User} from "./types";
+import {User} from "./types";
 let users : User[];
-let sessions: Token[];
+// let sessions: Token[];
 async function getUsers() {
     users = await getAllDataMongoDB("users");
 }
