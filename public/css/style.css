@@ -5,24 +5,98 @@ body {
 
 }
 
-.floor{}
+.floor {}
 
 .foh {}
 
-.home{}
+.home {}
 
 .index {}
 
 .login {}
 
-.menu{}
+.menu {}
 
-.order{}
+.order {}
 
-.recipes{}
+.recipes {}
 
-.register{}
+.register {}
 
-.scanner{}
+.scanner {}
 
-.storage{}
+.storage {}
+
+.nav {
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+  }
+
+  position: fixed;
+  /* makes it stick */
+  top: 0;
+  left: 0;
+  /* or right: 0; if you want it on the right side */
+  height: 100vh;
+  /* full screen height */
+  width: 80px;
+  /* adjust width as needed */
+  background-color: #111;
+  /* dark background, optional */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 20px;
+  /* space between buttons */
+
+}
+
+.nav {
+  /* Styles for the nav itself */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 120px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+
+  /* Styles for links inside nav */
+  a {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    color: #4a5a6a;
+    text-decoration: none;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s;
+  }
+
+  a svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+  }
+
+  a span {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  a:hover {
+    background-color: #f5f5f5;
+  }
+}
