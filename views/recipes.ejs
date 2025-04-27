@@ -3,12 +3,24 @@
 
   <body class="recipes">
     <script src="scripts/nav.js"></script>
-    <section class="grid-container" id="gridContainer"></section>
 
-    <section class="add-button">
-      <img src="assets/add button.png" alt="add button" />
+    <!-- Topbar -->
+    <section class="topbar">
+      <select name="filterOptions" id="filterOptions">
+        <option value="default">FILTER</option>
+      </select>
+
+      <button id="addButtonTop">+</button>
     </section>
 
+    <!-- Grid -->
+    <section class="grid-container" id="gridContainer">
+      <article class="grid-item">Recipe1</article>
+      <article class="grid-item">Recipe2</article>
+      <article class="grid-item">Recipe3</article>
+    </section>
+
+    <!-- Popup -->
     <section class="popup-overlay" id="popupOverlay">
       <article class="popup-content">
         <span class="close-btn" id="closePopup">&times;</span>
