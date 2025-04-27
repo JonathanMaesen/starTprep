@@ -39,7 +39,7 @@ body {
   border-bottom: 2px solid black;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
   flex-wrap: wrap;
 }
 
@@ -48,8 +48,8 @@ body {
 .foh #menuButton {
   background-color: white;
   padding: 40px 80px;
-  border: 2px solid black;
-  border-radius: 4px;
+  border: 1px solid black;
+  /* border-radius: 4px; */
   font-weight: bold;
 }
 
