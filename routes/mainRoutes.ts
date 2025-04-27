@@ -1,50 +1,39 @@
 import express, { Router } from "express";
+import floor from "./floor";
+import foh from "./foh";
+import home from "./home";
+import index from "./index";
+import login from "./login";
+import menu from "./menu";
+import order from "./order";
+import recipes from "./recipes";
+import register from "./register";
+import scanner from "./scanner";
+import storage from "./storage";
 
 const router: Router = express.Router();
 
 
-router.get("/floor", (req, res) => {
-    res.render("floor");
-});
+router.use("/floor", floor);
 
-router.get("/foh", (req, res) => {
-    res.render("foh");
-});
+router.use("/foh", foh);
 
-router.get("/home", (req, res) => {
-    res.render("home");
-});
+router.use("/home", home);
 
-router.get("/", (req, res) => {
-    res.render("index");
-});
+router.use("/", index);
 
-router.get("/login", (req, res) => {
-    res.render("login");
-});
+router.use("/login", login);
 
-router.get("/menu", (req, res) => {
-    res.render("menu");
-});
+router.use("/menu", menu);
 
-router.get("/order", (req, res) => {
-    res.render("order");
-});
+router.use("/order", order);
 
-router.get("/recipes", (req, res) => {
-    res.render("recipes");
-});
+router.use("/recipes", recipes);
 
-router.get("/register", (req, res) => {
-    res.render("register");
-});
+router.use("/register", register);
 
-router.get("/scanner", (req, res) => {
-    res.render("scanner");
-});
+router.use("/scanner", scanner);
 
-router.get("/storage", (req, res) => {
-    res.render("storage");
-});
+router.use("/storage", storage);
 
 export default router;
