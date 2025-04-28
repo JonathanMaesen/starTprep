@@ -114,7 +114,70 @@ body {
 
 .login {}
 
-.menu {}
+.menu {
+  display: flex;
+
+  H2 {
+    background-color: white;
+    border: solid gray;
+    border-top: 0;
+    font-size: 5vh;
+    text-align: center;
+  }
+
+  .menuContainer,
+  .stoolContainer {
+
+
+    button {
+      border: solid gray;
+      background-color: lightgray;
+      height: 12vh;
+      border-top: 0;
+      text-align: center;
+    }
+  }
+
+  .stoolContainer {
+    width: 10vw;
+
+    button {
+      width: 10vw;
+      font-size: 10vh;
+    }
+
+    #addStool {
+      background-color: white;
+      border: solid gray;
+      font-size: 4vh;
+      width: 10vw;
+    }
+  }
+
+  .menuContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 60vh;
+
+    button {
+      width: 20vw;
+      font-size: 4vh;
+    }
+
+    .ticket {
+      position: relative;
+      top: 24vh;
+      border-top: solid gray;
+    }
+
+    #menuContainer {
+      button {
+        background-color: white;
+      }
+    }
+  }
+}
 
 .order {}
 
