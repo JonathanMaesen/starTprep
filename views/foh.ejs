@@ -21,14 +21,12 @@
         <section class="floor">
           <a href="./menu"><button>go to menu</button></a>
           <% tables.forEach(table=> { %>
-            <a href="./menu/:<%= table.follownummer %>"><button class="<%= table.follownummer %>">
+            <a href="./menu/:<%= table.follownummer %>"><button class="<%= table.follownummer %>" id="table" >
               table <%= table.follownummer %>
             </button></a>
             <% }) %>
         </section>
         <aside>
-          <button class="sectionSelector" id="sortFloorInside">Inside</button><button class="sectionSelector"
-            id="sortFloorOutside">Outside</button>
         </aside>
       </main>
   </body>
