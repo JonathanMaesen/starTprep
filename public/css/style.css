@@ -68,6 +68,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  font-family: 'Futura', sans-serif;
 
   /* Styles for links inside nav */
   a {
@@ -87,13 +88,14 @@ body {
   a svg {
     width: 32px;
     height: 32px;
-    fill: currentColor;
+    fill: black;
   }
 
   a span {
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 0.5px;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   a:hover {
