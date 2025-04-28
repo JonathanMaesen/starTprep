@@ -5,24 +5,52 @@ body {
 
 }
 
-.floor{}
+.floor {}
 
 .foh {}
 
-.home{}
+.home {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  nav {
+    width: 20%;
+    flex-shrink: 0;
+  }
+
+  main {
+    width: 80%;
+  }
+
+  .logo {
+    background-image: url('/assets/logos/fulllogo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    /* adjust to your needs */
+    height: 200px;
+    /* adjust to your needs */
+    margin: 0 auto;
+    /* center it horizontally */
+  }
+}
+
 
 .index {}
 
 .login {}
 
-.menu{}
+.menu {}
 
-.order{}
+.order {}
 
-.recipes{}
+.recipes {}
 
-.register{}
+.register {}
 
-.scanner{}
+.scanner {}
 
-.storage{}
+.storage {}
