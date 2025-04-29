@@ -7,71 +7,6 @@ body {
 
 .floor{}
 
-.foh{
-  background-color: lightgray;
-}
-
-.foh #floor {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: 60px;
-  margin-top: 1rem;
-  border: 1px solid #bcc7d1;
-}
-
-.foh .grid-item {
-  background-color: white;
-  border: 1px solid black;
-  padding: 70px 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.foh .buttons {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.foh #sortFloorInside,
-.foh #sortFloorOutside,
-.foh #menuButton {
-  background-color: white;
-  padding: 40px 80px;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.foh #sortFloorInside:hover,
-.foh #sortFloorOutside:hover,
-.foh #menuButton:hover {
-  background-color: #f1f1f1;
-}
-
-.foh form {
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-.foh form select {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #b0bac3;
-  background: white;
-  cursor: pointer;
-}
-
 .home{}
 
 .index {}
@@ -84,69 +19,75 @@ body {
 
 .recipes{
   background-color: lightgray;
-}
-.recipes .topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-.recipes .topbar select {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 1rem;
-  border: 1px solid black;
-  background-color: white;
-}
-.recipes .topbar #addButtonTop {
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgb(0, 0, 93);
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-.recipes .grid-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-auto-rows: 80px;
 
-}
-.recipes .grid-item {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border: 1px solid #bcc7d1;
-}
-.recipes .popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-.recipes .popup-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .topbar select {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  .topbar .addButtonTop {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(0, 0, 93);
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 80px;
+  }
+
+  .grid-item {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid #bcc7d1;
+  }
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
 }
 
 .register{}
