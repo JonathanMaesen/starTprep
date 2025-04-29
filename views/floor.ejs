@@ -2,7 +2,7 @@
 <script type="module" src="scripts/floor.js" defer></script>
 
   <body class="floor">
-    <%- include('./partials/nav') %>
+    <!-- NAV -->
 
     <main>
         <div class="modal fade" id="tablemodle" tabindex="-1" aria-labelledby="tablemodleLabel" aria-hidden="true">
@@ -35,7 +35,7 @@
           <label for="floatingSelectGrid">Works with selects</label>
         </div>
         <br>
-        <button id="btncreatetable" class="btn btn-primary" onclick="Button_Table_Create_Clicked()">Create table</button>
+        <button class="btncreatetable" class="btn btn-primary" onclick="Button_Table_Create_Clicked()">Create table</button>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
             </div>
           </div>
           </div>
-    <div id="showtables">
+    <div class="showtables">
         <button type="button" class="table" data-bs-toggle="modal" data-bs-target="#tablemodle">+</button>
     </div>
     <button onclick="Download_Json_Floor()" class="btn btn-success">download json</button>
