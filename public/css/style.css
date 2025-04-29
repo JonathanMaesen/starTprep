@@ -40,7 +40,7 @@ body {
   }
 
   .dashboard-icon {
-    display: none; // No need to show <img> anymore
+    display: none; 
   }
 
   h1 {
