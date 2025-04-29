@@ -1,19 +1,36 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/home.js" defer></script>
+    <script type="module" src="scripts/home.js" defer></script>
 
-<body class="home">
-    <%- include('./partials/nav') %>
+    <body class="home">
+        <%- include('./partials/nav') %>
 
-    <main>
-        <img class="logo" src="assets/logos/fulllogo.jpg" alt="logo">
-        <lists>
-            <ul class="warnings">
-                <li class="Placeholder">Er zijn geen waarschuwingen</li>
-            </ul>
-            <ul class="notes">
-                <li class="Placeholder">Er zijn geen notities</li>
-            </ul>
-        </lists>
-    </main>
-</body>
-<%- include('./partials/footer') %>
+            <main>
+                <section class="dashboard">
+                    <div class="dashboard-icon">
+                        
+                        <img class="logo" src="assets/logos/fulllogo.jpg" alt="logo">
+                    </div>
+
+                    <h1>Welkom bij starTprep</h1>
+                    <p>Beheer je restaurant op één plek</p>
+
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="number">75</div>
+                            <div class="label">Producten<br>op voorraad</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">5</div>
+                            <div class="label">Producten<br>verlopen binnenkort</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button class="action-button">Inkooplijst bekijken</button>
+                        <button class="action-button">Bijna uitverkochte producten</button>
+                    </div>
+                </section>
+            </main>
+    </body>
+
+    <%- include('./partials/footer') %>
