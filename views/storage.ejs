@@ -2,19 +2,21 @@
 <script type="module" src="scripts/storage.js" defer></script>
 
   <body class="storage">
-    <%- include('./partials/nav') %>
+    <!-- NAV -->
 
     <main>
-      <input type="text" name="Search" id="Search" placeholder="Zoek...">
-      <filter class="dropdown">
-        <button onclick="ShowFilter()" class="dropbtn">Filter</button>
-        <ul id="dropdown-content">
-          <button>Naam</button>
-          <button>Houdbaarheidsdatum</button>
-          <button>Voorraad</button>
-        </ul>
-      </filter>
-      <ul id="Ingrediënten">
+      <section>
+        <input type="text" name="Search" class="Search" placeholder="Zoek...">
+        <filter class="dropdown">
+          <button onclick="ShowFilter()" class="dropbtn">Filter</button>
+          <ul class="dropdown-content">
+            <button>Naam</button>
+            <button>Houdbaarheidsdatum</button>
+            <button>Voorraad</button>
+          </ul>
+        </filter>
+      </section>
+      <ul class="Ingrediënten">
         <button onclick="ShowInfo()">
           <img src="assets/opslag/placeholder.png" alt="">
         </button>
@@ -22,13 +24,13 @@
           <img src="assets/opslag/placeholder.png" alt="">
           <button class="Verlopen"></button>
         </button>
-        <button onclick="Add()" id="AddButton">
+        <button onclick="Add()" class="AddButton">
           <img src="assets/add button.png" alt="">
         </button>
       </ul>
       <a href="scanner.html"><button class="btn btn-primary">Product toevoegen</button></a>
     </main>
-    <side id="Info">
+    <side class="Info">
       <p>Naam: </p>
       <p>Recepten: </p>
       <p>Afval: </p>

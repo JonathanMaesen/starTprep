@@ -25,4 +25,150 @@ body {
 
 .scanner{}
 
-.storage{}
+.storage {
+  min-height: 100vh;
+  background-color: #eef3f7;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .Search {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #bcc7d1;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  filter.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn {
+    background-color: #4a5a6a;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+  }
+
+  .dropdown-content button {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .dropdown-content button:hover {
+    background-color: #f0f0f0;
+  }
+
+  filter.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .Ingrediënten {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .Ingrediënten button {
+    background: white;
+    border: 1px solid #bcc7d1;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Ingrediënten button img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .Verlopen {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+
+  .AddButton {
+    background-color: #4a5a6a;
+    padding: 0.5rem;
+  }
+
+  .AddButton img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .btn-primary {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #4a5a6a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3b4b5b;
+  }
+
+  side.Info {
+    display: none;
+    margin-top: 2rem;
+    background-color: white;
+    border: 1px solid #bcc7d1;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  side.info.active{
+    display: block;
+  }
+  
+  side.Info p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  side.Info button img {
+    width: 20px;
+    height: 20px;
+  }
+}
