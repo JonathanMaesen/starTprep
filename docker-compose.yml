@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    ports:
+      - "80:3000"
+    depends_on:
+      - mongodb
+    networks:
+      - mongodb_network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongodb_network
+
+networks:
+  mongodb_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
