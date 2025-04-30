@@ -18,64 +18,159 @@ body {
 .menu {
   display: flex;
 
-  H2 {
-    background-color: white;
-    border: solid gray;
-    border-top: 0;
-    font-size: 5vh;
-    text-align: center;
-  }
-
   .menuContainer,
-  .stoolContainer {
-
+  .stoolContainer,
+  .tableContainer {
+    H2 {
+      background-color: white;
+      border: solid gray;
+      border-top: 0;
+      border-left: 0;
+      font-size: 5vh;
+      text-align: center;
+    }
 
     button {
       border: solid gray;
       background-color: lightgray;
-      height: 12vh;
+      height: 10vh;
       border-top: 0;
+      border-left: 0;
       text-align: center;
     }
   }
 
-  .stoolContainer {
+  .stoolContainer,
+  .tableContainer {
     width: 10vw;
 
     button {
       width: 10vw;
-      font-size: 10vh;
+      font-size: 7vh;
     }
 
     #addStool {
+      position: absolute;
+      bottom: 0;
       background-color: white;
       border: solid gray;
-      font-size: 4vh;
+      font-size: 2.5vh;
       width: 10vw;
     }
   }
 
+  #stoolContainer {
+    height: 80vh;
+  }
+
+  #stoolContainer,
+  #menuContainer {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  #stoolContainer::-webkit-scrollbar,
+  #menuContainer::-webkit-scrollbar {
+    display: none;
+  }
+
   .menuContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 60vh;
+    display: grid;
+    height: fit-content;
+    width: 90vw;
+
+    .Title {
+      grid-column: 1 / span 2;
+      height: 8.4vh;
+      padding-top: 2vh;
+    }
 
     button {
-      width: 20vw;
-      font-size: 4vh;
+      width: 16vw;
+      font-size: 2.5vh;
     }
 
     .ticket {
-      position: relative;
-      top: 24vh;
+      position: absolute;
+      bottom: 0;
       border-top: solid gray;
     }
 
     #menuContainer {
+      grid-column: 2;
+      grid-row: 2 / span 4;
+      display: flex;
+      flex-wrap: wrap;
+      width: 74vw;
+      height: 89vh;
+
       button {
         background-color: white;
+        border-left: 0;
       }
+    }
+  }
+
+  #displayTicket {
+    color: white;
+    background-color: darkblue;
+    height: 5vh;
+    border-top: 0;
+    text-align: center;
+    position: absolute;
+    right: 1vw;
+    top: 5.5vh;
+  }
+
+  .ticketContainer {
+    background-color: lightgray;
+    height: 50vh;
+    width: 30vw;
+    padding: 2vh;
+    position: absolute;
+    right: 1vw;
+    bottom: 1vh;
+    border: solid gray;
+    gap: 3vh;
+
+    .StoelFlex {
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+    }
+
+    .Stoel {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      background-color: white;
+      border: solid gray;
+
+      h2 {
+        font-weight: bold;
+        padding-top: 1vh;
+      }
+
+      p {
+        font-size: small;
+        padding-top: 1vh;
+      }
+    }
+
+    .Afrekenen {
+      width: fit-content;
+      position: relative;
+      left: 5vw;
+      top: 2vh;
+      display: flex;
+      gap: 2vw;
+    }
+
+    button {
+      color: white;
+      background-color: darkblue;
+      height: 5vh;
+      border-top: 0;
+      text-align: center;
     }
   }
 }
