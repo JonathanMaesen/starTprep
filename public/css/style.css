@@ -27,7 +27,7 @@ body {
 
 .storage {
   min-height: 100vh;
-  background-color: #eef3f7;
+  background-color: lightgray;
   padding: 2rem;
   box-sizing: border-box;
 
