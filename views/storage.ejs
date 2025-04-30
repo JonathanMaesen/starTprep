@@ -5,8 +5,8 @@
     <!-- NAV -->
 
     <main>
-      <section>
-        <input type="text" name="Search" class="Search" placeholder="Zoek...">
+      <section class="topbar">
+        <input type="text" name="Search" class="search" placeholder="Zoek...">
         <filter class="dropdown">
           <button onclick="ShowFilter()" class="dropbtn">Filter</button>
           <ul class="dropdown-content">
@@ -15,29 +15,31 @@
             <button>Voorraad</button>
           </ul>
         </filter>
+        <a href="scanner.html"><button class="addIngredientBtn">Product toevoegen</button></a>
+        <button class="addButtonTop">+</button>
       </section>
-      <ul class="Ingrediënten">
-        <button onclick="ShowInfo()">
-          <img src="assets/opslag/placeholder.png" alt="">
-        </button>
-        <button onclick="ShowInfo()">
-          <img src="assets/opslag/placeholder.png" alt="">
-          <button class="Verlopen"></button>
-        </button>
-        <button onclick="Add()" class="AddButton">
-          <img src="assets/add button.png" alt="">
-        </button>
-      </ul>
-      <a href="scanner.html"><button class="btn btn-primary">Product toevoegen</button></a>
+
+      <section class="ingrediënten">
+        <section class="grid-container" id="gridContainer">
+          <article class="grid-item">Ingrediënt1</article>
+          <article class="grid-item">Ingrediënt2</article>
+          <article class="grid-item">Ingrediënt3</article>
+          <article class="grid-item">Ingrediënt4</article>
+          <article class="grid-item">Ingrediënt5</article>
+          <article class="grid-item">Ingrediënt6</article>
+        </section>
+      </section>
+
+      
     </main>
-    <side class="Info">
+    <side class="info">
       <p>Naam: </p>
       <p>Recepten: </p>
       <p>Afval: </p>
       <p>
         Hoeveelheid:
-        <button><img src="assets/opslag/minus.png" alt=""></button>
-        <button><img src="assets/opslag/plus.png" alt=""></button>
+        <button class="minusBtn">-</button>
+        <button class="plusBtn">+</button>
       </p>
       <p>Verval datum: </p>
     </side>
