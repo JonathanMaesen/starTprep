@@ -12,7 +12,7 @@ body {
 .home {
   margin-left: 120px;
   padding: 40px;
-  font-family: Arial, sans-serif;
+  font-family: 'Futura', sans-serif;
 
   main {
     display: flex;
@@ -38,7 +38,7 @@ body {
   }
 
   .dashboard-icon {
-    display: none; 
+    display: none;
   }
 
   h1 {
@@ -98,6 +98,8 @@ body {
     width: 240px;
     cursor: pointer;
     transition: background 0.2s;
+    font-family: 'Futura', sans-serif;
+
   }
 
   .action-button:hover {
