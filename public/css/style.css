@@ -2,7 +2,7 @@ body {
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
-
+  font-family: 'Futura', sans-serif;
 }
 
 .floor {}
@@ -12,21 +12,24 @@ body {
 .foh {}
 
 .home {
+  width: 90vw;
   margin-left: 120px;
   padding: 40px;
-  font-family: 'Futura', sans-serif;
+  height: 100vh;
 
   main {
     display: flex;
-    justify-content: center;
+    grid-template-columns: 1fr;
     align-items: center;
-    min-height: 100vh;
+    justify-content: center;
+    margin-top: 20vh;
   }
+
 
   .dashboard {
     position: relative;
-    padding: 80px 30px 40px;
-    width: 600px;
+    padding: 10vh;
+    width: 40vw;
     text-align: center;
     background-image: url('/assets/logos/fulllogo.jpg');
     background-size: contain;
@@ -109,11 +112,6 @@ body {
   }
 }
 
-
-
-
-
-
 .index {}
 
 .login {}
@@ -143,59 +141,68 @@ body {
 .storage {}
 
 .nav {
-
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 120px;
-  background-color: #fff;
-  border-right: 1px solid #ccc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  font-family: 'Futura', sans-serif;
-  overflow: scroll;
-  scrollbar-width: none;
-
-
-  .nav-item-uitlog {
-    background-color: white;
-    position: sticky;
-    width: 120px;
-    bottom: 0%;
-
-  }
-
-  a {
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    color: #4a5a6a;
-    text-decoration: none;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.3s;
-  }
-
-  a svg {
-    width: 35px;
-    height: 36px;
-    fill: black;
-  }
-
-  a span {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    font-family: 'Futura', sans-serif;
-  }
+  width: 10vw;
 
   a:hover {
     background-color: #f5f5f5;
+  }
+
+  svg {
+    width: 35px;
+    height: 35px;
+    fill: black;
+  }
+  .nav-logo{
+    svg{
+      color: black;
+    }
+  }
+  .navcontainer {
+    height: 90vh;
+    background-color: #fff;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    scrollbar-width: none;
+
+    a {
+      width: 100%;
+      padding: 3.5vh;
+      text-align: center;
+      color: #4a5a6a;
+      text-decoration: none;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    a span {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      font-family: 'Futura', sans-serif;
+    }
+
+
+  }
+
+  .nav-item-uitlog {
+    background-color: white;
+    padding: 3.5vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    max-width: 100%;
+
   }
 }
