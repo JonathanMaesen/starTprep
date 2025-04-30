@@ -32,7 +32,7 @@ async function getProteinMaster() {
 /**
  * Combines category and protein type master data into the dishmaster object.
  */
-async function makeDishmaster() {
+export async function makeDishmaster() {
     try {
         await getCategoryMaster();
         await getProteinMaster();
@@ -92,6 +92,34 @@ export async function pushIngredient(objin: Ingredient) {
     try {
         ingredients.push(objin);
         const response = await insertOneObjMongodb("ingredients", objin);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/**
+ * Adds a new categorie to the categoriemaster array of categoriemaster and inserts it into the "categorie" collection.
+ * 
+ * @param categorieMasterNew - The categorieMasterNew string to add.
+ */
+export async function pushCategorieMaster(categorieMasterNew:string) {
+    try{
+        dishmaster.categoryMaster.push(categorieMasterNew);
+        await insertOneObjMongodb("categories", categorieMasterNew);
+    } catch (e){
+        console.error(e);
+    }
+}
+
+/**
+ * Adds a new protein to the proteinmaster array of proteinmaster and inserts it into the "protein" collection.
+ * 
+ * @param proteinMasterNew - The proteinMasterNew string to add.
+ */
+export async function pushProteinMaster(proteinMasterNew:string) {
+    try {
+        dishmaster.proteinTypeMaster.push(proteinMasterNew);
+        await insertOneObjMongodb("proteinname", proteinMasterNew);
     } catch (e) {
         console.error(e);
     }
@@ -171,6 +199,40 @@ export async function deleteFloorElemenut(follownummer: string) {
 }
 
 /**
+ * Deletes a protein type from the proteinTypeMaster array and the "proteinname" collection.
+ * 
+ * @param proteinName - The name of the protein type to delete.
+ */
+export async function deleteProteinType(proteinName: string) {
+    try {
+        const indexofelement = dishmaster.proteinTypeMaster.findIndex((e) => e === proteinName);
+        if (indexofelement !== -1) {
+            dishmaster.proteinTypeMaster.splice(indexofelement, 1);
+            const response = await deleteElement("proteinname", { nameofprotein: proteinName });
+        }
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/**
+ * Deletes a category from the categoryMaster array and the "categories" collection.
+ * 
+ * @param categoryName - The name of the category to delete.
+ */
+export async function deleteCategory(categoryName: string) {
+    try {
+        const indexofelement = dishmaster.categoryMaster.findIndex((e) => e === categoryName);
+        if (indexofelement !== -1) {
+            dishmaster.categoryMaster.splice(indexofelement, 1);
+            const response = await deleteElement("categories", { nameofcategorie: categoryName });
+        }
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/**
  * Inserts an array of ingredients into the ingredients array and the "ingredients" collection.
  * 
  * @param ingredients - The array of ingredients to insert.
@@ -207,6 +269,36 @@ export async function insertFloorElementArray(floorElements: Floorelement[]) {
     try {
         floor.push(...floorElements);
         const response = await insertArrObjMongodb("floor", floorElements);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/**
+ * Inserts an array of protein types into the proteinTypeMaster array and the "proteinname" collection.
+ * 
+ * @param proteins - The array of protein type names to insert.
+ */
+export async function insertProteinArray(proteins: string[]) {
+    try {
+        dishmaster.proteinTypeMaster.push(...proteins);
+        const proteinObjects = proteins.map(name => ({ nameofprotein: name }));
+        const response = await insertArrObjMongodb("proteinname", proteinObjects);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/**
+ * Inserts an array of categories into the categoryMaster array and the "categories" collection.
+ * 
+ * @param categories - The array of category names to insert.
+ */
+export async function insertCategoryArray(categories: string[]) {
+    try {
+        dishmaster.categoryMaster.push(...categories);
+        const categoryObjects = categories.map(name => ({ nameofcategorie: name }));
+        const response = await insertArrObjMongodb("categories", categoryObjects);
     } catch (e) {
         console.error(e);
     }
