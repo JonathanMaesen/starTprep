@@ -140,7 +140,17 @@ body {
   align-items: center;
   padding-top: 20px;
   font-family: 'Futura', sans-serif;
+  overflow: scroll;
+  scrollbar-width: none;
 
+
+  .nav-item-uitlog {
+    background-color: white;
+    position: sticky;
+    width: 120px;
+    bottom: 0%;
+
+  }
 
   a {
     width: 100%;
@@ -157,8 +167,8 @@ body {
   }
 
   a svg {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 36px;
     fill: black;
   }
 
