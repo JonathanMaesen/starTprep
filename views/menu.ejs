@@ -3,23 +3,32 @@
 
   <body class="menu">
 
-
     <!-- Stool Container -->
     <div class="stoolContainer">
       <h2 id="tableNRContainer">Tafel</h2>
       <h2>Stoel</h2>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
-      <section id="stoolContainer"></section>
+      <section id="stoolContainer">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+        <button>5</button>
+      </section>
       <button id="addStool">Stoel Toevoegen</button>
     </div>
 
     <!-- Menu Navigation -->
     <div class="menuNav">
-      <h2>MenuMap</h2>
       <nav id="menuNav"></nav>
     </div>
 
@@ -31,13 +40,40 @@
 
     <!-- Ticket Container -->
     <div class="ticketWrapper">
-      <button id="displayTicket">Display Ticket</button>
+      <button id="displayTicket">Toon Ticket</button>
       <section id="ticketContainer" class="ticketContainer">
         <div id="tableOverview"></div>
         <div id="priceCalculator"></div>
-        <div>
+        <div class="StoelFlex">
+          <div class="Stoel">
+            <h2>Stoel 1</h2>
+            <p>GEEN GERECHT GESELECTEERD</p>
+            <button>VERWIJDEREN</button>
+          </div>
+          <div class="Stoel">
+            <h2>Stoel 2</h2>
+            <p>GEEN GERECHT GESELECTEERD</p>
+            <button>VERWIJDEREN</button>
+          </div>
+          <div class="Stoel">
+            <h2>Stoel 3</h2>
+            <p>GEEN GERECHT GESELECTEERD</p>
+            <button>VERWIJDEREN</button>
+          </div>
+          <div class="Stoel">
+            <h2>Stoel 4</h2>
+            <p>GEEN GERECHT GESELECTEERD</p>
+            <button>VERWIJDEREN</button>
+          </div>
+          <div class="Stoel">
+            <h2>Stoel 5</h2>
+            <p>GEEN GERECHT GESELECTEERD</p>
+            <button>VERWIJDEREN</button>
+          </div>
+        </div>
+        <div class="Afrekenen">
           <button id="downloadJson">Download JSON</button>
-          <button>Checkout</button>
+          <button>Afrekenen</button>
           <button class="Price">0.00</button>
           <!-- ^^ ik weet dat dit raar is, maar fix het gewoon dat die niet lijkt op een knopje ofzo, ik kon het anders niet fixen. -->
         </div>
