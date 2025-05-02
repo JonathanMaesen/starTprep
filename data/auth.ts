@@ -13,18 +13,18 @@ const codes: { [id: number]: string } = {};
 
 let markdownTemplate: string;
 try {
-    markdownTemplate = fs.readFileSync(path.join(__dirname, "codeform.md"), "utf8");
+  markdownTemplate = fs.readFileSync(path.join(__dirname, "codeform.md"), "utf8");
 } catch (error) {
-    console.error("Failed to load codeform.md template:", error);
-    markdownTemplate = ""; // Or set a default template, or throw error based on your needs
+  console.error("Failed to load codeform.md template:", error);
+  markdownTemplate = ""; // Or set a default template, or throw error based on your needs
 }
 
-async function generateEmail(data:any):Promise<string> {
+async function generateEmail(data: any): Promise<string> {
   const populatedMarkdown = mustache.render(markdownTemplate, data);
   return await marked(populatedMarkdown);
 }
 
-async function sendEmail(to:string, subject:string, data:any) {
+async function sendEmail(to: string, subject: string, data: any) {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -54,45 +54,45 @@ async function sendEmail(to:string, subject:string, data:any) {
   }
 }
 
-export async function checkIfUserHas2FFAcode(id:number, trycode:string) {
-    if(!codes[id]){
-        await generate2FFA(id);
-        return false; // New code was generated, so the attempted code is invalid
-    } 
-    
-    if(codes[id] === trycode){
-        delete codes[id]; // Clear the code after successful use
-        return true;
-    } 
-    
-    return false;
+export async function checkIfUserHas2FFAcode(id: number, trycode: string) {
+  if (!codes[id]) {
+    await generate2FFA(id);
+    return false; // New code was generated, so the attempted code is invalid
+  }
+
+  if (codes[id] === trycode) {
+    delete codes[id]; // Clear the code after successful use
+    return true;
+  }
+
+  return false;
 }
 
 function generateRandomString(i: number): string {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
-    for (let j = 0; j < i; j++) {
-      const randomIndex = Math.floor(Math.random() * chars.length);
-      result += chars[randomIndex];
-    }
-    return result;
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let j = 0; j < i; j++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    result += chars[randomIndex];
   }
+  return result;
+}
 
 async function generate2FFA(id: number) {
-    const userdetails = await getUserInfobyid(id);
-    if (!userdetails || userdetails == null) {
-        throw new Error('User not found');
-    }
+  const userdetails = await getUserInfobyid(id);
+  if (!userdetails || userdetails == null) {
+    throw new Error('User not found');
+  }
 
-    const generatedcode: string = generateRandomString(5);
-    codes[id] = generatedcode;
-    
-    await sendEmail(
-        userdetails.mail,
-        '2FA Code',
-        { 
-            username: userdetails.name,
-            code: generatedcode
-        }
-    );
+  const generatedcode: string = generateRandomString(5);
+  codes[id] = generatedcode;
+
+  await sendEmail(
+    userdetails.mail,
+    '2FA Code',
+    {
+      username: userdetails.name,
+      code: generatedcode
+    }
+  );
 }
