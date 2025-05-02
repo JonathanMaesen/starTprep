@@ -37,7 +37,8 @@ export interface User{
     id : number,
     name: string,
     role: string,
-    password : string
+    password : string,
+    mail: string
 }
 
 export interface Proteintype{
