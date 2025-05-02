@@ -1,25 +1,25 @@
-import { getAllDataMongoDB, insertOneObjMongodb, deleteElement, insertArrObjMongodb, getCollectionObj, updateElement, updateElements } from "./database";
-import {User} from "./types";
-let users : User[];
-// let sessions: Token[];
-async function getUsers() {
-    users = await getAllDataMongoDB("users");
-}
-getUsers();
+import { getFirstElementMongoDbWithParameter } from "./database";
+import { User } from "./types";
 
-export function checkUserPassword(idin:number, password:string):boolean {
-    const userindex:number = users.findIndex((e) => { return e.id == idin});
-    if(userindex == -1){
-        console.log("index is wrong" + userindex);
+export async function checkUserPassword(namein: string, password: string): Promise<Boolean> {
+    try {
+        const response = await getFirstElementMongoDbWithParameter("users", { password: password, name: namein });
+        if (response != null) {
+            return true;
+        }
+        return false;
+    } catch (e) {
+        console.error(e);
         return false;
     }
-    if(users[userindex].password != password){
-        console.log("password is wrong");
-        return false;
-    }
-    return true;
 }
 
-export function checkSessions(token:any) {
-    
+export async function getUserInfo(id: number) {
+    const response = await getFirstElementMongoDbWithParameter("users", {id : id});
+    if(!response){
+        return null;
+    }
+    return response;
 }
+
+checkUserPassword("Nils", "what");
