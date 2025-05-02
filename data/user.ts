@@ -1,5 +1,4 @@
-import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb } from "./database";
-import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb } from "./database";
+import { getFirstElementMongoDbWithParameter } from "./database";
 import { User } from "./types";
 
 export async function checkUserPassword(namein: string, password: string): Promise<Boolean> {
@@ -17,14 +16,6 @@ export async function checkUserPassword(namein: string, password: string): Promi
 
 export async function getUserInfobyid(id: number) {
     const response = await getFirstElementMongoDbWithParameter("users", { id: id });
-    if (!response) {
-        return null;
-    }
-    return response;
-}
-
-export async function getUserInfobyname(name: string) {
-    const response = await getFirstElementMongoDbWithParameter("users", { name: name });
     if (!response) {
         return null;
     }
