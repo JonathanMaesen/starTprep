@@ -2,19 +2,23 @@
 <script src="scripts/login.js" defer></script>
 <body class="login">
   <main>
+    <form action="/login" method="post">
     <h1>StarTprep</h1>
-    <p>User name:</p>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="User_Name_Log_In" placeholder="User name">
+    <div>
       <label for="User_Name_Log_In">User name</label>
+      <input type="text" class="form-control" id="User_Name_Log_In" placeholder="User name" name="username" required>
     </div>
-    <p>Password:</p>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="User_Password_Log_In" placeholder="Password">
+    <div>
       <label for="User_Password_Log_In">password</label>
+      <input type="password" class="form-control" id="User_Password_Log_In" placeholder="Password" name="password" required>
     </div>
-    <br><br>
-    <button type="button"  class="btn btn-primary"onclick="Check_Password()">Log In</button>
+    <% if (e != "") { %>
+    <div class="alert alert-danger" role="alert">
+      <%= e %>
+    </div>
+    <% } %>
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
   </main> 
 </body>
 <%- include('./partials/footer') %>

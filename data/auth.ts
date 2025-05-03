@@ -5,7 +5,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import * as path from 'path';
 import { User } from "./types";
-import { getUserInfo } from "./user";
+import { getUserInfobyid } from "./user";
 
 dotenv.config();
 
@@ -56,12 +56,16 @@ async function sendEmail(to:string, subject:string, data:any) {
 
 export async function checkIfUserHas2FFAcode(id:number, trycode:string) {
     if(!codes[id]){
-        await generate2FFA(id)
-    } else if(codes[id] == trycode){
-        return true
-    } else {
-        return false;
-    }
+        await generate2FFA(id);
+        return false; // New code was generated, so the attempted code is invalid
+    } 
+    
+    if(codes[id] === trycode){
+        delete codes[id]; // Clear the code after successful use
+        return true;
+    } 
+    
+    return false;
 }
 
 function generateRandomString(i: number): string {
@@ -75,12 +79,14 @@ function generateRandomString(i: number): string {
   }
 
 async function generate2FFA(id: number) {
-    const generatedcode: string = generateRandomString(5);
-    codes[id] = generatedcode;
-    const userdetails = await getUserInfo(id);
-    if (!userdetails) {
+    const userdetails = await getUserInfobyid(id);
+    if (!userdetails || userdetails == null) {
         throw new Error('User not found');
     }
+
+    const generatedcode: string = generateRandomString(5);
+    codes[id] = generatedcode;
+    
     await sendEmail(
         userdetails.mail,
         '2FA Code',
@@ -90,5 +96,3 @@ async function generate2FFA(id: number) {
         }
     );
 }
-
-checkIfUserHas2FFAcode(1, "");
