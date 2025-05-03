@@ -1,4 +1,4 @@
-import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb } from "./database";
+import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb, getSortedCollection, insertOneObjMongodb } from "./database";
 import { User } from "./types";
 
 export async function checkUserPassword(namein: string, password: string): Promise<Boolean> {
@@ -14,7 +14,7 @@ export async function checkUserPassword(namein: string, password: string): Promi
     }
 }
 
-export async function getUserInfobyid(id: number) {
+export async function getUserInfo(id: number) {
     const response = await getFirstElementMongoDbWithParameter("users", { id: id });
     if (!response) {
         return null;
@@ -22,6 +22,23 @@ export async function getUserInfobyid(id: number) {
     return response;
 }
 
-export function checkSessions(token: any) {
+export async function getUserInfobyname(name: string) {
+    const response = await getFirstElementMongoDbWithParameter("users", { name: name });
+    if (!response) {
+        return null;
+    }
+    return response;
+}
 
+export async function createUser(name: string, role: string, password: string, mail: string) {
+    const users = await getSortedCollection("users", { id: -1 });
+    const newid = users && users.length > 0 ? (users[0].id + 1) : 1;
+    const temp: User = {
+        id: newid,
+        name: name,
+        role: role,
+        password: password,
+        mail: mail
+    }
+    await insertOneObjMongodb("users", temp);
 }
