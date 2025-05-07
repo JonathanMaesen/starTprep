@@ -15,25 +15,25 @@ export async function checkUserPassword(namein: string, password: string): Promi
 }
 
 export async function getUserInfobyid(id: number) {
-    const response = await getFirstElementMongoDbWithParameter("users", {id : id});
-    if(!response){
+    const response = await getFirstElementMongoDbWithParameter("users", { id: id });
+    if (!response) {
         return null;
     }
     return response;
 }
 
 export async function getUserInfobyname(name: string) {
-    const response = await getFirstElementMongoDbWithParameter("users", {name : name});
-    if(!response){
+    const response = await getFirstElementMongoDbWithParameter("users", { name: name });
+    if (!response) {
         return null;
     }
     return response;
 }
 
-export async function createUser(name:string, role: string, password : string, mail:string) {
+export async function createUser(name: string, role: string, password: string, mail: string) {
     const users = await getSortedCollection("users", { id: -1 });
     const newid = users && users.length > 0 ? (users[0].id + 1) : 1;
-    const temp : User = {
+    const temp: User = {
         id: newid,
         name: name,
         role: role,
