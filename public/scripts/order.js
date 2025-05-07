@@ -41,7 +41,9 @@ class stool {
   Addtolist(item) {
     this.list.unshift(item);
   }
-class stool{
+} 
+
+class stool {
     constructor(follownumber){
         this.list = [];
         this.nummer = follownumber;
