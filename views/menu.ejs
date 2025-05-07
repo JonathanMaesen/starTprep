@@ -108,6 +108,25 @@
         <button class="doneBtn" id="saveModifications">Save</button>
       </div>
     </div>
+    <!-- Modification Menu -->
+    <div class="modMenuItemWrapper" id="modMenu" style="display: none">
+      <h3 id="modItemTitle"></h3>
+      <div class="centralWrapper">
+        <section>
+          <h2>Notes</h2>
+          <textarea name="" id="modMenuNotes" placeholder="Notes"></textarea>
+        </section>
+        <section>
+          <h2>Supplementen</h2>
+          <form name="" id="modMenuSupplement"></form>
+        </section>
+      </div>
+      <div class="bottomNav">
+        <button class="cancelBtn" id="cancelModifications">Cancel</button>
+        <button class="allergenBtn" id="modItemAllergenBtn">Allergens</button>
+        <button class="doneBtn" id="saveModifications">Save</button>
+      </div>
+    </div>
   </body>
 
   <%- include('./partials/footer') %>
