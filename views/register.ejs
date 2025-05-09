@@ -1,18 +1,22 @@
 <%- include('./partials/head') %>
 <script type="module" src="scripts/register.js" defer></script>
-
   <body class="register">
     <script src="scripts/register.js" defer></script>
     <article>
-    <p>naam input</p>
-    <input type="text" name="" id="Nameinput" />
-    <p>role input</p>
-    <input type="text" name="" id="roleinput" />
-    <p>wachtwoord:</p>
-    <input type="password" name="" id="passwordinput" />
-    <div class="notifpass"></div>
-    <p>verifier het wachtwoord</p>
-    <input type="password" name="" id="passwordinputsecond" />
-    <button onclick="Create_Users()" id="create_user">Account aanmaken</button></article>
+      <form action="/register" method="POST">
+        <p>naam input</p>
+        <input type="text" name="name" id="Nameinput" required/>
+        <p>role input</p>
+        <input type="text" name="role" id="roleinput" required/>
+        <p>email:</p>
+        <input type="email" name="mail" id="emailinput" required/>
+        <p>wachtwoord:</p>
+        <input type="password" name="password" id="passwordinput" required/>
+        <div class="notifpass"></div>
+        <p>verifier het wachtwoord</p>
+        <input type="password" name="passwordinputsecond" id="passwordinputsecond" required/>
+        <button type="submit" id="create_user">Account aanmaken</button>
+      </form>
+    </article>
   </body>
 <%- include('./partials/footer') %>
