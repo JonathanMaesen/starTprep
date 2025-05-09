@@ -9,106 +9,7 @@ body {
 
 .foh {}
 
-.home {
-  width: 90vw;
-  margin-left: 120px;
-  padding: 40px;
-  height: 100vh;
-
-  main {
-    display: flex;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20vh;
-  }
-
-
-  .dashboard {
-    position: relative;
-    padding: 10vh;
-    width: 40vw;
-    text-align: center;
-    background-image: url('/assets/logos/fulllogo.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top center;
-    opacity: 0.9;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    background-blend-mode: lighten;
-
-  }
-
-  .dashboard-icon {
-    display: none;
-  }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 2rem;
-  }
-
-  .stats {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 2rem;
-  }
-
-  .stat {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    width: 140px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .stat .number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2c3e50;
-  }
-
-  .stat .label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 6px;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .action-button {
-    background: #dce3ea;
-    padding: 15px 20px;
-    border-radius: 4px;
-    border: 1px solid #999;
-    font-weight: bold;
-    font-size: 1rem;
-    width: 240px;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-family: 'Futura', sans-serif;
-
-  }
-
-  .action-button:hover {
-    background: #e8edf2;
-  }
-}
+.home {}
 
 .index {}
 
@@ -120,75 +21,69 @@ body {
 
 .recipes{
   background-color: lightgray;
+}
+.recipes .topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.recipes .topbar select {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+}
+.recipes .topbar #addButtonTop {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(0, 0, 93);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.recipes .grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 80px;
 
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .topbar select {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 1rem;
-    border: 1px solid black;
-    background-color: white;
-  }
-
-  .topbar .addButtonTop {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgb(0, 0, 93);
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 80px;
-  }
-
-  .grid-item {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 1px solid #bcc7d1;
-  }
-
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-  }
-
-  .popup-content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-  }
+}
+.recipes .grid-item {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 1px solid #bcc7d1;
+}
+.recipes .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.recipes .popup-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
 }
 
 .register{}
