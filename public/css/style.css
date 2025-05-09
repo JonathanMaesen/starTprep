@@ -114,173 +114,86 @@ body {
 
 .login {}
 
-.menu {
-  display: flex;
+.menu{}
 
-  .menuContainer,
-  .stoolContainer,
-  .tableContainer {
-    H2 {
-      background-color: white;
-      border: solid gray;
-      border-top: 0;
-      border-left: 0;
-      font-size: 5vh;
-      text-align: center;
-    }
+.order{}
 
-    button {
-      border: solid gray;
-      background-color: lightgray;
-      height: 10vh;
-      border-top: 0;
-      border-left: 0;
-      text-align: center;
-    }
+.recipes{
+  background-color: lightgray;
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
   }
 
-  .stoolContainer,
-  .tableContainer {
-    width: 10vw;
-
-    button {
-      width: 10vw;
-      font-size: 7vh;
-    }
-
-    #addStool {
-      position: absolute;
-      bottom: 0;
-      background-color: white;
-      border: solid gray;
-      font-size: 2.5vh;
-      width: 10vw;
-    }
+  .topbar select {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    border: 1px solid black;
+    background-color: white;
   }
 
-  #stoolContainer {
-    height: 80vh;
-  }
-
-  #stoolContainer,
-  #menuContainer {
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  #stoolContainer::-webkit-scrollbar,
-  #menuContainer::-webkit-scrollbar {
-    display: none;
-  }
-
-  .menuContainer {
-    display: grid;
-    height: fit-content;
-    width: 90vw;
-
-    .Title {
-      grid-column: 1 / span 2;
-      height: 8.4vh;
-      padding-top: 2vh;
-    }
-
-    button {
-      width: 16vw;
-      font-size: 2.5vh;
-    }
-
-    .ticket {
-      position: absolute;
-      bottom: 0;
-      border-top: solid gray;
-    }
-
-    #menuContainer {
-      grid-column: 2;
-      grid-row: 2 / span 4;
-      display: flex;
-      flex-wrap: wrap;
-      width: 74vw;
-      height: 89vh;
-
-      button {
-        background-color: white;
-        border-left: 0;
-      }
-    }
-  }
-
-  #displayTicket {
+  .topbar .addButtonTop {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(0, 0, 93);
     color: white;
-    background-color: darkblue;
-    height: 5vh;
-    border-top: 0;
-    text-align: center;
-    position: absolute;
-    right: 1vw;
-    top: 5.5vh;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
   }
 
-  .ticketContainer {
-    background-color: lightgray;
-    height: 50vh;
-    width: 30vw;
-    padding: 2vh;
-    position: absolute;
-    right: 1vw;
-    bottom: 1vh;
-    border: solid gray;
-    gap: 3vh;
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 80px;
+  }
 
-    .StoelFlex {
-      display: flex;
-      flex-direction: column;
-      gap: 2vh;
-    }
+  .grid-item {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid #bcc7d1;
+  }
 
-    .Stoel {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
-      background-color: white;
-      border: solid gray;
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
 
-      h2 {
-        font-weight: bold;
-        padding-top: 1vh;
-      }
-
-      p {
-        font-size: small;
-        padding-top: 1vh;
-      }
-    }
-
-    .Afrekenen {
-      width: fit-content;
-      position: relative;
-      left: 5vw;
-      top: 2vh;
-      display: flex;
-      gap: 2vw;
-    }
-
-    button {
-      color: white;
-      background-color: darkblue;
-      height: 5vh;
-      border-top: 0;
-      text-align: center;
-    }
+  .popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
   }
 }
 
-.order {}
+.register{}
 
-.recipes {}
-
-.register {}
-
-.scanner {}
+.scanner{}
 
 .storage {}
 
