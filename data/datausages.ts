@@ -102,11 +102,11 @@ export async function pushIngredient(objin: Ingredient) {
  * 
  * @param categorieMasterNew - The categorieMasterNew string to add.
  */
-export async function pushCategorieMaster(categorieMasterNew:string) {
-    try{
+export async function pushCategorieMaster(categorieMasterNew: string) {
+    try {
         dishmaster.categoryMaster.push(categorieMasterNew);
         await insertOneObjMongodb("categories", categorieMasterNew);
-    } catch (e){
+    } catch (e) {
         console.error(e);
     }
 }
@@ -116,7 +116,7 @@ export async function pushCategorieMaster(categorieMasterNew:string) {
  * 
  * @param proteinMasterNew - The proteinMasterNew string to add.
  */
-export async function pushProteinMaster(proteinMasterNew:string) {
+export async function pushProteinMaster(proteinMasterNew: string) {
     try {
         dishmaster.proteinTypeMaster.push(proteinMasterNew);
         await insertOneObjMongodb("proteinname", proteinMasterNew);
