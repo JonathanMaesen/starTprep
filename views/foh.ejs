@@ -2,8 +2,7 @@
   <script type="module" src="scripts/foh.js" defer></script>
 
   <body class="foh">
-    <%- include('./partials/nav') %>
-
+    <!-- NAV moet hier nog komen -->
       <main>
         <form>
           <select name="sortOptions" id="">
@@ -13,11 +12,17 @@
           </select>
         </form>
         <section id="floor">
-          <a href="./menu"><button>go to menu</button></a>
+          <article class="grid-item">Tafel 1</article>
+          <article class="grid-item">Tafel 2</article>
+          <article class="grid-item">Tafel 3</article>
+          <article class="grid-item">Tafel 4</article>
+          <article class="grid-item">Tafel 5</article>
         </section>
-        <aside>
-          <button class="sectionSelector" id="sortFloorInside">Inside</button><button class="sectionSelector"
-            id="sortFloorOutside">Outside</button>
+        
+        <aside class="buttons">
+          <a href="./menu"><button id="menuButton">Go to Menu</button></a>
+          <button class="sectionSelector" id="sortFloorInside">Inside</button>
+          <button class="sectionSelector" id="sortFloorOutside">Outside</button>
         </aside>
       </main>
   </body>
