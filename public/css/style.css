@@ -15,19 +15,21 @@ body {
 
 .login {}
 
-.menu{}
+.menu {}
 
-.order{}
+.order {}
 
-.recipes{
+.recipes {
   background-color: lightgray;
 }
+
 .recipes .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
 }
+
 .recipes .topbar select {
   padding-left: 20px;
   padding-right: 20px;
@@ -37,6 +39,7 @@ body {
   border: 1px solid black;
   background-color: white;
 }
+
 .recipes .topbar #addButtonTop {
   padding-left: 50px;
   padding-right: 50px;
@@ -49,12 +52,14 @@ body {
   border: none;
   cursor: pointer;
 }
+
 .recipes .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 80px;
 
 }
+
 .recipes .grid-item {
   background-color: white;
   display: flex;
@@ -63,6 +68,7 @@ body {
   font-weight: bold;
   border: 1px solid #bcc7d1;
 }
+
 .recipes .popup-overlay {
   position: fixed;
   top: 0;
@@ -75,6 +81,7 @@ body {
   align-items: center;
   z-index: 2000;
 }
+
 .recipes .popup-content {
   background-color: white;
   padding: 2rem;
@@ -86,9 +93,9 @@ body {
   position: relative;
 }
 
-.register{}
+.register {}
 
-.scanner{}
+.scanner {}
 
 .storage {}
 
@@ -139,17 +146,22 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 6px; // 👈 adds equal 2px spacing between icon and text
       transition: background 0.3s;
+
+      svg {
+        width: 35px;
+        height: 35px;
+        fill: black;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        font-family: 'Futura', sans-serif;
+      }
     }
-
-    a span {
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      font-family: 'Futura', sans-serif;
-    }
-
-
   }
 
   .nav-item-uitlog {
@@ -161,6 +173,5 @@ body {
     align-items: center;
     border: 1px solid #e0e0e0;
     max-width: 100%;
-
   }
 }
