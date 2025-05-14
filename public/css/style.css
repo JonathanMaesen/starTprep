@@ -146,7 +146,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px; // 👈 adds equal 2px spacing between icon and text
+      gap: 6px;
       transition: background 0.3s;
 
       svg {
