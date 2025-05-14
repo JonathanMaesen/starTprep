@@ -5,7 +5,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import * as path from 'path';
 import { User } from "./types";
-import { getUserInfobyid } from "./user";
+import { getUserInfo } from "./user";
 
 dotenv.config();
 
@@ -13,13 +13,13 @@ const codes: { [id: number]: string } = {};
 
 let markdownTemplate: string;
 try {
-    markdownTemplate = fs.readFileSync(path.join(__dirname, "codeform.md"), "utf8");
+  markdownTemplate = fs.readFileSync(path.join(__dirname, "codeform.md"), "utf8");
 } catch (error) {
-    console.error("Failed to load codeform.md template:", error);
-    markdownTemplate = ""; // Or set a default template, or throw error based on your needs
+  console.error("Failed to load codeform.md template:", error);
+  markdownTemplate = ""; // Or set a default template, or throw error based on your needs
 }
 
-async function generateEmail(data:any):Promise<string> {
+async function generateEmail(data: any): Promise<string> {
   const populatedMarkdown = mustache.render(markdownTemplate, data);
   return await marked(populatedMarkdown);
 }
@@ -86,13 +86,14 @@ async function generate2FFA(id: number) {
 
     const generatedcode: string = generateRandomString(5);
     codes[id] = generatedcode;
-    
+
     await sendEmail(
-        userdetails.mail,
-        '2FA Code',
-        { 
-            username: userdetails.name,
-            code: generatedcode
-        }
+      userdetails.mail,
+      '2FA Code',
+      {
+        username: userdetails.name,
+        code: generatedcode
+      }
     );
-}
+  }
+};

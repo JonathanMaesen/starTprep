@@ -6,6 +6,9 @@ let client: MongoClient;
 /**
  * Creates a MongoDB client and connects to the database using environment variables.
  */
+/**
+ * Creates a MongoDB client and connects to the database using environment variables.
+ */
 function createClient() {
     try {
         const uri = `mongodb+srv://${process.env.MONGODBUSERNAME}:${process.env.MONGODBPASSWORD}@${process.env.MONGODBCLUSTERURL}/`;
@@ -17,6 +20,12 @@ function createClient() {
     }
 };
 createClient();
+
+/**
+ * Retrieves the MongoDB client instance.
+ * 
+ * @returns The MongoDB client instance.
+ */
 
 /**
  * Retrieves the MongoDB client instance.
@@ -39,6 +48,13 @@ enum collectionenum {
  * @param obj - The object to insert.
  * @returns The result of the insertion.
  */
+/**
+ * Inserts a single object into a specified MongoDB collection.
+ * 
+ * @param collectionin - The name of the collection.
+ * @param obj - The object to insert.
+ * @returns The result of the insertion.
+ */
 export async function insertOneObjMongodb(collectionin: string, obj: any) {
     try {
         await client.connect();
@@ -46,8 +62,16 @@ export async function insertOneObjMongodb(collectionin: string, obj: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
+
+/**
+ * Inserts an array of objects into a specified MongoDB collection.
+ * 
+ * @param collectionin - The name of the collection.
+ * @param objarr - The array of objects to insert.
+ * @returns The result of the insertion.
+ */
 
 /**
  * Inserts an array of objects into a specified MongoDB collection.
@@ -63,8 +87,15 @@ export async function insertArrObjMongodb(collectionin: string, objarr: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
+
+/**
+ * Retrieves the first element from a specified MongoDB collection.
+ * 
+ * @param collectionin - The name of the collection.
+ * @returns The first element in the collection.
+ */
 
 /**
  * Retrieves the first element from a specified MongoDB collection.
@@ -79,8 +110,16 @@ export async function getFirstElementMongoDb(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
+
+/**
+ * Retrieves the first element from a specified MongoDB collection based on a filter parameter.
+ * 
+ * @param collectionin - The name of the collection.
+ * @param parameter - The filter parameter.
+ * @returns The first matching element in the collection.
+ */
 
 /**
  * Retrieves the first element from a specified MongoDB collection based on a filter parameter.
@@ -96,8 +135,16 @@ export async function getFirstElementMongoDbWithParameter(collectionin: string, 
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
+
+/**
+ * Retrieves all data from a specified MongoDB collection based on a query.
+ * 
+ * @param collectionin - The name of the collection.
+ * @param query - The query to filter the data.
+ * @returns An array of matching data.
+ */
 
 /**
  * Retrieves all data from a specified MongoDB collection based on a query.
@@ -113,23 +160,22 @@ export async function getAllDataQueryMongoDB(collectionin: string, query: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
-
 /**
  * Retrieves all data from a specified MongoDB collection.
  * 
  * @param collectionin - The name of the collection.
  * @returns An array of all data in the collection.
  */
-export async function getAllDataMongoDB(collectionin: string) : Promise<any> {
+export async function getAllDataMongoDB(collectionin: string): Promise<any> {
     try {
         await client.connect();
         const result = await client.db("StarTprep").collection(collectionin).find({}).toArray();
         return result;
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -147,7 +193,7 @@ export async function getSortedCollection(collectionin: string, sortparameter: a
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -166,7 +212,7 @@ export async function getSortedCollectionCollection(collectionin: string, sortpa
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -184,7 +230,7 @@ export async function getDataWithLimit(collectionin: string, limitamount: number
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -203,7 +249,7 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -216,7 +262,7 @@ export async function getDataWithLimitSkip(collectionin: string, skipamount: num
  * @returns The result of the update operation.
  */
 // //update 1 element 
-export async function updateElement(db:string, collectionin:string, updatequeryset1:any,updatequeryset2:any) {
+export async function updateElement(db: string, collectionin: string, updatequeryset1: any, updatequeryset2: any) {
     try {
         await client.connect();
         const collection = await client.db("StarTprep").collection(collectionin);
@@ -239,7 +285,7 @@ export async function updateElement(db:string, collectionin:string, updatequerys
  * @returns The result of the update operation.
  */
 // //update elements 
-export async function updateElements(db:string, collectionin:string,updatequeryset1:any,updatequeryset2:any) {
+export async function updateElements(db: string, collectionin: string, updatequeryset1: any, updatequeryset2: any) {
     try {
         await client.connect();
         const collection = await client.db("StarTprep").collection(collectionin);
@@ -268,7 +314,7 @@ export async function deleteElement(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -287,7 +333,7 @@ export async function deleteElements(collectionin: string, updatequery: any) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -304,7 +350,7 @@ export async function createMongodbindex(collectionin: string, indexquery: any) 
         await collection.createIndex(indexquery);
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -321,7 +367,7 @@ export async function getCollectionObj(collectionin: string) {
         return result
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 /**
@@ -340,4 +386,4 @@ process.on("SIGINT", async () => {
 export async function closeConnection() {
     await client.close();
     console.log("MongoDB connection closed");
-}
+};
