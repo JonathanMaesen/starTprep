@@ -1,4 +1,4 @@
-import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb, getSortedCollection, insertOneObjMongodb } from "./database";
+import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb } from "./database";
 import { User } from "./types";
 
 export async function checkUserPassword(namein: string, password: string): Promise<Boolean> {

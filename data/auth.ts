@@ -5,7 +5,7 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import * as path from 'path';
 import { User } from "./types";
-import { getUserInfobyid } from "./user";
+import { getUserInfo } from "./user";
 
 dotenv.config();
 
