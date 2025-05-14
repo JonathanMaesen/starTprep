@@ -45,6 +45,7 @@ router.post("/auth", async (req, res) => {
         
         if (!isValidCode) {
             return res.render("auth", {
+                id : iduser,
                 e: "Invalid authentication code"
             });
         }
@@ -53,7 +54,8 @@ router.post("/auth", async (req, res) => {
     } catch (error) {
         console.error("2FA authentication error:", error);
         return res.render("auth", {
-            e: "An error occurred during authentication"
+            e: "An error occurred during authentication",
+            id : iduser
         });
     }
 });
