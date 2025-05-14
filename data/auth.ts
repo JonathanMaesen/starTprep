@@ -96,4 +96,4 @@ async function generate2FFA(id: number) {
       }
     );
   }
-};
+
