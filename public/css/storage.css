@@ -1,0 +1,112 @@
+.storage {
+  background-color: lightgray;
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .topbar .search {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .topbar filter.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .topbar .dropbtn {
+    background-color: dimgray;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .topbar .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+  }
+
+  .topbar .dropdown-content button {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .topbar .dropdown-content button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .topbar filter.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .topbar .addIngredientBtn {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: dimgray;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .topbar .addButtonTop {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: dimgray;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .grid-item {
+    width: 20%;
+    height: 140px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid #bcc7d1;
+    box-sizing: border-box;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .info.active {
+    display: block;
+  }
+}
