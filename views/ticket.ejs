@@ -1,0 +1,35 @@
+<%- include('./partials/head') %>
+
+    <body class="home">
+        <%- include('./partials/nav') %>
+
+            <div class="ticket">
+                <div class="ticket-container">
+                    <% tickets.forEach(ticket=> { %>
+                        <div class="ticket-card">
+                            <p><strong>ID:</strong> <span>
+                                    <%= ticket.id %>
+                                </span></p>
+                            <p><strong>Title:</strong> <span>
+                                    <%= ticket.title %>
+                                </span></p>
+                            <p><strong>Description:</strong> <span>
+                                    <%= ticket.description %>
+                                </span></p>
+                            <p><strong>Status:</strong> <span>
+                                    <%= ticket.status %>
+                                </span></p>
+                            <p><strong>Created At:</strong> <span>
+                                    <%= ticket.createdAt %>
+                                </span></p>
+                            <p><strong>Updated At:</strong> <span>
+                                    <%= ticket.updatedAt %>
+                                </span></p>
+                        </div>
+                        <% }); %>
+                </div>
+            </div>
+
+            <%- include('./partials/footer') %>
+                <script type="module" src="/scripts/ticket.js" defer></script>
+    </body>
