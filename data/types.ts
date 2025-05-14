@@ -8,7 +8,7 @@ export interface Ingredient {
     unitprice: number,
     quantity: number,
     quantityWeightKg: number
-}
+} 
 
 export interface Dish {
     dishId: number;
