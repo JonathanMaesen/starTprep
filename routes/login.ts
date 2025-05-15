@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
     
     if (!user) {
         return res.render("login", {
+            cssName: "login",
             e: "Invalid username"
         });
     }
@@ -26,6 +27,7 @@ router.post("/", async (req, res) => {
         return res.redirect(`/login/auth?id=${user.id}`);
     } else {
         return res.render("login", {
+            cssName: "login",
             e: "Invalid password"
         });
     }
@@ -33,6 +35,7 @@ router.post("/", async (req, res) => {
 
 router.get("/auth", async (req, res) => {
     res.render("auth", {
+        cssName: "login",
         e: "",
         id: req.query.id
     });
@@ -46,6 +49,7 @@ router.post("/auth", async (req, res) => {
         
         if (!isValidCode) {
             return res.render("auth", {
+                cssName: "login",
                 id : iduser,
                 e: "Invalid authentication code"
             });
@@ -55,6 +59,7 @@ router.post("/auth", async (req, res) => {
     } catch (error) {
         console.error("2FA authentication error:", error);
         return res.render("auth", {
+            cssName: "login",
             e: "An error occurred during authentication",
             id : iduser
         });
@@ -63,6 +68,7 @@ router.post("/auth", async (req, res) => {
 
 router.get("/backend", (req, res) => {
     res.render("login", {
+        cssName: "login",
         e : ""
     });
 });
@@ -73,6 +79,7 @@ router.post("/backend", async (req, res) => {
     
     if (!user) {
         return res.render("login", {
+            cssName: "login",
             e: "Invalid username"
         });
     }
@@ -81,6 +88,7 @@ router.post("/backend", async (req, res) => {
         return res.redirect(`/home`);
     } else {
         return res.render("login", {
+            cssName: "login",
             e: "Invalid password"
         });
     }
