@@ -1,11 +1,11 @@
 <%- include('./partials/head') %>
-<script src="scripts/login.js" defer></script>
 <body class="login">
-  <main>
     <form action="/login/auth?id=<%= id %>" method="post">
     <h1>StarTprep</h1>
-      <label for="auth_code">Authentication Code</label><br>
+    <div>
+      <label for="code">Authentication Code</label><br>
       <input type="text" class="form-control" id="auth_code" placeholder="Authentication Code" name="code" required>
+    </div>
     <br>
     <% if (e != "") { %>
     <div class="alert alert-danger" role="alert">
@@ -14,6 +14,5 @@
     <% } %>
     <button type="submit" class="btn btn-primary">Authenticate</button>
   </form>
-  </main> 
 </body>
 <%- include('./partials/footer') %>
