@@ -8,7 +8,7 @@ export interface Ingredient {
     unitprice: number,
     quantity: number,
     quantityWeightKg: number
-} 
+}
 
 export interface Dish {
     dishId: number;
@@ -37,8 +37,6 @@ export interface User {
     id: number,
     name: string,
     role: string,
-    password: string,
-    mail: string
     password: string,
     mail: string
 }

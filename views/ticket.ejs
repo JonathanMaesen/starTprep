@@ -1,40 +1,53 @@
 <%- include('./partials/head') %>
 
-<body class="home">
-  <%- include('./partials/nav') %>
+  <body class="home">
+    <%- include('./partials/nav') %>
 
-  <div class="ticket">
-    <div class="ticket-container">
-      <% tickets.forEach(ticket => { %>
-        <div class="ticket-card">
-          <p><strong>ID:</strong> <span><%= ticket.id %></span></p>
-          <p><strong>Title:</strong> <span><%= ticket.title %></span></p>
-          <p><strong>Description:</strong> <span><%= ticket.description %></span></p>
-          <p><strong>Status:</strong> <span><%= ticket.status %></span></p>
-          <p><strong>Created At:</strong> <span><%= ticket.createdAt %></span></p>
-          <p><strong>Updated At:</strong> <span><%= ticket.updatedAt %></span></p>
-          
-          <p><strong>Extra commentaar:</strong> <span><%= ticket.extraCommentaar || '' %></span></p>
-          <p><strong>Done:</strong> 
-            <input type="checkbox" <%= ticket.doneButton ? 'checked' : '' %> disabled />
-          </p>
-          <p><strong>Allergenen:</strong> 
-            <span><%= ticket.allergenen && ticket.allergenen.length ? ticket.allergenen.join(', ') : 'Geen' %></span>
-          </p>
-          <p><strong>Effectief besteld:</strong> 
-            <span><%= ticket.effectiefBesteld && ticket.effectiefBesteld.length ? ticket.effectiefBesteld.join(', ') : 'Geen' %></span>
-          </p>
-          <p><strong>Supplementen:</strong> 
-            <span><%= ticket.supplementen && ticket.supplementen.length ? ticket.supplementen.join(', ') : 'Geen' %></span>
-          </p>
-          <p><strong>Extra tijd:</strong> 
-            <span><%= ticket.extraTijd ? ticket.extraTijd : 'Geen' %></span>
-          </p>
+      <button id="deleteButton" class="delete-button">🗑️ Delete Selected</button>
+
+      <div class="ticket">
+        <div class="ticket-container">
+          <% tickets.forEach(ticket=> { %>
+            <div class="ticket-card" data-ticket-id="<%= ticket.id %>">
+              <p><strong>ID:</strong> <span>
+                  <%= ticket.id %>
+                </span></p>
+              <p><strong>Title:</strong> <span>
+                  <%= ticket.title %>
+                </span></p>
+              <p><strong>Description:</strong> <span>
+                  <%= ticket.description %>
+                </span></p>
+              <p><strong>Status:</strong> <span>
+                  <%= ticket.status %>
+                </span></p>
+              <p><strong>Created At:</strong> <span>
+                  <%= ticket.createdAt %>
+                </span></p>
+              <p><strong>Updated At:</strong> <span>
+                  <%= ticket.updatedAt %>
+                </span></p>
+              <p><strong>Extra commentaar:</strong> <span>
+                  <%= ticket.extraCommentaar || '' %>
+                </span></p>
+              <p><strong>Done:</strong> <input type="checkbox" <%=ticket.doneButton ? 'checked' : '' %> disabled /></p>
+              <p><strong>Allergenen:</strong> <span>
+                  <%= ticket.allergenen?.length ? ticket.allergenen.join(', ') : ' Geen' %>
+                </span></p>
+              <p><strong>Effectief besteld:</strong> <span>
+                  <%= ticket.effectiefBesteld?.length ? ticket.effectiefBesteld.join(', ') : ' Geen' %>
+                </span></p>
+              <p><strong>Supplementen:</strong> <span>
+                  <%= ticket.supplementen?.length ? ticket.supplementen.join(', ') : ' Geen' %>
+                </span></p>
+              <p><strong>Extra tijd:</strong> <span>
+                  <%= ticket.extraTijd || 'Geen' %>
+                </span></p>
+            </div>
+            <% }); %>
         </div>
-      <% }); %>
-    </div>
-  </div>
+      </div>
 
-  <%- include('./partials/footer') %>
-  <script type="module" src="/scripts/ticket.js" defer></script>
-</body>
+      <%- include('./partials/footer') %>
+        <script type="module" src="/scripts/ticket.js" defer></script>
+  </body>
