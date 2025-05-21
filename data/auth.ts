@@ -4,10 +4,13 @@ import mustache from "mustache";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 import * as path from 'path';
-import { User } from "./types";
 import { getUserInfobyid } from "./user";
+import * as jwt from 'jsonwebtoken';
+import { NextFunction, Request, Response } from "express";
 
 dotenv.config();
+
+const saltround: number = Number(process.env.SALTROUNDS ?? 10);
 
 const codes: { [id: number]: string } = {};
 
@@ -96,3 +99,19 @@ async function generate2FFA(id: number) {
     }
   )
 };
+
+export function checkJwt(req: Request, res: Response, next: NextFunction) {
+    const token: string | undefined = req.cookies?.jwt;
+    if (!token) {
+        return res.redirect("/login");
+    }
+    
+    try {
+        const user = jwt.verify(token, process.env.JWT_SECRET!) as { id: number; name: string };
+        res.locals.user = user;
+        next();
+    } catch (err) {
+        console.log("Invalid token:", err);
+        return res.redirect("/login");
+    }
+}
