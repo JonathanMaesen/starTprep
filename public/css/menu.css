@@ -3,7 +3,7 @@ body.menu {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #D3D3D3;
+    background-color: #d3d1d1;
     color: #000;
     text-transform: uppercase;
     display: flex;
@@ -26,10 +26,11 @@ button {
     border: 1px solid #000;
     background: #ffffff;
     color: #000;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem;
     cursor: pointer;
     font-size: 0.9rem;
     transition: background 0.2s;
+
 }
 
 button:hover {
@@ -41,9 +42,9 @@ button:hover {
 .stoolContainer {
     width: 12vw;
     min-width: 120px;
-    max-width: 180px;
+    max-width: 280px;
     border-right: 1px solid #000;
-    padding: 1rem;
+
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -54,13 +55,17 @@ button:hover {
 #stoolContainer {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+
     overflow-y: auto;
     height: 100%;
 }
 
+#stoolContainer button {
+    height: 4rem;
+}
+
 #addStool {
-    margin-top: auto;
+
     font-size: 0.8rem;
 }
 
@@ -68,8 +73,6 @@ button:hover {
 .menuContainer {
     display: flex;
     flex-direction: row;
-    padding: 2rem;
-    gap: 2rem;
     height: auto;
     box-sizing: border-box;
     align-items: flex-start;
@@ -83,10 +86,11 @@ button:hover {
 .menuNavButtons {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    padding-top: 1.25rem;
     width: 15vw;
     min-width: 160px;
     justify-content: flex-start;
+
 }
 
 
@@ -122,6 +126,7 @@ button:hover {
     color: #000000;
     border: 1px solid #000;
     transition: background 0.2s;
+    border-right: solid black;
 }
 
 .menuNavButtons button:hover {
@@ -133,16 +138,15 @@ button:hover {
 #menuContainer {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
     align-items: flex-start;
-    padding-top: 3.7rem;
-
+    padding-top: 4.05rem;
     flex-wrap: wrap;
 }
 
 
 #menuContainer button {
     min-width: 180px;
+    max-width: 200px;
     height: 4rem;
     font-size: 0.9rem;
     background: #fff;
