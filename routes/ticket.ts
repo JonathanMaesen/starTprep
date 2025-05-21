@@ -46,7 +46,8 @@ router.get("/", (req, res) => {
     console.warn("⚠️ tickets.json not found at:", jsonPath);
   }
 
-  res.render("ticket", { tickets });
+  res.render("ticket", { tickets, cssName: "ticket" });
+
 });
 
 export default router;
