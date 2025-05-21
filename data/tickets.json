@@ -1,0 +1,44 @@
+[
+  {
+    "id": "TKT-1002",
+    "title": "Bug in checkout",
+    "description": "Cart does not update after removing item.",
+    "status": "Open",
+    "createdAt": "2025-05-06",
+    "updatedAt": "2025-05-06",
+    "extraCommentaar": "",
+    "doneButton": false,
+    "allergenen": [],
+    "effectiefBesteld": [],
+    "supplementen": [],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1002",
+    "title": "Bug in checkout",
+    "description": "Cart does not update after removing item.",
+    "status": "Open",
+    "createdAt": "2025-05-06",
+    "updatedAt": "2025-05-06",
+    "extraCommentaar": "",
+    "doneButton": false,
+    "allergenen": [],
+    "effectiefBesteld": [],
+    "supplementen": [],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1002",
+    "title": "Bug in checkout",
+    "description": "Cart does not update after removing item.",
+    "status": "Open",
+    "createdAt": "2025-05-06",
+    "updatedAt": "2025-05-06",
+    "extraCommentaar": "",
+    "doneButton": false,
+    "allergenen": [],
+    "effectiefBesteld": [],
+    "supplementen": [],
+    "extraTijd": null
+  }
+]

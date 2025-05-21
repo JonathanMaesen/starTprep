@@ -10,6 +10,7 @@ import recipes from "./recipes";
 import register from "./register";
 import scanner from "./scanner";
 import storage from "./storage";
+import ticket from "./ticket";
 
 const router: Router = express.Router();
 
@@ -35,5 +36,7 @@ router.use("/register", register);
 router.use("/scanner", scanner);
 
 router.use("/storage", storage);
+
+router.use("/ticket", ticket);
 
 export default router;
