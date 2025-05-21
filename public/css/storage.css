@@ -1,5 +1,11 @@
 .storage {
   background-color: lightgray;
+  margin-left: 15em;
+  margin-right: 15px;
+  font-family: 'Futura', sans-serif;
+  max-width: calc(100% - 15em - 15px);
+  /* Ensures it does not overflow */
+  box-sizing: border-box;
 
   .topbar {
     display: flex;
@@ -31,13 +37,13 @@
     border-radius: 6px;
     cursor: pointer;
   }
-  
+
   .topbar .dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
     min-width: 160px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     padding: 0.5rem 0;
     z-index: 1000;
@@ -89,7 +95,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   .grid-item {
     width: 20%;
     height: 140px;

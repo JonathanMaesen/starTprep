@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-import { pushIngredient, getDataIngredients } from "../data/datausages";
+import { pushIngredient, ingredients} from "../data/datausages";
 import { Ingredient } from "../data/types";
 
 
@@ -12,10 +12,8 @@ router.use(express.urlencoded({ extended: true }));
 
 router.get("/", async (req: Request, res: Response) => {
     try {
-        const ingredients = await getDataIngredients();
-
-
         res.render("storage", {
+            cssName : "storage",
             ingredients: ingredients
         });
     } catch (error) {
