@@ -21,24 +21,6 @@
     "extraTijd": null
   },
   {
-    "id": "TKT-1005",
-    "title": "Tomatensoep met balletjes",
-    "description": "Verse soep met rundsballetjes en groentjes.",
-    "status": "Open",
-    "createdAt": "2025-05-03",
-    "updatedAt": "2025-05-03",
-    "extraCommentaar": "",
-    "doneButton": false,
-    "allergenen": [],
-    "effectiefBesteld": [
-      "Tomatensoep met balletjes"
-    ],
-    "supplementen": [
-      "Extra brood"
-    ],
-    "extraTijd": null
-  },
-  {
     "id": "TKT-1006",
     "title": "Croque Monsieur",
     "description": "Geroosterd brood met ham en kaas.",
