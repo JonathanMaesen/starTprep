@@ -1,0 +1,128 @@
+[
+  {
+    "id": "TKT-1004",
+    "title": "Veggie Burger",
+    "description": "Vegetarische burger op een volkoren broodje.",
+    "status": "Gesloten",
+    "createdAt": "2025-05-04",
+    "updatedAt": "2025-05-05",
+    "extraCommentaar": "Klant vroeg zonder saus.",
+    "doneButton": true,
+    "allergenen": [
+      "gluten",
+      "lactose"
+    ],
+    "effectiefBesteld": [
+      "Veggie Burger"
+    ],
+    "supplementen": [
+      "Zonder saus"
+    ],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1006",
+    "title": "Croque Monsieur",
+    "description": "Geroosterd brood met ham en kaas.",
+    "status": "Open",
+    "createdAt": "2025-05-02",
+    "updatedAt": "2025-05-02",
+    "extraCommentaar": "Te bruin gebakken volgens klant.",
+    "doneButton": false,
+    "allergenen": [
+      "gluten",
+      "lactose"
+    ],
+    "effectiefBesteld": [
+      "Croque Monsieur"
+    ],
+    "supplementen": [
+      "Extra kaas",
+      "Zonder ham"
+    ],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1007",
+    "title": "Poke Bowl Zalm",
+    "description": "Rijstbowl met gemarineerde zalm, avocado en groenten.",
+    "status": "In behandeling",
+    "createdAt": "2025-05-01",
+    "updatedAt": "2025-05-01",
+    "extraCommentaar": "Avocado was niet rijp.",
+    "doneButton": false,
+    "allergenen": [
+      "soja",
+      "sesam"
+    ],
+    "effectiefBesteld": [
+      "Poke Bowl Zalm"
+    ],
+    "supplementen": [
+      "Extra zalm"
+    ],
+    "extraTijd": "2m"
+  },
+  {
+    "id": "TKT-1008",
+    "title": "Lasagne",
+    "description": "Italiaanse ovenschotel met gehakt en bechamelsaus.",
+    "status": "Gesloten",
+    "createdAt": "2025-04-30",
+    "updatedAt": "2025-05-01",
+    "extraCommentaar": "",
+    "doneButton": true,
+    "allergenen": [
+      "gluten",
+      "lactose"
+    ],
+    "effectiefBesteld": [
+      "Lasagne"
+    ],
+    "supplementen": [],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1009",
+    "title": "Wrap Kip",
+    "description": "Tortillawrap met kip, groenten en yoghurtsaus.",
+    "status": "Open",
+    "createdAt": "2025-04-29",
+    "updatedAt": "2025-04-30",
+    "extraCommentaar": "Vegan saus gevraagd.",
+    "doneButton": false,
+    "allergenen": [
+      "gluten",
+      "lactose"
+    ],
+    "effectiefBesteld": [
+      "Wrap Kip"
+    ],
+    "supplementen": [
+      "Vegan saus"
+    ],
+    "extraTijd": null
+  },
+  {
+    "id": "TKT-1010",
+    "title": "Wafel met aardbeien",
+    "description": "Verse Brusselse wafel met aardbeien en slagroom.",
+    "status": "Open",
+    "createdAt": "2025-04-28",
+    "updatedAt": "2025-04-28",
+    "extraCommentaar": "Slagroom vergeten.",
+    "doneButton": false,
+    "allergenen": [
+      "gluten",
+      "ei",
+      "lactose"
+    ],
+    "effectiefBesteld": [
+      "Wafel met aardbeien"
+    ],
+    "supplementen": [
+      "Extra aardbeien"
+    ],
+    "extraTijd": null
+  }
+]

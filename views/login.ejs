@@ -1,9 +1,8 @@
 <%- include('./partials/head') %>
 <script src="scripts/login.js" defer></script>
 <body class="login">
-  <main>
     <form action="/login" method="post">
-    <h1>StarTprep</h1>
+    <h1>Login</h1>
     <div>
       <label for="User_Name_Log_In">User name</label>
       <input type="text" class="form-control" id="User_Name_Log_In" placeholder="User name" name="username" required>
@@ -19,6 +18,5 @@
     <% } %>
     <button type="submit" class="btn btn-primary">Log In</button>
   </form>
-  </main> 
 </body>
 <%- include('./partials/footer') %>

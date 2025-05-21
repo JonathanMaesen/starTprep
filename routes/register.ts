@@ -5,7 +5,7 @@ const router: Router = express.Router();
 
 router.get("/", (req, res) => {
     res.render("register", {
-        cssName: "register"
+        cssName: "login"
     });
 });
 
@@ -15,7 +15,8 @@ router.post("/", (req, res) => {
         res.redirect('/login');
     } else {
         res.render('register', {
-            error: 'All fields are required'
+            error: 'All fields are required',
+            cssName: "login"
         });
     }
 });

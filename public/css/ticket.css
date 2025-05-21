@@ -1,0 +1,62 @@
+.ticket-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.ticket-card {
+  flex: 0 1 300px;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.ticket-card.selected {
+  border: 2px solid #c0392b;
+  box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.2);
+}
+
+.ticket-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.ticket-card strong {
+  display: inline-block;
+  width: 120px;
+  color: #333;
+}
+
+.ticket-card span {
+  color: #555;
+}
+
+/* Delete button always visible in top right */
+.delete-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #e74c3c;
+}

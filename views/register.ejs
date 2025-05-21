@@ -1,22 +1,29 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/register.js" defer></script>
+  <script type="module" src="scripts/register.js" defer></script>
   <body class="register">
-    <script src="scripts/register.js" defer></script>
-    <article>
-      <form action="/register" method="POST">
-        <p>naam input</p>
-        <input type="text" name="name" id="Nameinput" required/>
-        <p>role input</p>
-        <input type="text" name="role" id="roleinput" required/>
-        <p>email:</p>
-        <input type="email" name="mail" id="emailinput" required/>
-        <p>wachtwoord:</p>
-        <input type="password" name="password" id="passwordinput" required/>
-        <div class="notifpass"></div>
-        <p>verifier het wachtwoord</p>
-        <input type="password" name="passwordinputsecond" id="passwordinputsecond" required/>
-        <button type="submit" id="create_user">Account aanmaken</button>
-      </form>
-    </article>
+    <form action="/register" method="POST">
+      <h1>Maak een account</h1>
+      <div>
+        <label for="name">naam input</label>
+        <input type="text" name="name" id="Nameinput" required minlength="3"/>
+      </div>
+      <div>
+        <label>role input</label>
+        <input type="text" name="role" id="roleinput" required />
+      </div>
+      <div>
+        <label>email:</label>
+        <input type="email" name="mail" id="emailinput" required />
+      </div>
+      <div>
+        <label>wachtwoord:</label>
+        <input type="password" name="password" id="passwordinput" required minlength="10"/>
+      </div>
+      <div>
+        <label>verifier het wachtwoord</label>
+        <input type="password" name="passwordinputsecond" id="passwordinputsecond" required  minlength="10"/>
+      </div>
+      <button type="submit" id="create_user">Account aanmaken</button>
+    </form>
   </body>
-<%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>
