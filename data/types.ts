@@ -41,6 +41,12 @@ export interface User {
     mail: string
 }
 
+export interface UserWeb {
+    id: number,
+    name: string,
+    role: string
+}
+
 export interface Proteintype {
     nameofprotein: string
 }
