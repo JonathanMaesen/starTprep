@@ -3,51 +3,46 @@ import fs from "fs";
 import path from "path";
 
 const router: Router = express.Router();
+const jsonPath = path.join(process.cwd(), "data", "tickets.json");
 
-// Path to your JSON file
-const jsonPath = path.join(__dirname, "../data/tickets.json");
+router.use(express.urlencoded({ extended: true }));
+
+function readTickets(): any[] {
+  if (!fs.existsSync(jsonPath)) return [];
+  try {
+    const raw = fs.readFileSync(jsonPath, "utf-8");
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeTickets(tickets: any[]): boolean {
+  try {
+    fs.writeFileSync(jsonPath, JSON.stringify(tickets, null, 2), "utf-8");
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 router.get("/", (req, res) => {
-  // Default ticket always shown
-  let tickets = [
-    {
-      id: "TKT-001",
-      title: "Sample Ticket",
-      description: "This is a test ticket.",
-      status: "Open",
-      createdAt: "2025-05-07",
-      updatedAt: "2025-05-07",
-      extraCommentaar: "",
-      doneButton: false,
-      allergenen: [],
-      effectiefBesteld: [],
-      supplementen: [],
-      extraTijd: null
-    }
-  ];
-
-  // Try to load more tickets from JSON
-  if (fs.existsSync(jsonPath)) {
-    try {
-      const raw = fs.readFileSync(jsonPath, "utf-8");
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        tickets = [...tickets, ...parsed];
-        console.log(`✅ Loaded ${parsed.length} extra ticket(s) from JSON.`);
-      }
-    } catch (err) {
-      if (err instanceof Error) {
-        console.warn("⚠️ Could not load tickets.json:", err.message);
-      } else {
-        console.warn("⚠️ Could not load tickets.json (unknown error)");
-      }
-    }
-  } else {
-    console.warn("⚠️ tickets.json not found at:", jsonPath);
-  }
-
+  const tickets = readTickets();
   res.render("ticket", { tickets, cssName: "ticket" });
+});
 
+router.post("/delete", (req, res) => {
+  const ticketId = req.body.ticketId;
+  if (!ticketId) return res.status(400).send("Missing ticket ID");
+
+  const current = readTickets();
+  const updated = current.filter(t => t.id !== ticketId);
+
+  if (updated.length === current.length) return res.status(404).send("Not found");
+  if (!writeTickets(updated)) return res.status(500).send("Failed to write");
+
+  return res.sendStatus(200);
 });
 
 export default router;
