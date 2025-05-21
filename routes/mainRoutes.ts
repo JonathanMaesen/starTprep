@@ -10,6 +10,7 @@ import recipes from "./recipes";
 import register from "./register";
 import scanner from "./scanner";
 import storage from "./storage";
+import logout from "./logout";
 import { checkJwt } from "../data/auth";
 
 const router: Router = express.Router();
@@ -20,6 +21,8 @@ router.use("/register", register);
 router.use("/", index);
 
 router.use("/login", login);
+
+router.use("/logout", logout)
 
 router.use(checkJwt);
 
