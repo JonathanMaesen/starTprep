@@ -1,16 +1,16 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/recipes.js" defer></script>
-
   <body class="recipes">
-    <script src="scripts/nav.js"></script>
+    <%- include('./partials/nav') %>
+    <main>
 
     <!-- Topbar -->
     <section class="topbar">
-      <select name="filterOptions" id="filterOptions">
-        <option value="default">FILTER</option>
-      </select>
+      <input type="text" name="Search" class="search" placeholder="Zoek...">
 
-      <button id="addButtonTop">+</button>
+      <select name="filterOptions" id="filterOptions" class="nav-btn">
+        <option value="default">Filter</option>
+      </select>
+      <button id="addButtonTop" class="nav-btn">+</button>
     </section>
 
     <!-- Grid -->
@@ -67,5 +67,6 @@
         </main>
       </article>
     </section>
+  </main>
   </body>
 <%- include('./partials/footer') %>

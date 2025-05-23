@@ -1,118 +1,57 @@
-.storage {
-  background-color: lightgray;
-  margin-left: 15em;
-  margin-right: 15px;
-  font-family: 'Futura', sans-serif;
-  max-width: calc(100% - 15em - 15px);
-  /* Ensures it does not overflow */
-  box-sizing: border-box;
+.topbar {
+  display: flex;
+  align-items: center;
+}
 
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  .topbar .search {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: 1px solid black;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 300px;
-  }
+.search-bar{
+  display: flex;
+}
 
-  .topbar filter.dropdown {
-    position: relative;
-    display: inline-block;
-  }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  min-width: 160px;
+  padding: 0.5rem 0;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
-  .topbar .dropbtn {
-    background-color: dimgray;
-    color: white;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
+.dropdown-content button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
 
-  .topbar .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    padding: 0.5rem 0;
-    z-index: 1000;
-  }
+.dropdown-content button:hover {
+  background: var(--navitem-background);
+}
 
-  .topbar .dropdown-content button {
-    padding: 0.5rem 1rem;
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-  }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-  .topbar .dropdown-content button:hover {
-    background-color: #f0f0f0;
-  }
+.addButtonTop{
+  border-radius: 0;
+  background-color: var(--navitem-background);
+}
 
-  .topbar filter.dropdown:hover .dropdown-content {
-    display: block;
-  }
+.info {
+  display: none;
+  background-color: #f0f0f0;
+  width: 30vw;
+  border-left: 1px solid var(--navitem-border);
+}
 
-  .topbar .addIngredientBtn {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: dimgray;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  .topbar .addButtonTop {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: dimgray;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .grid-item {
-    width: 20%;
-    height: 140px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    border: 1px solid #bcc7d1;
-    box-sizing: border-box;
-  }
-
-  .info {
-    display: none;
-  }
-
-  .info.active {
-    display: block;
-  }
+.info.active {
+  display: block;
 }

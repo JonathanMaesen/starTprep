@@ -1,31 +1,24 @@
 <%- include('./partials/head') %>
-  <script type="module" src="scripts/foh.js" defer></script>
 
   <body class="foh">
     <%- include('./partials/nav') %>
-
-    <main>
-      <form>
-        <select name="sortOptions" id="">
-          <option value="default">default</option>
-          <option value="DESC" id="sortFloorDESC">DESC</option>
-          <option value="ASC" id="sortFloorASC">ASC</option>
-        </select>
-      </form>
-      <section id="floor">
-        <article class="grid-item">Tafel 1</article>
-        <article class="grid-item">Tafel 2</article>
-        <article class="grid-item">Tafel 3</article>
-        <article class="grid-item">Tafel 4</article>
-        <article class="grid-item">Tafel 5</article>
-      </section>
-
-      <aside class="buttons">
-        <a href="./menu"><button id="menuButton">Go to Menu</button></a>
-        <button class="sectionSelector" id="sortFloorInside">Inside</button>
-        <button class="sectionSelector" id="sortFloorOutside">Outside</button>
-      </aside>
-    </main>
+      <main>
+        <section class="foh-header">
+          <input type="text" name="Search" class="search" placeholder="Zoek...">
+          <select name="sortOptions" id="" class="nav-btn">
+            <option value="Filter">default</option>
+            <option value="DESC" id="sortFloorDESC">DESC</option>
+            <option value="ASC" id="sortFloorASC">ASC</option>
+          </select>
+          <button class="nav-btn" id="sortFloorInside">Binnen</button>
+          <button class="nav-btn" id="sortFloorOutside">Buiten</button>
+          <a href="./menu"><button id="menuButton" class="nav-btn">Menu</button></a>
+        </section>
+        <section id="floor" class="grid-container">
+          <article class="grid-item">Tafel 1</article>
+          <article class="grid-item">Tafel 2</article>
+        </section>
+      </main>
   </body>
 
   <%- include('./partials/footer') %>

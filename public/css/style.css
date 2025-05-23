@@ -1,6 +1,90 @@
+/* Tokens */
+
+:root {
+  --navitem-background: #fff;
+  --navitem-color: #4a5a6a;
+  --navitem-color-hover: #f5f5f5;
+  --navitem-border: #e0e0e0;  
+
+  --pad-block: clamp(0.75rem, 1.2vh + 0.5rem, 2rem);
+  --pad-inline: clamp(0.5rem, 1vw + 0.25rem, 1.5rem);
+  --tile-h: clamp(6rem, 10vh - 1rem, 10rem);
+
+}
+
+/* General Body */
+
+* {
+  font-family: 'Futura', sans-serif;
+  box-sizing: border-box;
+}
+
 body {
-  height: 100vh;
   width: 100vw;
   box-sizing: border-box;
-  font-family: 'Futura', sans-serif;
+  background: lightgray;
+  display: flex;
+}
+
+main {
+  overflow: scroll;
+  width: 100%;
+}
+
+/* grid */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--cell-size, 120px), 1fr));
+  max-height: 100%;
+  overflow-y: auto;
+  grid-auto-rows: var(--tile-h);
+}
+
+.grid-item {
+  background: var(--navitem-background);
+  color: var(--navitem-color);
+  text-decoration: none;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: var(--pad-block) var(--pad-inline);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.grid-item:hover {
+  background: var(--navitem-color-hover);
+}
+
+/* Buttons */
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navitem-background);
+  color: var(--navitem-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background .3s;
+  padding: var(--pad-block) var(--pad-inline);
+  border: 1px solid var(--navitem-border);
+}
+
+.nav-btn:hover {
+  background: var(--navitem-color-hover);
+}
+
+/* Searchbars */
+.search {
+  width: 100%;
+  max-width: 300px;
+  font-size: 1.5rem;
+  border: 1px solid var(--navitem-border);
 }
