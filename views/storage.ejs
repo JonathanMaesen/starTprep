@@ -6,18 +6,22 @@
 
       <main>
         <section class="topbar">
-          <input type="text" name="Search" class="search" placeholder="Zoek...">
-          <filter class="dropdown">
-            <button onclick="ShowFilter()" class="dropbtn">Filter</button>
-            <ul class="dropdown-content">
-              <button>Naam</button>
-              <button>Houdbaarheidsdatum</button>
-              <button>Voorraad</button>
-            </ul>
-          </filter>
+          <div class="left-group">
+            <input type="text" name="Search" class="search" placeholder="Zoek...">
+            <div class="dropdown">
+              <button onclick="ShowFilter()" class="dropbtn">Filter</button>
+              <ul class="dropdown-content">
+                <li><button>Naam</button></li>
+                <li><button>Houdbaarheidsdatum</button></li>
+                <li><button>Voorraad</button></li>
+              </ul>
+            </div>
+          </div>
+
           <a href="scanner.html"><button class="addIngredientBtn">Product toevoegen</button></a>
           <button class="addButtonTop">+</button>
         </section>
+
 
         <section class="ingrediënten">
           <section class="grid-container" id="gridContainer">

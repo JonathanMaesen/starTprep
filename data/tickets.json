@@ -1,128 +1,110 @@
 [
   {
-    "id": "TKT-1004",
-    "title": "Veggie Burger",
-    "description": "Vegetarische burger op een volkoren broodje.",
-    "status": "Gesloten",
-    "createdAt": "2025-05-04",
-    "updatedAt": "2025-05-05",
-    "extraCommentaar": "Klant vroeg zonder saus.",
-    "doneButton": true,
-    "allergenen": [
-      "gluten",
-      "lactose"
-    ],
-    "effectiefBesteld": [
-      "Veggie Burger"
-    ],
-    "supplementen": [
-      "Zonder saus"
-    ],
-    "extraTijd": null
+    "tafel": 1,
+    "uur": "18:00",
+    "gerechten": [
+      {
+        "titel": "Gegrilde Zalm",
+        "commentaar": "Geen saus, extra citroen"
+      }
+    ]
   },
   {
-    "id": "TKT-1006",
-    "title": "Croque Monsieur",
-    "description": "Geroosterd brood met ham en kaas.",
-    "status": "Open",
-    "createdAt": "2025-05-02",
-    "updatedAt": "2025-05-02",
-    "extraCommentaar": "Te bruin gebakken volgens klant.",
-    "doneButton": false,
-    "allergenen": [
-      "gluten",
-      "lactose"
-    ],
-    "effectiefBesteld": [
-      "Croque Monsieur"
-    ],
-    "supplementen": [
-      "Extra kaas",
-      "Zonder ham"
-    ],
-    "extraTijd": null
+    "tafel": 2,
+    "uur": "18:05",
+    "gerechten": [
+      {
+        "titel": "Vegetarische Lasagne",
+        "commentaar": "Opvallend: zonder kaas gevraagd"
+      },
+      {
+        "titel": "Tomatensoep",
+        "commentaar": "Glutenvrij broodje erbij"
+      }
+    ]
   },
   {
-    "id": "TKT-1007",
-    "title": "Poke Bowl Zalm",
-    "description": "Rijstbowl met gemarineerde zalm, avocado en groenten.",
-    "status": "In behandeling",
-    "createdAt": "2025-05-01",
-    "updatedAt": "2025-05-01",
-    "extraCommentaar": "Avocado was niet rijp.",
-    "doneButton": false,
-    "allergenen": [
-      "soja",
-      "sesam"
-    ],
-    "effectiefBesteld": [
-      "Poke Bowl Zalm"
-    ],
-    "supplementen": [
-      "Extra zalm"
-    ],
-    "extraTijd": "2m"
+    "tafel": 3,
+    "uur": "18:10",
+    "gerechten": [
+      {
+        "titel": "Steak Tartaar",
+        "commentaar": "Opvallend: goed doorbakken gevraagd"
+      }
+    ]
   },
   {
-    "id": "TKT-1008",
-    "title": "Lasagne",
-    "description": "Italiaanse ovenschotel met gehakt en bechamelsaus.",
-    "status": "Gesloten",
-    "createdAt": "2025-04-30",
-    "updatedAt": "2025-05-01",
-    "extraCommentaar": "",
-    "doneButton": true,
-    "allergenen": [
-      "gluten",
-      "lactose"
-    ],
-    "effectiefBesteld": [
-      "Lasagne"
-    ],
-    "supplementen": [],
-    "extraTijd": null
+    "tafel": 4,
+    "uur": "18:15",
+    "gerechten": [
+      {
+        "titel": "Kipfilet met champignonsaus",
+        "commentaar": "Zonder champignons"
+      }
+    ]
   },
   {
-    "id": "TKT-1009",
-    "title": "Wrap Kip",
-    "description": "Tortillawrap met kip, groenten en yoghurtsaus.",
-    "status": "Open",
-    "createdAt": "2025-04-29",
-    "updatedAt": "2025-04-30",
-    "extraCommentaar": "Vegan saus gevraagd.",
-    "doneButton": false,
-    "allergenen": [
-      "gluten",
-      "lactose"
-    ],
-    "effectiefBesteld": [
-      "Wrap Kip"
-    ],
-    "supplementen": [
-      "Vegan saus"
-    ],
-    "extraTijd": null
+    "tafel": 5,
+    "uur": "18:20",
+    "gerechten": [
+      {
+        "titel": "Caesarsalade",
+        "commentaar": "Opvallend: geen kip, extra croutons"
+      }
+    ]
   },
   {
-    "id": "TKT-1010",
-    "title": "Wafel met aardbeien",
-    "description": "Verse Brusselse wafel met aardbeien en slagroom.",
-    "status": "Open",
-    "createdAt": "2025-04-28",
-    "updatedAt": "2025-04-28",
-    "extraCommentaar": "Slagroom vergeten.",
-    "doneButton": false,
-    "allergenen": [
-      "gluten",
-      "ei",
-      "lactose"
-    ],
-    "effectiefBesteld": [
-      "Wafel met aardbeien"
-    ],
-    "supplementen": [
-      "Extra aardbeien"
-    ],
-    "extraTijd": null
+    "tafel": 6,
+    "uur": "18:25",
+    "gerechten": [
+      {
+        "titel": "Spaghetti Bolognese",
+        "commentaar": "Lactosevrij gevraagd"
+      }
+    ]
+  },
+  {
+    "tafel": 7,
+    "uur": "18:30",
+    "gerechten": [
+      {
+        "titel": "Rundscarpaccio",
+        "commentaar": "Zonder rucola"
+      },
+      {
+        "titel": "Pompoensoep",
+        "commentaar": "Opvallend: warm serveren, niet lauw"
+      }
+    ]
+  },
+  {
+    "tafel": 8,
+    "uur": "18:35",
+    "gerechten": [
+      {
+        "titel": "Vegetarische Burger",
+        "commentaar": "Met glutenvrij broodje"
+      }
+    ]
+  },
+  {
+    "tafel": 9,
+    "uur": "18:40",
+    "gerechten": [
+      {
+        "titel": "Geitenkaassalade",
+        "commentaar": "Opvallend: zonder noten"
+      }
+    ]
+  },
+  {
+    "tafel": 10,
+    "uur": "18:45",
+    "gerechten": [
+      {
+        "titel": "Paling in 't groen",
+        "commentaar": "Zonder look"
+      }
+    ]
   }
 ]
