@@ -20,7 +20,6 @@ router.get("/make", (req,res) => {
 });
 
 router.post("/make", async (req,res) => {
-console.log(req.body.id, req.body.amount);
 const id: string | null = typeof req.body.id == "string" ? req.body.id : null;
     if(id == null){
         return res.redirect("/floor");
