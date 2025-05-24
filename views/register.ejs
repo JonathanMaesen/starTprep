@@ -4,23 +4,27 @@
     <form action="/register" method="POST">
       <h1>Maak een account</h1>
       <div>
-        <label for="name">naam input</label>
+        <label for="name">Naam</label>
         <input type="text" name="name" id="Nameinput" required minlength="3"/>
       </div>
       <div>
-        <label>role input</label>
-        <input type="text" name="role" id="roleinput" required />
+        <label>Rol</label>
+        <select name="role" id="roleinput" required style="text-transform: lowercase;">
+          <% for( let rol of roles) { %>
+          <option value="<%= rol %>" style="text-transform: lowercase;" ><%= rol %></option>
+          <% } %>
+        </select>
       </div>
       <div>
-        <label>email:</label>
+        <label>Email</label>
         <input type="email" name="mail" id="emailinput" required />
       </div>
       <div>
-        <label>wachtwoord:</label>
+        <label>Wachtwoord</label>
         <input type="password" name="password" id="passwordinput" required minlength="10"/>
       </div>
       <div>
-        <label>verifier het wachtwoord</label>
+        <label>Verifier het wachtwoord</label>
         <input type="password" name="passwordinputsecond" id="passwordinputsecond" required  minlength="10"/>
       </div>
       <button type="submit" id="create_user">Account aanmaken</button>

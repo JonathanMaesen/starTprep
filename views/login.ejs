@@ -4,11 +4,11 @@
     <form action="/login" method="post">
     <h1>Login</h1>
     <div>
-      <label for="User_Name_Log_In">User name</label>
+      <label for="User_Name_Log_In">Naam</label>
       <input type="text" class="form-control" id="User_Name_Log_In" placeholder="User name" name="username" required>
     </div>
     <div>
-      <label for="User_Password_Log_In">password</label>
+      <label for="User_Password_Log_In">Wachtwoord</label>
       <input type="password" class="form-control" id="User_Password_Log_In" placeholder="Password" name="password" required>
     </div>
     <% if (e != "") { %>
@@ -16,7 +16,7 @@
       <%= e %>
     </div>
     <% } %>
-    <button type="submit" class="btn btn-primary">Log In</button>
+    <button type="submit" class="">Log In</button>
   </form>
 </body>
 <%- include('./partials/footer') %>
