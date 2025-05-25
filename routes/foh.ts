@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { floor } from "../data/datausages";
+import { deleteFloorElemenut, floor } from "../data/datausages";
 import { Floorelement } from "../data/types";
 import { pushFloorElement } from "../data/datausages";
 
@@ -65,12 +65,9 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", (req, res) => {
     const id = req.params.id;
-    const idx = floor.findIndex(t => t.follownummer === id);
+    deleteFloorElemenut(id);
 
-    if (idx === -1) return res.status(404).json({ error: "not found" });
-
-    floor.splice(idx, 1);
-    res.status(204).end();
+    res.redirect("/foh");
 });
 
 
