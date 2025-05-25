@@ -1,22 +1,30 @@
 <%- include('./partials/head') %>
-
+  <script type="module"  src="/scripts/foh.js" defer></script>
   <body class="foh">
     <%- include('./partials/nav') %>
       <main>
         <section class="foh-header">
-          <input type="text" name="Search" class="search" placeholder="Zoek...">
-          <select name="sortOptions" id="" class="nav-btn">
-            <option value="Filter">default</option>
-            <option value="DESC" id="sortFloorDESC">DESC</option>
-            <option value="ASC" id="sortFloorASC">ASC</option>
-          </select>
+          <form method="get" action="/foh">
+            <input type="text" name="q" class="search" placeholder="Zoek..." value="<%= q || '' %>" />
+          </form>
+          <form method="get" action="/foh">
+            <select name="sort" id="sort" class="search" onchange="this.form.submit()">
+              <option value="" hidden selected>sorteren</option>
+              <option value="asc">Asc</option>
+              <option value="desc">Desc</option>
+            </select>
+          </form>
           <button class="nav-btn" id="sortFloorInside">Binnen</button>
           <button class="nav-btn" id="sortFloorOutside">Buiten</button>
-          <a href="./menu"><button id="menuButton" class="nav-btn">Menu</button></a>
+          <form action="/foh" method="post"><button type="submit" class="search">+</button></form>
         </section>
         <section id="floor" class="grid-container">
-          <article class="grid-item">Tafel 1</article>
-          <article class="grid-item">Tafel 2</article>
+          <% for( let index=0; index < floorData.length; index++ ) { %>
+            <a href="/menu/:<%= floorData[index].follownummer %>" class="grid-item" data-id="<%= floorData[index].follownummer %>"> <span>Tafel: <%=
+                  floorData[index].follownummer %></span>
+            </a>
+            <% } %>
+
         </section>
       </main>
   </body>

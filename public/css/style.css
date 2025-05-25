@@ -253,4 +253,5 @@ main {
   max-width: 300px;
   font-size: 1.5rem;
   border: 1px solid var(--navitem-border);
+  padding: var(--pad-block) var(--pad-inline);
 }
