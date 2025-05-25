@@ -1,5 +1,5 @@
 import { getFirstElementMongoDbWithParameter, getSortedCollection, insertOneObjMongodb } from "./database";
-import { User, UserWeb } from "./types";
+import { role, User, UserWeb } from "./types";
 import bcrypt from "bcrypt";
 import env from "dotenv";
 import * as jwt from "jsonwebtoken";
@@ -41,7 +41,7 @@ export async function getUserInfobyname(name: string) {
     return response;
 }
 
-export async function createUser(name: string, role: string, password: string, mail: string) {
+export async function createUser(name: string, role: role, password: string, mail: string) {
     const users = await getSortedCollection("users", { id: -1 });
     const newid = users && users.length > 0 ? (users[0].id + 1) : 1;
     const hashedpassword: string = await bcrypt.hash(password, saltround);

@@ -33,10 +33,12 @@ export interface Floorelement {
     follownummer: string,
     amount: number
 }
+
+export type role = "ADMIN" | "KEUKEN" | "SERVEERSTER" | "DEVELOPER"
 export interface User {
     id: number,
     name: string,
-    role: string,
+    role: role,
     password: string,
     mail: string
 }
