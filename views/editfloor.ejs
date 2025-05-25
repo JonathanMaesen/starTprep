@@ -1,0 +1,29 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav') %>
+  <main class="centered">
+    <div class="p1 w80 flex-column h50 space-between">
+        <button type="button" onclick="window.location.pathname = '/floor/'" class="btn wmax-context mb1">Sluit</button>
+        <form id="update" action="/floor/update" method="post" class="f3">
+        <h2>Update tafel <%= floordata.follownummer %></h2>
+        <div>
+          <div>
+            <input type="number" id="follownummer" placeholder="follownummer" name="id" required value="<%= floordata.follownummer %>" readonly hidden>
+          </div>
+          <div class="flex-column">
+            <label for="amountstools">Aantal stoelen</label>
+            <input type="number" id="amountstools" placeholder="Aantal stoelen" name="amount" required value="<%= floordata.amount %>" class="p1 mb1">
+          </div>
+          
+        </form>
+        <form action="/floor/delete" method="post" id="delete">
+            <input type="number" id="follownummer" placeholder="follownummer" name="id" required value="<%= floordata.follownummer %>" readonly hidden>
+        </form>
+      </div>
+        <div class="flex-column-reverse flex">
+          <button form="delete" type="submit" class="btn btn-warning">Delete item</button>
+          <button form="update" type="submit" class="btn btn-success">update tafel</button>
+        </div>
+</main>
+  </body>
+  <%- include('./partials/footer') %>
