@@ -1,9 +1,10 @@
-import express, { Router } from "express";
+import express, { Router, NextFunction } from "express";
 import { deleteFloorElemenut, floor } from "../data/datausages";
 import { Floorelement } from "../data/types";
 import { pushFloorElement } from "../data/datausages";
 
 const router: Router = express.Router();
+
 
 export function sortByFollownumberASC(
     list: Floorelement[],
@@ -63,12 +64,11 @@ router.post("/", async (req, res) => {
     res.redirect("/foh");
 });
 
-router.delete("/:id", (req, res) => {
+router.post("/:id/delete", (req, res) => {
     const id = req.params.id;
     deleteFloorElemenut(id);
 
     res.redirect("/foh");
 });
-
 
 export default router;

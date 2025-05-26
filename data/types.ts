@@ -56,6 +56,11 @@ export interface Proteintype {
 export interface Categorytype {
     nameofcategorie: string
 }
+
+export interface Ticket {
+    follownummer: string,
+    dishes: Dish[],
+}
 // export interface Token{
 
 // }

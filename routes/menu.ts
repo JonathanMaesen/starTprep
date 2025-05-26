@@ -1,16 +1,21 @@
 import express, { Router } from "express";
-
-const router: Router = express.Router();
 import { floor } from "../data/datausages";
 import { Floorelement } from "../data/types";
 
-router.get("/:search", (req, res) => {
+const router: Router = express.Router();
 
-    const search = req.params.search.toLowerCase();
-    const table: Floorelement | undefined = floor.find(el => el.follownummer.toLowerCase() === search);
+
+router.get("/:search", async (req, res) => {
+    const search : string = req.params.search;
+
+    const chairCount: number =
+        table?.follownummer !== undefined ? Number.parseInt(String(table.follownummer), 10) : 0;
+
+    console.log(table)
     res.render("menu", {
         cssName: "menu",
-        table : table,
+        table: table,
+        chairCount: chairCount,
     });
 });
 
