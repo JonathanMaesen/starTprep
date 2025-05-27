@@ -33,10 +33,12 @@ export interface Floorelement {
     follownummer: string,
     amount: number
 }
+
+export type role = "ADMIN" | "KEUKEN" | "SERVEERSTER" | "DEVELOPER"
 export interface User {
     id: number,
     name: string,
-    role: string,
+    role: role,
     password: string,
     mail: string
 }
@@ -54,6 +56,17 @@ export interface Proteintype {
 export interface Categorytype {
     nameofcategorie: string
 }
+
+export interface Ticket {
+    follownummer: string,
+    chairAndDish: chairAndDish[],
+}
+
+export interface chairAndDish {
+    chair: number,
+    dish: Dish[]
+}
+
 // export interface Token{
 
 // }

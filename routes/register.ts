@@ -1,10 +1,14 @@
 import express, { Router } from "express";
 import { createUser } from "../data/user";
+import {role as Role} from "../data/types"
+import { resolve } from "path";
 
 const router: Router = express.Router();
 
+export const roleList: Role[] = ["ADMIN", "KEUKEN", "SERVEERSTER", "DEVELOPER"];
 router.get("/", (req, res) => {
     res.render("register", {
+        roles : roleList,
         cssName: "login"
     });
 });

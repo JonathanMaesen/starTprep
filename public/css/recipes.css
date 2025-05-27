@@ -1,0 +1,10 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+.topbar{
+    display: flex;
+}
+.popup-overlay{
+    display: none;
+}
