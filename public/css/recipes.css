@@ -1,29 +1,19 @@
-body {
+/* body {
   width: 100vw;
   box-sizing: border-box;
   background: lightgray;
   display: flex;
   flex-direction: column;
   margin: 0;
+} */
+
+.main {
+  display: flex;
 }
 
-main {
-  overflow-y: auto;
-  width: 100%;
-  flex: 1;
-}
-
+/* TOPBAR */
 .topbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0;
-  width: 90vw;
-  margin-left: 10vw;
 }
 
 .topbar select,
@@ -39,34 +29,62 @@ main {
   margin: 0;
 }
 
-.grid-container {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-rows: repeat(5, var(--tile-h));
-  overflow-y: hidden;
-  width: 90vw;
-  margin-left: 10vw;
-}
-
-.grid-item {
-  width: var(--cell-size, 150px);
-  height: var(--tile-h);
-  background: var(--navitem-background);
-  color: var(--navitem-color);
-  text-decoration: none;
-  border: 1px solid #e0e0e0;
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: var(--pad-block) var(--pad-inline);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background .3s;
+  align-items: center;
+  z-index: 1000;
 }
 
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
 
-.popup-overlay{
-    display: none;
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown {
+  margin-bottom: 15px;
+}
+
+.recipe-name-box,
+.info-box {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#ingredientenList,
+#bereidingswijzeList {
+  margin: 0;
+  padding-left: 20px;
 }
