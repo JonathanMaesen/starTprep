@@ -9,6 +9,7 @@
   --pad-block: clamp(0.75rem, 1.2vh + 0.5rem, 2rem);
   --pad-inline: clamp(0.5rem, 1vw + 0.25rem, 1.5rem);
   --tile-h: clamp(6rem, 10vh - 1rem, 10rem);
+
 }
 
 /* General Body */
@@ -127,6 +128,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--cell-size, 120px), 1fr));
   max-height: 100%;
+  max-width: 100%;
   overflow-y: auto;
   grid-auto-rows: var(--tile-h);
 }
@@ -146,6 +148,8 @@ main {
   font-size: 1rem;
   cursor: pointer;
   transition: background .3s;
+  aspect-ratio: 1;
+
 }
 
 .grid-item:hover {

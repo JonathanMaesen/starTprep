@@ -37,8 +37,29 @@ router.post("/:search/addChair", async (req, res) => {
     res.redirect(`/menu/${req.params.search}`);
 });
 
-router.post("/:search/removeDish", async (req, res) => {
-});
+router.post(
+    '/:tableId/removeDish/:dishId/:chair',
+    async (req, res) => {
+      const { tableId, dishId, chair } = req.params;
+      const bucket = ticket.chairAndDish.find(
+        c => c.chair === Number(chair)
+      );
+  
+      if (bucket) {
+        const idx = bucket.dish.findIndex(
+          d => d.dishId === Number(dishId)
+        );
+        if (idx !== -1) bucket.dish.splice(idx, 1);
+      }
+  
+      ticket.chairAndDish = ticket.chairAndDish.filter(
+        b => b.dish.length
+      );
+  
+      return res.redirect(`/menu/${tableId}`);
+    }
+  );
+  
 
 router.post("/:search/addDish/:dish/:chair", async (req, res) => {
     const tableId = req.params.search;
@@ -67,6 +88,26 @@ router.post("/:search/addDish/:dish/:chair", async (req, res) => {
     res.redirect(`/menu/${tableId}`);
 });
 
+router.post('/:tableId/removeChair/:chair', async (req, res) => {
+    const tableId = req.params.tableId;
+    const chair   = Number(req.params.chair);
+  
+    ticket.chairAndDish = ticket.chairAndDish
+      .filter(b => b.chair !== chair);
+  
+    ticket.chairAndDish.forEach(b => {
+      if (b.chair > chair) b.chair -= 1;
+    });
+  
+    const table = floor.find(t => t.follownummer === tableId);
+    if (table && table.amount > 0) {
+      table.amount -= 1;
+      updateFloorElement(tableId, table);
+    }
+  
+    return res.redirect(`/menu/${tableId}`);
+  });
+  
 
 
 export default router;

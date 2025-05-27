@@ -1,5 +1,4 @@
 <%- include('./partials/head') %>
-  <script src="/scripts/menu.js" defer></script>
 
   <body class="menu">
 
@@ -15,10 +14,8 @@
           <% } %>
       </section>
 
-      </section>
-
       <form action="/menu/<%= table.follownummer %>/addChair" method="post">
-        <button type="submit" class="btn nav-btn">
+        <button type="submit" class="btn">
           Stoel Toevoegen
         </button>
       </form>
@@ -36,15 +33,15 @@
           <% } %>
       </nav>
 
-      <section class="grid-container" id="menuContainer">
-          <% for (let i=0; i < dishes.length; i++) { %>
-            <form action="/menu/<%= table.follownummer %>/addDish/<%= dishes[i].name %>" method="post"
-              >
-              <button type="submit" class="grid-item nav-btn">
-                <%= dishes[i].name %>
-              </button>
-            </form>
-            <% } %>
+      <section class="grid-container menu" id="menuContainer">
+        <% for (let i=0; i < dishes.length; i++) { %>
+          <form action="/menu/<%= table.follownummer %>/addDish/<%= dishes[i].name %>" method="post"
+            class="dish-form .dish-btn">
+            <button type="submit" class="grid-item" data-dish='<%- JSON.stringify(dishes[i]) %>'>
+              <%= dishes[i].name %>
+            </button>
+          </form>
+          <% } %>
       </section>
     </main>
 
@@ -58,53 +55,51 @@
         <% } %>
           <% for( let i=0; i < table.amount; i++ ) { %>
             <% const entry=ticket.chairAndDish.find(c=> c.chair === i + 1) || { dish: [] }; %>
-              <div class="ticket-item">
+              <div class="ticket-item btn">
                 <h2>
                   <%= i + 1%>
                 </h2>
-                <% for (let j=0; j < entry.dish.length; j++) { %>
-                  <p>
-                    <%= entry.dish[j].name %>
-                  </p>
-                  <% } %>
 
-                    <form action="/menu/<%= table.follownummer %>/addDish" method="post">
+                <% for (let j=0; j < entry.dish.length; j++) { %>
+                  <section class="menu-item">
+                    <p>
+                      <%= entry.dish[j].name %>
+                    </p>
+                    <form action="/menu/<%= table.follownummer %>/removeDish/<%= entry.dish[j].dishId %>/<%= i + 1 %>"
+                      method="post">
+                      <button type="submit" class="btn-warning">X</button>
+                    </form>
+                  </section>
+                  <% } %>
+                    <form action="/menu/<%= table.follownummer %>/removeChair/<%= i + 1 %>" method="post">
                       <button type="submit" class="btn nav-btn">
-                        VERWIJDEREN
+                        Stoel verwijderen
                       </button>
                     </form>
                     </article>
-                    <% } %>
-                      <div class="ticket-nav" style="padding: 2rem;">
-                        <form action="/menu/<%= table.follownummer %>/addDish" method="post">
-                          <button type="submit" class="btn nav-btn">
-                            versturen
-                          </button>
-                        </form>
-                      </div>
+              </div>
+              <% } %>
+                <div class="ticket-nav" style="padding: 2rem;">
+                  <form action="/menu/<%= table.follownummer %>/addDish" method="post">
+                    <button type="submit" class="btn nav-btn">
+                      versturen
+                    </button>
+                  </form>
+                </div>
     </section>
 
-    <!-- ─── Modifier modal ──────────────────────────────────── -->
-    <section class="mod-menu modMenuItemWrapper" id="modMenu" style="display:none">
-      <h3 id="modItemTitle"></h3>
+    <div id="dishModal" class="modal-menu hidden">
+      <div class="modal-content">
+        <h2 id="dishTitle"></h2>
 
-      <div class="central-wrapper">
-        <section>
-          <h2>Notes</h2>
-          <textarea id="modMenuNotes" placeholder="Notes"></textarea>
-        </section>
-        <section>
-          <h2>Supplementen</h2>
-          <form id="modMenuSupplement"></form>
-        </section>
-      </div>
+        <p><strong>Categorieën:</strong> <span id="dishCats"></span></p>
+        <p><strong>Proteïne:</strong> <span id="dishProt"></span></p>
 
-      <div class="bottom-nav bottomNav">
-        <button class="nav-btn" id="cancelModifications">Cancel</button>
-        <button class="nav-btn" id="modItemAllergenBtn">Allergens</button>
-        <button class="nav-btn" id="saveModifications">Save</button>
+        <button id="closeDishModal" class="btn btn-warning">Sluiten</button>
       </div>
-    </section>
+    </div>
+
 
     <%- include('./partials/footer') %>
+      <script type="module" src="/scripts/menu.js"></script>
   </body>

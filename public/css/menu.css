@@ -61,6 +61,11 @@
     .menu-items {
         width: 100%;
     }
+    
+    .menu{
+        width: 100%;
+        height: 100%;
+    }
 
     /* ─── Ticket panel ─────────────────────────────────────── */
     .ticket-panel {
@@ -102,4 +107,11 @@
 
     #active-chair {
         border: 2px solid red
+    }
+    .menu-item{
+        gap: 1rem;
+        display: flex;
+    }
+    .hidden {
+        display:none;
     }
