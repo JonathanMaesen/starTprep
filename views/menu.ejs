@@ -1,79 +1,88 @@
 <%- include('./partials/head') %>
+  <script src="/scripts/menu.js" defer></script>
 
   <body class="menu">
 
     <!-- ─── Sidebar: Chair navigation ─────────────────────────── -->
     <aside class="sidebar">
-      <a href="/foh" class="btn nav-btn">Terug</a>
-
+      <h1 class="nav-btn" style="cursor:default">tafel: <%= table.follownummer %>
+      </h1>
       <section class="stool-list" id="stoolContainer">
-        <% for( let index = 0; index < chairCount; index++ ) { %>
-          <button class=" nav-btn"><%= index %></button>
-        <% } %>
+        <% for (let i=0; i < table.amount; i++) { %>
+          <button class="nav-btn stool-btn" id="chair-<%= i + 1 %>">
+            <%= i + 1 %>
+          </button>
+          <% } %>
       </section>
 
-      <button class="btn add-stool nav-btn" id="addStool">Stoel Toevoegen</button>
+      </section>
+
+      <form action="/menu/<%= table.follownummer %>/addChair" method="post">
+        <button type="submit" class="btn nav-btn">
+          Stoel Toevoegen
+        </button>
+      </form>
+      <a href="/foh" class="btn nav-btn">Terug</a>
     </aside>
 
     <!-- ─── Main menu grid ───────────────────────────────────── -->
     <main class="menu-container">
-      <nav class="menu-buttons">
-        <h2 class="table-number tableNR">Table NR HIER</h2>
-        <button class="nav-btn">VOORGERECHT</button>
-        <button class="nav-btn">HOOFDGERECHT</button>
-        <button class="nav-btn">DESSERT</button>
+      <nav id="menu-buttons">
+        <h1 class="nav-btn" style="cursor: default;">Menu</h1>
+        <% for( let i=0; i < dishmaster.categoryMaster.length; i++ ) { %>
+          <button class="nav-btn">
+            <%= dishmaster.categoryMaster[i] %>
+          </button>
+          <% } %>
       </nav>
 
-      <section class="grid-container menu-items" id="menuContainer">
-        <button class=" nav-btn grid-item ">STOOFVLEES</button>
-        <button class=" nav-btn grid-item">VEGETARISCHE LASAGNE</button>
-        <button class=" nav-btn grid-item">RISOTTO MET PADDENSTOELEN</button>
-        <button class=" nav-btn grid-item">ZALMFILET MET CITROEN</button>
+      <section class="grid-container" id="menuContainer">
+          <% for (let i=0; i < dishes.length; i++) { %>
+            <form action="/menu/<%= table.follownummer %>/addDish/<%= dishes[i].name %>" method="post"
+              >
+              <button type="submit" class="grid-item nav-btn">
+                <%= dishes[i].name %>
+              </button>
+            </form>
+            <% } %>
       </section>
     </main>
 
     <!-- ─── Ticket panel ─────────────────────────────────────── -->
-    <div class="ticket-wrapper">
-      <button class="nav-btn" id="displayTicket">Toon Ticket</button>
-
-      <section class="ticket-panel ticketContainer" id="ticketContainer">
-        <div id="tableOverview"></div>
-        <div id="priceCalculator"></div>
-
-        <div class="seat-list StoelFlex">
-          <div class="seat Stoel">
-            <h2>Stoel 1</h2>
-            <p>GEEN GERECHT GESELECTEERD</p>
-            <button class="nav-btn">VERWIJDEREN</button>
-          </div>
-          <div class="seat Stoel">
-            <h2>Stoel 2</h2>
-            <p>GEEN GERECHT GESELECTEERD</p>
-            <button class="nav-btn ">VERWIJDEREN</button>
-          </div>
-          <div class="seat Stoel">
-            <h2>Stoel 3</h2>
-            <p>GEEN GERECHT GESELECTEERD</p>
-            <button class="nav-btn ">VERWIJDEREN</button>
-          </div>
-          <div class="seat Stoel">
-            <h2>Stoel 4</h2>
-            <p>GEEN GERECHT GESELECTEERD</p>
-            <button class="nav-btn ">VERWIJDEREN</button>
-          </div>
-          <div class="seat Stoel">
-            <h2>Stoel 5</h2>
-            <p>GEEN GERECHT GESELECTEERD</p>
-            <button class="nav-btn ">VERWIJDEREN</button>
-          </div>
+    <section class="ticket-panel ticketContainer" id="ticketContainer">
+      <h1 class="" style="padding: 2rem;">TICKET</h1>
+      <% if (banner) { %>
+        <div class="alert alert-<%= banner.type === 'error' ? 'danger' : 'success' %>">
+          <%= banner.msg %>
         </div>
+        <% } %>
+          <% for( let i=0; i < table.amount; i++ ) { %>
+            <% const entry=ticket.chairAndDish.find(c=> c.chair === i + 1) || { dish: [] }; %>
+              <div class="ticket-item">
+                <h2>
+                  <%= i + 1%>
+                </h2>
+                <% for (let j=0; j < entry.dish.length; j++) { %>
+                  <p>
+                    <%= entry.dish[j].name %>
+                  </p>
+                  <% } %>
 
-        <div class="checkout Afrekenen">
-          <button class="nav-btn" id="downloadJson">Versturen</button>
-          <div class="price Price">0.00</div>
-        </div>
-      </section>
-    </div>
+                    <form action="/menu/<%= table.follownummer %>/addDish" method="post">
+                      <button type="submit" class="btn nav-btn">
+                        VERWIJDEREN
+                      </button>
+                    </form>
+                    </article>
+                    <% } %>
+                      <div class="ticket-nav" style="padding: 2rem;">
+                        <form action="/menu/<%= table.follownummer %>/addDish" method="post">
+                          <button type="submit" class="btn nav-btn">
+                            versturen
+                          </button>
+                        </form>
+                      </div>
+    </section>
 
     <!-- ─── Modifier modal ──────────────────────────────────── -->
     <section class="mod-menu modMenuItemWrapper" id="modMenu" style="display:none">

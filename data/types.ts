@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+
 export interface Ingredient {
     _id: ObjectId,
     id: number,
@@ -59,8 +60,15 @@ export interface Categorytype {
 
 export interface Ticket {
     follownummer: string,
-    dishes: Dish[],
+    chairAndDish: chairAndDish[],
 }
+
+export interface chairAndDish {
+    chair: number,
+    dish: Dish[]
+}
+
+
 // export interface Token{
 
 // }

@@ -9,7 +9,6 @@
   --pad-block: clamp(0.75rem, 1.2vh + 0.5rem, 2rem);
   --pad-inline: clamp(0.5rem, 1vw + 0.25rem, 1.5rem);
   --tile-h: clamp(6rem, 10vh - 1rem, 10rem);
-
 }
 
 /* General Body */
