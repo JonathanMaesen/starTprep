@@ -1,0 +1,99 @@
+/* Home page layout */
+main {
+  margin-left: 120px;
+  padding: 40px;
+  font-family: 'Futura', sans-serif;
+}
+
+/* Center dashboard vertically + horizontally */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dashboard card */
+.home .dashboard {
+  position: relative;
+  width: 600px;
+  padding: 80px 30px 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9)
+    url('/assets/logos/fulllogo.jpg')
+    top center / contain no-repeat;
+  background-blend-mode: lighten;
+  border-radius: 20px;
+}
+
+/* Optional decorative icon (hidden on desktop) */
+.home .dashboard-icon {
+  display: none;
+}
+
+/* Heading & copy */
+.home h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.home p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Stats grid */
+.home .stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.home .stat {
+  width: 140px;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home .stat .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.home .stat .label {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Action buttons */
+.home .actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.home .action-button {
+  width: 240px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  background: #dce3ea;
+  border: 1px solid #999;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.home .action-button:hover {
+  background: #e8edf2;
+}

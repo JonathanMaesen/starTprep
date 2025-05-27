@@ -33,20 +33,28 @@ export interface Floorelement {
     follownummer: string,
     amount: number
 }
-export interface User{
-    id : number,
+
+export type role = "ADMIN" | "KEUKEN" | "SERVEERSTER" | "DEVELOPER"
+export interface User {
+    id: number,
     name: string,
-    role: string,
-    password : string,
+    role: role,
+    password: string,
     mail: string
 }
 
-export interface Proteintype{
-    nameofprotein : string
+export interface UserWeb {
+    id: number,
+    name: string,
+    role: string
 }
 
-export interface Categorytype{
-    nameofcategorie : string
+export interface Proteintype {
+    nameofprotein: string
+}
+
+export interface Categorytype {
+    nameofcategorie: string
 }
 // export interface Token{
 

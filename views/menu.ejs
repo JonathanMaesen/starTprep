@@ -3,130 +3,102 @@
 
   <body class="menu">
 
-    <!-- Stool Container -->
-    <div class="stoolContainer">
-      <h2 id="tableNRContainer">Tafel</h2>
-      <h2>Stoel</h2>
-      <section id="stoolContainer">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
-        <button>5</button>
+    <!-- ─── Sidebar: Chair navigation ─────────────────────────── -->
+    <aside class="sidebar">
+      <a href="/foh" class="btn nav-btn">Terug</a>
+
+      <section class="stool-list" id="stoolContainer">
+        <button class=" nav-btn"><svg height="745pt" viewBox="-174 -23 745 745.0003" width="745pt" xmlns="http://www.w3.org/2000/svg" id="fi_1422079"><path d="m2.363281 696.855469h-13.359375v-311.875h36.464844zm46.28125-286.925781 1.84375-24.949219h203.648438l7.390625 24.949219zm323.925781 286.925781-82.332031-277.941407-10.066406-33.933593h35.671875l69.304688 311.875zm10.140626-683.867188-67.171876 347.039063h-326.535156v-12.472656c0-13.777344 11.167969-24.949219 24.953125-24.949219h261.972657c5.8125.007812 10.851562-4.003907 12.15625-9.667969l70.402343-305.078125c1.585938-6.496094 8.050781-10.554687 14.597657-9.171875 6.542968 1.3867188 10.804687 7.71875 9.625 14.300781zm0 0"></path></svg>1</button>
+        <button class=" nav-btn">2</button>
+        <button class=" nav-btn">3</button>
+        <button class=" nav-btn">4</button>
+        <button class=" nav-btn">5</button>
       </section>
-      <button id="addStool">Stoel Toevoegen</button>
-    </div>
 
-    <!-- Menu Navigation -->
-    <div class="menuNav">
-      <nav id="menuNav"></nav>
-    </div>
+      <button class="btn add-stool nav-btn" id="addStool">Stoel Toevoegen</button>
+    </aside>
 
-    <!-- Menu Container -->
-    <div class="menuContainer">
-      <h2 class="Title">Menu</h2>
-      <button>VOORGERECHT</button>
-      <button>HOOFDGERECHT</button>
-      <button>DESSERT</button>
-      <button class="ticket">TICKET</button>
-      <section id="menuContainer">
-        <button>STOOFVLEES</button>
-        <button>VEGETARISCHE LASAGNE</button>
-        <button>RISOTTO MET PADDENSTOELEN</button>
-        <button>ZALMFILET MET CITROEN</button>
+    <!-- ─── Main menu grid ───────────────────────────────────── -->
+    <main class="menu-container">
+      <nav class="menu-buttons">
+        <h2 class="table-number tableNR">Table NR HIER</h2>
+        <button class="nav-btn">VOORGERECHT</button>
+        <button class="nav-btn">HOOFDGERECHT</button>
+        <button class="nav-btn">DESSERT</button>
+      </nav>
+
+      <section class="grid-container menu-items" id="menuContainer">
+        <button class=" nav-btn grid-item ">STOOFVLEES</button>
+        <button class=" nav-btn grid-item">VEGETARISCHE LASAGNE</button>
+        <button class=" nav-btn grid-item">RISOTTO MET PADDENSTOELEN</button>
+        <button class=" nav-btn grid-item">ZALMFILET MET CITROEN</button>
       </section>
-    </div>
+    </main>
 
-    <!-- Ticket Container -->
-    <div class="ticketWrapper">
-      <button id="displayTicket">Toon Ticket</button>
-      <section id="ticketContainer" class="ticketContainer">
+    <!-- ─── Ticket panel ─────────────────────────────────────── -->
+    <div class="ticket-wrapper">
+      <button class="nav-btn" id="displayTicket">Toon Ticket</button>
+
+      <section class="ticket-panel ticketContainer" id="ticketContainer">
         <div id="tableOverview"></div>
         <div id="priceCalculator"></div>
-        <div class="StoelFlex">
-          <div class="Stoel">
+
+        <div class="seat-list StoelFlex">
+          <div class="seat Stoel">
             <h2>Stoel 1</h2>
             <p>GEEN GERECHT GESELECTEERD</p>
-            <button>VERWIJDEREN</button>
+            <button class="nav-btn">VERWIJDEREN</button>
           </div>
-          <div class="Stoel">
+          <div class="seat Stoel">
             <h2>Stoel 2</h2>
             <p>GEEN GERECHT GESELECTEERD</p>
-            <button>VERWIJDEREN</button>
+            <button class="nav-btn ">VERWIJDEREN</button>
           </div>
-          <div class="Stoel">
+          <div class="seat Stoel">
             <h2>Stoel 3</h2>
             <p>GEEN GERECHT GESELECTEERD</p>
-            <button>VERWIJDEREN</button>
+            <button class="nav-btn ">VERWIJDEREN</button>
           </div>
-          <div class="Stoel">
+          <div class="seat Stoel">
             <h2>Stoel 4</h2>
             <p>GEEN GERECHT GESELECTEERD</p>
-            <button>VERWIJDEREN</button>
+            <button class="nav-btn ">VERWIJDEREN</button>
           </div>
-          <div class="Stoel">
+          <div class="seat Stoel">
             <h2>Stoel 5</h2>
             <p>GEEN GERECHT GESELECTEERD</p>
-            <button>VERWIJDEREN</button>
+            <button class="nav-btn ">VERWIJDEREN</button>
           </div>
         </div>
-        <div class="Afrekenen">
-          <button id="downloadJson">Download JSON</button>
-          <button>Afrekenen</button>
-          <button class="Price">0.00</button>
-          <!-- ^^ ik weet dat dit raar is, maar fix het gewoon dat die niet lijkt op een knopje ofzo, ik kon het anders niet fixen. -->
+
+        <div class="checkout Afrekenen">
+          <button class="nav-btn" id="downloadJson">Versturen</button>
+          <div class="price Price">0.00</div>
         </div>
       </section>
     </div>
 
-    <!-- Modification Menu -->
-    <div class="modMenuItemWrapper" id="modMenu" style="display: none">
+    <!-- ─── Modifier modal ──────────────────────────────────── -->
+    <section class="mod-menu modMenuItemWrapper" id="modMenu" style="display:none">
       <h3 id="modItemTitle"></h3>
-      <div class="centralWrapper">
-        <section>
-          <h2>Notes</h2>
-          <textarea name="" id="modMenuNotes" placeholder="Notes"></textarea>
-        </section>
-        <section>
-          <h2>Supplementen</h2>
-          <form name="" id="modMenuSupplement"></form>
-        </section>
-      </div>
-      <div class="bottomNav">
-        <button class="cancelBtn" id="cancelModifications">Cancel</button>
-        <button class="allergenBtn" id="modItemAllergenBtn">Allergens</button>
-        <button class="doneBtn" id="saveModifications">Save</button>
-      </div>
-    </div>
-    <!-- Modification Menu -->
-    <div class="modMenuItemWrapper" id="modMenu" style="display: none">
-      <h3 id="modItemTitle"></h3>
-      <div class="centralWrapper">
-        <section>
-          <h2>Notes</h2>
-          <textarea name="" id="modMenuNotes" placeholder="Notes"></textarea>
-        </section>
-        <section>
-          <h2>Supplementen</h2>
-          <form name="" id="modMenuSupplement"></form>
-        </section>
-      </div>
-      <div class="bottomNav">
-        <button class="cancelBtn" id="cancelModifications">Cancel</button>
-        <button class="allergenBtn" id="modItemAllergenBtn">Allergens</button>
-        <button class="doneBtn" id="saveModifications">Save</button>
-      </div>
-    </div>
-  </body>
 
-  <%- include('./partials/footer') %>
+      <div class="central-wrapper">
+        <section>
+          <h2>Notes</h2>
+          <textarea id="modMenuNotes" placeholder="Notes"></textarea>
+        </section>
+        <section>
+          <h2>Supplementen</h2>
+          <form id="modMenuSupplement"></form>
+        </section>
+      </div>
+
+      <div class="bottom-nav bottomNav">
+        <button class="nav-btn" id="cancelModifications">Cancel</button>
+        <button class="nav-btn" id="modItemAllergenBtn">Allergens</button>
+        <button class="nav-btn" id="saveModifications">Save</button>
+      </div>
+    </section>
+
+    <%- include('./partials/footer') %>
+  </body>

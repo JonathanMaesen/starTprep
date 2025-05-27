@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import path from "path";
 import mainRoutes from "./routes/mainRoutes";
 import userRoutes from "./routes/login";
+import cookieParser from "cookie-parser";
 import { PORT } from "./config/config";
 import { closeConnection } from "./data/database";
 
@@ -10,15 +11,14 @@ const app: Express = express();
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser()); // Add cookie-parser middleware
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.set("views", path.join(__dirname, "views"));
 
-
 //routes
 app.use("/", mainRoutes);
-// app.use("/user", userRoutes); this is for when we start using logins correctly
 
 // middelware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {

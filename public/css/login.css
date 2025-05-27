@@ -1,0 +1,106 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e5ebf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form h1 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  text-align: center;
+  color: #2e3d4f;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 14px;
+  color: #2e3d4f;
+  font-weight: 600;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #cfd8e3;
+  border-radius: 4px;
+  background-color: #f8fafc;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #4c8ed9;
+  outline: none;
+}
+
+button {
+  background-color: #2e3d4f;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #445b73;
+}
+
+@media screen and (max-width: 700px) {
+  html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    background-color: white;
+    align-items: flex-start;
+  }
+
+  form {
+    width: 90vw;
+    height: 90vh;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  form h1 {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

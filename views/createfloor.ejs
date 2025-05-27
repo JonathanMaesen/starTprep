@@ -1,0 +1,28 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav') %>
+    <main class="centered">
+      <div class="p1 w80 flex-column h50 space-between">
+        <button type="button" onclick="window.location.pathname = '/floor/'" class="btn wmax-context mb1">Sluit</button>
+        <form action="/floor/make" method="post" class="f3" id="create">
+        <h2>Maak een tafel</h2>
+        <div>
+          <div class="flex-column">
+            <label for="amountstools">Geef de id</label>
+            <input type="number" id="follownummer" placeholder="id" name="id" required class="p1">
+          </div>
+          <div class="flex-column">
+            <label for="amountstools">Aantal stoelen</label>
+            <input type="number" id="amountstools" placeholder="Aantal stoelen" name="amount" required class="p1 mb1">
+          </div> 
+          <% if (e != "") { %>
+           <p style="color:red"><%= e %></p>
+          <% } %> 
+        </form>
+        </div>
+        <div class="flex-column-reverse">
+          <button form="create" type="submit" class="btn btn-success">update tafel</button>
+        </div>
+    </main>
+  </body>
+  <%- include('./partials/footer') %>

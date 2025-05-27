@@ -1,44 +1,38 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/storage.js" defer></script>
+  <script type="module" src="scripts/storage.js" defer></script>
 
-  <body class="storage">
+  <body>
     <%- include('./partials/nav') %>
-
-    <main>
-      <input type="text" name="Search" id="Search" placeholder="Zoek...">
-      <filter class="dropdown">
-        <button onclick="ShowFilter()" class="dropbtn">Filter</button>
-        <ul id="dropdown-content">
-          <button>Naam</button>
-          <button>Houdbaarheidsdatum</button>
-          <button>Voorraad</button>
-        </ul>
-      </filter>
-      <ul id="Ingrediënten">
-        <button onclick="ShowInfo()">
-          <img src="assets/opslag/placeholder.png" alt="">
-        </button>
-        <button onclick="ShowInfo()">
-          <img src="assets/opslag/placeholder.png" alt="">
-          <button class="Verlopen"></button>
-        </button>
-        <button onclick="Add()" id="AddButton">
-          <img src="assets/add button.png" alt="">
-        </button>
-      </ul>
-      <a href="scanner.html"><button class="btn btn-primary">Product toevoegen</button></a>
-    </main>
-    <side id="Info">
-      <p>Naam: </p>
-      <p>Recepten: </p>
-      <p>Afval: </p>
-      <p>
-        Hoeveelheid:
-        <button><img src="assets/opslag/minus.png" alt=""></button>
-        <button><img src="assets/opslag/plus.png" alt=""></button>
-      </p>
-      <p>Verval datum: </p>
-    </side>
-    <script src="scripts/opslag.js"></script>
+      <main>
+        <section class="topbar">
+          <section class="search-bar">
+            <input type="text" name="Search" class="search" placeholder="Zoek...">
+            <filter class="dropdown">
+              <button onclick="ShowFilter()" class="nav-btn">Filter</button>
+              <ul class="dropdown-content">
+                <button>Naam</button>
+                <button>Houdbaarheidsdatum</button>
+                <button>Voorraad</button>
+              </ul>
+            </filter>
+          </section>
+          <a href="#"><button class="nav-btn" >Scanner</button></a>
+          <button class="addButtonTop" class="nav-btn">+</button>
+        </section>
+        <section class="grid-container" id="gridContainer">
+        </section>
+      </main>
+      <side class="info">
+        <p>Naam: </p>
+        <p>Recepten: </p>
+        <p>Afval: </p>
+        <p>
+          Hoeveelheid:
+          <button class="minusBtn">-</button>
+          <button class="plusBtn">+</button>
+        </p>
+        <p>Verval datum: </p>
+      </side>
+      <script src="scripts/opslag.js"></script>
   </body>
   <%- include('./partials/footer') %>

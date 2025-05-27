@@ -360,7 +360,7 @@ export async function updateFloorElement(follownummer: string, updateData: Parti
                 { follownummer: follownummer },
                 { $set: updateData }
             );
-            getFloor();
+            await getFloor();
         }
     } catch (e) {
         console.error(e);

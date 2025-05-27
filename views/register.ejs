@@ -1,22 +1,33 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/register.js" defer></script>
+  <script type="module" src="scripts/register.js" defer></script>
   <body class="register">
-    <script src="scripts/register.js" defer></script>
-    <article>
-      <form action="/register" method="POST">
-        <p>naam input</p>
-        <input type="text" name="name" id="Nameinput" required/>
-        <p>role input</p>
-        <input type="text" name="role" id="roleinput" required/>
-        <p>email:</p>
-        <input type="email" name="mail" id="emailinput" required/>
-        <p>wachtwoord:</p>
-        <input type="password" name="password" id="passwordinput" required/>
-        <div class="notifpass"></div>
-        <p>verifier het wachtwoord</p>
-        <input type="password" name="passwordinputsecond" id="passwordinputsecond" required/>
-        <button type="submit" id="create_user">Account aanmaken</button>
-      </form>
-    </article>
+    <form action="/register" method="POST">
+      <h1>Maak een account</h1>
+      <div>
+        <label for="name">Naam</label>
+        <input type="text" name="name" id="Nameinput" required minlength="3"/>
+      </div>
+      <div>
+        <label>Rol</label>
+        <select name="role" id="roleinput" required style="text-transform: lowercase;">
+          <% for( let rol of roles) { %>
+          <option value="<%= rol %>" style="text-transform: lowercase;" ><%= rol %></option>
+          <% } %>
+        </select>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="mail" id="emailinput" required />
+      </div>
+      <div>
+        <label>Wachtwoord</label>
+        <input type="password" name="password" id="passwordinput" required minlength="10"/>
+      </div>
+      <div>
+        <label>Verifier het wachtwoord</label>
+        <input type="password" name="passwordinputsecond" id="passwordinputsecond" required  minlength="10"/>
+      </div>
+      <button type="submit" id="create_user">Account aanmaken</button>
+    </form>
   </body>
-<%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>
