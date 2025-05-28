@@ -14,13 +14,11 @@
               <option value="desc">Desc</option>
             </select>
           </form>
-          <button class="nav-btn" id="sortFloorInside">Binnen</button>
-          <button class="nav-btn" id="sortFloorOutside">Buiten</button>
           <form action="/foh" method="post"><button type="submit" class="search">+</button></form>
         </section>
         <section id="floor" class="grid-container">
           <% for( let index=0; index < floorData.length; index++ ) { %>
-            <a href="/menu/:<%= floorData[index].follownummer %>" class="grid-item" data-id="<%= floorData[index].follownummer %>"> <span>Tafel: <%=
+            <a href="/menu/<%= floorData[index].follownummer %>" class="grid-item" data-id="<%= floorData[index].follownummer %>"> <span>Tafel: <%=
                   floorData[index].follownummer %></span>
             </a>
             <% } %>
