@@ -306,7 +306,6 @@ main {
   max-height: 100%;
   max-width: 100%;
   overflow-y: auto;
-  grid-auto-rows: var(--tile-h);
 }
 
 .grid-item {
