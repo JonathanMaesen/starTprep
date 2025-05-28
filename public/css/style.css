@@ -365,6 +365,16 @@ main {
   justify-content: space-between;
 }
 
+.space-grow {
+  display: flex;          
+  justify-content: space-between; 
+}
+
+.space-grow > * {
+  flex: 1;               
+  min-width: 0;            
+}
+
 /* Buttons */
 
 .nav-btn {
