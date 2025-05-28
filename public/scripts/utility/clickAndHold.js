@@ -27,3 +27,4 @@ export class ClickAndHold {
         clearTimeout(this.activeHoldTimeoutId);
     }
 };
+export default ClickAndHold;

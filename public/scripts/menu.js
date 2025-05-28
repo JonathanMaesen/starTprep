@@ -1,4 +1,5 @@
-import ClickAndHold from "./utility/clickAndHold"
+import ClickAndHold from "./utility/clickAndHold.js"
+
 const HIGHLIGHT_ID = 'active-chair';
 
 document.querySelectorAll('#stoolContainer .stool-btn')
