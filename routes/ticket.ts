@@ -1,48 +1,70 @@
 import express, { Router } from "express";
-import fs from "fs";
-import path from "path";
+import {
+  getAllDataMongoDB,
+  insertOneObjMongodb,
+  deleteElement
+} from "../data/database";
+import { Ticket } from "../data/types";
 
 const router: Router = express.Router();
-const jsonPath = path.join(process.cwd(), "data", "tickets.json");
+const COLLECTION = "tickets";
 
 router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
-function readTickets(): any[] {
-  if (!fs.existsSync(jsonPath)) return [];
+// GET /ticket — Toon alle tickets
+router.get("/", async (req, res) => {
   try {
-    const raw = fs.readFileSync(jsonPath, "utf-8");
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+    const tickets: Ticket[] = await getAllDataMongoDB(COLLECTION);
+    res.render("ticket", { tickets, cssName: "ticket" });
+  } catch (err) {
+    console.error("❌ Fout bij ophalen tickets:", err);
+    res.status(500).send("Fout bij ophalen tickets");
   }
-}
-
-function writeTickets(tickets: any[]): boolean {
-  try {
-    fs.writeFileSync(jsonPath, JSON.stringify(tickets, null, 2), "utf-8");
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-router.get("/", (req, res) => {
-  const tickets = readTickets();
-  res.render("ticket", { tickets, cssName: "ticket" });
 });
 
-router.post("/delete", (req, res) => {
-  const ticketId = req.body.ticketId;
-  if (!ticketId) return res.status(400).send("Missing ticket ID");
+// POST /ticket/add — Voeg een nieuw ticket toe
+router.post("/add", async (req, res) => {
+  try {
+    const { follownummer, chairAndDish } = req.body;
 
-  const current = readTickets();
-  const updated = current.filter(t => t.id !== ticketId);
+    if (!follownummer || !chairAndDish) {
+      return res.status(400).send("Follownummer of gerechten ontbreken");
+    }
 
-  if (updated.length === current.length) return res.status(404).send("Not found");
-  if (!writeTickets(updated)) return res.status(500).send("Failed to write");
+    const parsedChairAndDish =
+      typeof chairAndDish === "string"
+        ? JSON.parse(chairAndDish)
+        : chairAndDish;
 
-  return res.sendStatus(200);
+    const newTicket: Ticket = {
+      follownummer,
+      chairAndDish: parsedChairAndDish,
+    };
+
+    await insertOneObjMongodb(COLLECTION, newTicket);
+    res.redirect("/ticket");
+  } catch (err) {
+    console.error("❌ Fout bij toevoegen ticket:", err);
+    res.status(500).send("Fout bij toevoegen ticket");
+  }
+});
+
+// POST /ticket/delete — Verwijder een ticket op basis van follownummer
+router.post("/delete", async (req, res) => {
+  const { follownummer } = req.body;
+  if (!follownummer) return res.status(400).send("Follownummer ontbreekt");
+
+  try {
+    const result = await deleteElement(COLLECTION, { follownummer });
+    if (!result || result.deletedCount === 0) {
+      return res.status(404).send("Ticket niet gevonden");
+    }
+    res.sendStatus(200);
+  } catch (err) {
+    console.error("❌ Fout bij verwijderen ticket:", err);
+    res.status(500).send("Fout bij verwijderen ticket");
+  }
 });
 
 export default router;

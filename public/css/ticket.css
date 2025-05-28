@@ -21,7 +21,7 @@
 }
 
 .ticket-card.selected {
-  border: 2px solid #c0392b;
+  border: 2px solid #000000;
   box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.2);
 }
 
