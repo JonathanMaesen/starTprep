@@ -1,36 +1,38 @@
 <%- include('./partials/head') %>
+<script type="module" src="scripts/recipes.js" defer></script>
   <body class="recipes">
-    <%- include('./partials/nav') %>
-    <main>
-
+    
+    <%- include('partials/nav') %>
+    <div class="main">
     <!-- Topbar -->
     <section class="topbar">
-      <input type="text" name="Search" class="search" placeholder="Zoek...">
-
-      <select name="filterOptions" id="filterOptions" class="nav-btn">
-        <option value="default">Filter</option>
+      <select name="filterOptions" id="filterOptions">
+        <option value="default">FILTER</option>
       </select>
-      <button id="addButtonTop" class="nav-btn">+</button>
+
+      <form action="/recipes/add-item" method="POST">
+        <button type="submit">+</button>
+      </form>
     </section>
 
     <!-- Grid -->
     <section class="grid-container" id="gridContainer">
-      <article class="grid-item">Recipe1</article>
-      <article class="grid-item">Recipe2</article>
-      <article class="grid-item">Recipe3</article>
+      <% gridItems.forEach(item => { %>
+        <article class="grid-item"><%= item.title %></article>
+      <% }) %>
     </section>
 
     <!-- Popup -->
-    <section class="popup-overlay" id="popupOverlay">
+    <section class="popup-overlay" id="popupOverlay" style="display:none;">
       <article class="popup-content">
-        <span class="close-btn" id="closePopup">&times;</span>
+        <button id="closePopup" class="close-btn">&times;</button>
+
+        <section class="search-container">
+          <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." autocomplete="off" />
+          <article id="searchResults" class="dropdown"></article>
+        </section>
 
         <main class="recipe-info">
-          <section class="search-container">
-            <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." />
-            <article id="searchResults" class="dropdown"></article>
-          </section>
-
           <section class="recipe-name-box">
             <label>Gerechtsnaam:</label>
             <span id="recipeName"></span>
@@ -38,14 +40,8 @@
 
           <section class="ingredients-preparation">
             <article class="info-box ingredienten-box">
-              <label>IngrediëntenLijst:</label>
+              <label>Ingrediënten:</label>
               <ul id="ingredientenList"></ul>
-
-              <article class="plusmin-box">
-                <button id="minusBtn">-</button>
-                <span id="quantity">1</span>
-                <button id="plusBtn">+</button>
-              </article>
             </article>
 
             <article class="info-box">
@@ -53,20 +49,9 @@
               <ol id="bereidingswijzeList"></ol>
             </article>
           </section>
-
-          <section class="price-container">
-            <article class="price-box">
-              <label>AankoopPrijs:</label>
-              <span id="aankoopPrijs"></span>
-            </article>
-            <article class="price-box">
-              <label>VerkoopPrijs:</label>
-              <span id="verkoopPrijs"></span>
-            </article>
-          </section>
         </main>
       </article>
     </section>
-  </main>
+  </div>
   </body>
 <%- include('./partials/footer') %>

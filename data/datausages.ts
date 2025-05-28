@@ -59,7 +59,7 @@ async function getDataIngredients() {
 /**
  * Fetches all dish data from the "dishes" collection and sets it to the dishes array.
  */
-async function getDishes() {
+export async function getDishes() {
     const data: Dish[] | undefined = await getAllDataMongoDB("dishes");
     if (data) {
         dishes = data;
