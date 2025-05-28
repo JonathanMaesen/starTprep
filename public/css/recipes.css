@@ -9,14 +9,24 @@
 
 .main {
   display: flex;
+  flex-direction: column;
 }
 
 /* TOPBAR */
 .topbar {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90vw;
 }
 
-.topbar select,
+.topbar select{
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
 .topbar button {
   height: 2.5rem;
   padding: 0 1rem;
