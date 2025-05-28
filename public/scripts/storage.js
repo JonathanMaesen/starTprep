@@ -1,112 +1,83 @@
-let showFilter = false;
-let ingredients = [];
-
-function ShowFilter() {
-    const filter = document.querySelector(".dropdown-content");
-    if (filter) {
-        if (showFilter) {
-            filter.style.display = "none";
-        } else {
-            filter.style.display = "block";
-        }
-        showFilter = !showFilter;
-    }
-}
-
-function sortByName() {
-    ingredients.sort((a, b) => a.name.localeCompare(b.name));
-    renderIngredients();
-}
-
-function sortByExpiryDate() {
-    ingredients.sort((a, b) => new Date(a.expiryDate) - new Date(b.expiryDate));
-    renderIngredients();
-}
-
-function sortByQuantity() {
-    ingredients.sort((a, b) => a.quantity - b.quantity);
-    renderIngredients();
-}
-
-function renderIngredients() {
-    const gridContainer = document.getElementById("gridContainer");
-    if (gridContainer) {
-        gridContainer.innerHTML = "";
-        ingredients.forEach(ingredient => {
-            const ingredientElement = document.createElement("article");
-            ingredientElement.className = "grid-item";
-            ingredientElement.textContent = ingredient.name;
-            ingredientElement.addEventListener("click", () => toggleInfo(ingredient));
-            gridContainer.appendChild(ingredientElement);
-        });
-    }
-}
-
-function toggleInfo(ingredient) {
+function toggleInfo() {
     const info = document.querySelector(".info");
-    if (info) {
-        info.innerHTML = `
-            <p>Naam: ${ingredient.name}</p>
-            <p>Recepten: </p>
-            <p>Afval: </p>
-            <p>
-                Hoeveelheid:
-                <button class="minusBtn">-</button>
-                <button class="plusBtn">+</button>
-            </p>
-            <p>Verval datum: ${ingredient.expiryDate}</p>
-        `;
-        info.style.display = "block";
+    info.classList.toggle("show");
+}
+
+function toggleInfoOn() {
+    const info = document.querySelector(".info");
+    const on = info.classList.contains("show");
+    if (!on) {
+        info.classList.toggle("show");
     }
 }
 
-async function addIngredient() {
-    try {
-        const response = await fetch("/storage/add", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ name: "New Ingredient", expiryDate: "N/A", quantity: 0 }),
-        });
 
-        if (response.ok) {
-            const result = await response.json();
-            console.log(result.message);
-
-            const newIngredient = { name: "New Ingredient", expiryDate: "N/A", quantity: 0 };
-            ingredients.push(newIngredient);
-            renderIngredients();
-        } else {
-            console.error("Failed to add ingredient");
-        }
-    } catch (error) {
-        console.error("Error adding ingredient:", error);
+function toggleInfoOf() {
+    const info = document.querySelector(".info");
+    const on = info.classList.contains("show");
+    if(on){
+        info.classList.toggle("show");
     }
 }
 
-window.ShowFilter = ShowFilter;
-window.toggleInfo = toggleInfo;
-window.addIngredient = addIngredient;
+async function getRenderUrl(string) {
+    const data = await fetch(string);
+    const html = await data.text();
+    document.querySelector(".info").innerHTML = html;
+    toggleInfoOn();
+}
 
-document.querySelectorAll(".dropdown-content button").forEach(button => {
-    button.addEventListener("click", (event) => {
-        const filterType = event.target.textContent;
-        if (filterType === "Naam") {
-            sortByName();
-        } else if (filterType === "Houdbaarheidsdatum") {
-            sortByExpiryDate();
-        } else if (filterType === "Voorraad") {
-            sortByQuantity();
+async function getRenderIngredient(naam) {
+    const response = await fetch(`/storage/edit?name=${encodeURIComponent(naam)}`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json'
         }
     });
-});
+    const text = await response.text();
+    document.querySelector(".info").innerHTML = text;
+    toggleInfoOn();
+}
 
-document.querySelector(".addButtonTop").addEventListener("click", addIngredient);
+async function getRenderIngredientBar() {
+    const response = await fetch(`/storage/editbar`, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+    const text = await response.text();
+    document.querySelector(".info").innerHTML = text;
+    toggleInfoOn();
+}
 
-ingredients = [
-    { name: "Ingredient1", expiryDate: "2023-12-31", quantity: 10 },
-    { name: "Ingredient3", expiryDate: "2023-11-30", quantity: 5 },
-    { name: "Ingredient2", expiryDate: "2023-10-15", quantity: 20 },
-];
-renderIngredients();
+async function getfiltered() {
+    const query = document.getElementById("search").value;
+    const gridcontainer = document.getElementById("gridContainer");
+    if(query != ""){
+    const data = await fetch(`/storage/filter/${query}`);
+    const html = await data.text();
+    gridcontainer.innerHTML = html;
+    } else if(gridcontainer.innerHTML == ""){
+        location.reload();
+    }
+}
+
+async function handleBarcodeSubmit(event) {
+    event.preventDefault();
+    const barcodeInput = document.getElementById('barcodeInput');
+    const barcode = barcodeInput.value;
+    
+    const response = await fetch('/storage/editbar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+        },
+        body: `barcode=${encodeURIComponent(barcode)}`
+    });
+    
+    const text = await response.text();
+    document.querySelector(".info").innerHTML = text;
+    toggleInfoOn();
+}

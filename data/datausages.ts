@@ -36,7 +36,6 @@ export async function makeDishmaster() {
     try {
         await getCategoryMaster();
         await getProteinMaster();
-        console.log(dishmaster);
     } catch (error) {
         console.error("failed making the dish");
         console.error(error);
@@ -102,11 +101,11 @@ export async function pushIngredient(objin: Ingredient) {
  * 
  * @param categorieMasterNew - The categorieMasterNew string to add.
  */
-export async function pushCategorieMaster(categorieMasterNew:string) {
-    try{
+export async function pushCategorieMaster(categorieMasterNew: string) {
+    try {
         dishmaster.categoryMaster.push(categorieMasterNew);
         await insertOneObjMongodb("categories", categorieMasterNew);
-    } catch (e){
+    } catch (e) {
         console.error(e);
     }
 }
@@ -116,7 +115,7 @@ export async function pushCategorieMaster(categorieMasterNew:string) {
  * 
  * @param proteinMasterNew - The proteinMasterNew string to add.
  */
-export async function pushProteinMaster(proteinMasterNew:string) {
+export async function pushProteinMaster(proteinMasterNew: string) {
     try {
         dishmaster.proteinTypeMaster.push(proteinMasterNew);
         await insertOneObjMongodb("proteinname", proteinMasterNew);
@@ -364,6 +363,28 @@ export async function updateFloorElement(follownummer: string, updateData: Parti
         }
     } catch (e) {
         console.error(e);
+    }
+}
+
+/**
+ * Find a single `Floorelement` whose `follownummer` field matches the value
+ * supplied.
+ *
+ * @param follownummer – the value of the `follownummer` field to look up
+ * @returns the matching document or `null` when no match is found
+ */
+export async function findFloorElement(
+    follownummer: string,
+): Promise<Floorelement | null> {
+    try {
+        const collection = await getCollectionObj("floor");
+        if (!collection) return null;
+        const doc = await collection.findOne<Floorelement>({ follownummer });
+        console.log({ searchedFor: follownummer, result: doc });
+        return doc as Floorelement | null;
+    } catch (e) {
+        console.error(e);
+        return null;
     }
 }
 

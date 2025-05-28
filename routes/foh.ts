@@ -1,9 +1,10 @@
-import express, { Router } from "express";
-import { floor } from "../data/datausages";
+import express, { Router, NextFunction } from "express";
+import { deleteFloorElemenut, floor } from "../data/datausages";
 import { Floorelement } from "../data/types";
 import { pushFloorElement } from "../data/datausages";
 
 const router: Router = express.Router();
+
 
 export function sortByFollownumberASC(
     list: Floorelement[],
@@ -63,15 +64,11 @@ router.post("/", async (req, res) => {
     res.redirect("/foh");
 });
 
-router.delete("/:id", (req, res) => {
+router.post("/:id/delete", (req, res) => {
     const id = req.params.id;
-    const idx = floor.findIndex(t => t.follownummer === id);
+    deleteFloorElemenut(id);
 
-    if (idx === -1) return res.status(404).json({ error: "not found" });
-
-    floor.splice(idx, 1);
-    res.status(204).end();
+    res.redirect("/foh");
 });
-
 
 export default router;

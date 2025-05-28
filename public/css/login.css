@@ -81,12 +81,12 @@ button:hover {
   }
 
   form {
-    width: 90vw;
-    height: 90vh;
+    width: 100vw;
+    height: 100vh;
     max-width: none;
     border-radius: 0;
     box-shadow: none;
-    padding: 20px;
+    padding: 5vw;
     justify-content: center;
   }
 

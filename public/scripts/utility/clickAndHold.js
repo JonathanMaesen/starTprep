@@ -26,4 +26,4 @@ export class ClickAndHold {
         this.isHeld = false;
         clearTimeout(this.activeHoldTimeoutId);
     }
-}
+};
