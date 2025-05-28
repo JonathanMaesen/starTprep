@@ -1,25 +1,21 @@
 <%- include('./partials/head') %>
-  <script type="module" src="scripts/storage.js" defer></script>
+  <script src="scripts/storage.js" defer></script>
 
   <body>
     <%- include('./partials/nav') %>
       <main>
-        <section class="topbar">
-          <section class="search-bar">
-            <input type="text" name="Search" class="search" placeholder="Zoek...">
-            <filter class="dropdown">
-              <button onclick="ShowFilter()" class="nav-btn">Filter</button>
-              <ul class="dropdown-content">
-                <button>Naam</button>
-                <button>Houdbaarheidsdatum</button>
-                <button>Voorraad</button>
-              </ul>
-            </filter>
-          </section>
-          <a href="#"><button class="nav-btn" >Scanner</button></a>
-          <button class="addButtonTop" class="nav-btn">+</button>
+        <section class="topbar flex space-grow">
+            <input type="text" name="Search" class="search" placeholder="Zoek..." id="search">
+            <button class="btn" onclick="getfiltered()">zoek</button>
+            <button class=" btn" onclick="getRenderUrl('storage/add')">+</button>
+            <button class="btn" onclick="getRenderIngredientBar()">scanner</button>
         </section>
         <section class="grid-container" id="gridContainer">
+          <% for( let element of ingredients ) { %>
+            <div class="grid-item" onclick="getRenderIngredient('<%= element.name %>')">
+              <%= element.name %>
+            </div>
+          <% } %>
         </section>
       </main>
       <side class="info">
@@ -33,6 +29,5 @@
         </p>
         <p>Verval datum: </p>
       </side>
-      <script src="scripts/opslag.js"></script>
   </body>
   <%- include('./partials/footer') %>

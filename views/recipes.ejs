@@ -1,72 +1,60 @@
 <%- include('./partials/head') %>
+  <script type="module" src="scripts/recipes.js" defer></script>
+
   <body class="recipes">
-    <%- include('./partials/nav') %>
-    <main>
 
-    <!-- Topbar -->
-    <section class="topbar">
-      <input type="text" name="Search" class="search" placeholder="Zoek...">
+    <%- include('partials/nav') %>
+      <div class="main">
+        <!-- Topbar -->
+        <section class="topbar">
+          <select name="filterOptions" id="filterOptions">
+            <option value="default">FILTER</option>
+          </select>
 
-      <select name="filterOptions" id="filterOptions" class="nav-btn">
-        <option value="default">Filter</option>
-      </select>
-      <button id="addButtonTop" class="nav-btn">+</button>
-    </section>
+          <form action="/recipes/add-item" method="POST">
+            <button type="submit">+</button>
+          </form>
+        </section>
 
-    <!-- Grid -->
-    <section class="grid-container" id="gridContainer">
-      <article class="grid-item">Recipe1</article>
-      <article class="grid-item">Recipe2</article>
-      <article class="grid-item">Recipe3</article>
-    </section>
-
-    <!-- Popup -->
-    <section class="popup-overlay" id="popupOverlay">
-      <article class="popup-content">
-        <span class="close-btn" id="closePopup">&times;</span>
-
-        <main class="recipe-info">
-          <section class="search-container">
-            <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." />
-            <article id="searchResults" class="dropdown"></article>
-          </section>
-
-          <section class="recipe-name-box">
-            <label>Gerechtsnaam:</label>
-            <span id="recipeName"></span>
-          </section>
-
-          <section class="ingredients-preparation">
-            <article class="info-box ingredienten-box">
-              <label>IngrediëntenLijst:</label>
-              <ul id="ingredientenList"></ul>
-
-              <article class="plusmin-box">
-                <button id="minusBtn">-</button>
-                <span id="quantity">1</span>
-                <button id="plusBtn">+</button>
-              </article>
+        <!-- Grid -->
+        <section class="grid-container" id="gridContainer">
+          <% gridItems.forEach(item=> { %>
+            <article class="grid-item">
+              <%= item.title %>
             </article>
+            <% }) %>
+        </section>
 
-            <article class="info-box">
-              <label>Bereidingswijze:</label>
-              <ol id="bereidingswijzeList"></ol>
-            </article>
-          </section>
+        <!-- Popup -->
+        <section class="popup-overlay" id="popupOverlay" style="display:none;">
+          <article class="popup-content">
+            <button id="closePopup" class="close-btn">&times;</button>
 
-          <section class="price-container">
-            <article class="price-box">
-              <label>AankoopPrijs:</label>
-              <span id="aankoopPrijs"></span>
-            </article>
-            <article class="price-box">
-              <label>VerkoopPrijs:</label>
-              <span id="verkoopPrijs"></span>
-            </article>
-          </section>
-        </main>
-      </article>
-    </section>
-  </main>
+            <section class="search-container">
+              <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." autocomplete="off" />
+              <article id="searchResults" class="dropdown"></article>
+            </section>
+
+            <main class="recipe-info">
+              <section class="recipe-name-box">
+                <label>Gerechtsnaam:</label>
+                <span id="recipeName"></span>
+              </section>
+
+              <section class="ingredients-preparation">
+                <article class="info-box ingredienten-box">
+                  <label>Ingrediënten:</label>
+                  <ul id="ingredientenList"></ul>
+                </article>
+
+                <article class="info-box">
+                  <label>Bereidingswijze:</label>
+                  <ol id="bereidingswijzeList"></ol>
+                </article>
+              </section>
+            </main>
+          </article>
+        </section>
+      </div>
   </body>
-<%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>

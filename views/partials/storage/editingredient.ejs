@@ -1,0 +1,32 @@
+<form action="/storage/edit" method="post" class="p2 flex-column space-between fp">
+     <input type="number" name="id" required value="<%= data.id %>" readonly hidden>
+    <div class="flex-column">
+        <label for="name">naam</label>
+        <input type="text" name="name" id="nameinput" value="<%= data.name %>">
+    </div>
+    <div class="flex-column">
+        <label for="pricepkinput">prijs per kilo</label>
+        <input type="number" step="0.01" name="pricepk" id="pricepkinput" value="<%= data.pricepk%>">
+    </div>
+    <div class="flex-column">
+        <label for="barcodeinput">barcode</label>
+        <input type="text" name="barcode" id="barcodeinput" value="<%= data.barcode %>">
+    </div>
+    <div class="flex-column">
+        <label for="unitpriceinput">prijs per eenheid</label>
+        <input type="number" step="0.01" name="unitprice" id="unitpriceinput" value="<%= data.unitprice %>">
+    </div>
+    <div class="flex-column">
+        <label for="quantityinput">aantal</label>
+        <input type="number" step="0.01" name="quantity" id="quantityinput" value="<%= data.quantity %>">
+    </div>
+    <div class="flex-column">
+        <label for="quantityweightkginput">eenheid per kg</label>
+        <input type="number" step="0.01" name="quantityWeightKg" id="quantityweightkginput" value="<%= data.quantityWeightKg %>">
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
+<form action="/storage/remove" method="post" class="p2 flex-column space-between fp">
+<input type="number" name="id" required value="<%= data.id %>" readonly hidden>
+<button type="submit" class="btn btn-warning">verwijder</button>
+</form>
