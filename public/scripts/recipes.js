@@ -12,7 +12,6 @@ document.querySelectorAll(".grid-item").forEach(item => {
         searchInput.value = "";
         searchResults.innerHTML = "";
 
-        // Als item reeds gegevens bevat → toon ze opnieuw
         const name = item.textContent;
         const ingredientsData = item.dataset.ingredients;
         const stepsData = item.dataset.steps;

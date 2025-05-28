@@ -1,57 +1,60 @@
 <%- include('./partials/head') %>
-<script type="module" src="scripts/recipes.js" defer></script>
+  <script type="module" src="scripts/recipes.js" defer></script>
+
   <body class="recipes">
-    
+
     <%- include('partials/nav') %>
-    <div class="main">
-    <!-- Topbar -->
-    <section class="topbar">
-      <select name="filterOptions" id="filterOptions">
-        <option value="default">FILTER</option>
-      </select>
+      <div class="main">
+        <!-- Topbar -->
+        <section class="topbar">
+          <select name="filterOptions" id="filterOptions">
+            <option value="default">FILTER</option>
+          </select>
 
-      <form action="/recipes/add-item" method="POST">
-        <button type="submit">+</button>
-      </form>
-    </section>
-
-    <!-- Grid -->
-    <section class="grid-container" id="gridContainer">
-      <% gridItems.forEach(item => { %>
-        <article class="grid-item"><%= item.title %></article>
-      <% }) %>
-    </section>
-
-    <!-- Popup -->
-    <section class="popup-overlay" id="popupOverlay" style="display:none;">
-      <article class="popup-content">
-        <button id="closePopup" class="close-btn">&times;</button>
-
-        <section class="search-container">
-          <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." autocomplete="off" />
-          <article id="searchResults" class="dropdown"></article>
+          <form action="/recipes/add-item" method="POST">
+            <button type="submit">+</button>
+          </form>
         </section>
 
-        <main class="recipe-info">
-          <section class="recipe-name-box">
-            <label>Gerechtsnaam:</label>
-            <span id="recipeName"></span>
-          </section>
-
-          <section class="ingredients-preparation">
-            <article class="info-box ingredienten-box">
-              <label>Ingrediënten:</label>
-              <ul id="ingredientenList"></ul>
+        <!-- Grid -->
+        <section class="grid-container" id="gridContainer">
+          <% gridItems.forEach(item=> { %>
+            <article class="grid-item">
+              <%= item.title %>
             </article>
+            <% }) %>
+        </section>
 
-            <article class="info-box">
-              <label>Bereidingswijze:</label>
-              <ol id="bereidingswijzeList"></ol>
-            </article>
-          </section>
-        </main>
-      </article>
-    </section>
-  </div>
+        <!-- Popup -->
+        <section class="popup-overlay" id="popupOverlay" style="display:none;">
+          <article class="popup-content">
+            <button id="closePopup" class="close-btn">&times;</button>
+
+            <section class="search-container">
+              <input type="text" id="searchInput" placeholder="Zoek naar een gerecht..." autocomplete="off" />
+              <article id="searchResults" class="dropdown"></article>
+            </section>
+
+            <main class="recipe-info">
+              <section class="recipe-name-box">
+                <label>Gerechtsnaam:</label>
+                <span id="recipeName"></span>
+              </section>
+
+              <section class="ingredients-preparation">
+                <article class="info-box ingredienten-box">
+                  <label>Ingrediënten:</label>
+                  <ul id="ingredientenList"></ul>
+                </article>
+
+                <article class="info-box">
+                  <label>Bereidingswijze:</label>
+                  <ol id="bereidingswijzeList"></ol>
+                </article>
+              </section>
+            </main>
+          </article>
+        </section>
+      </div>
   </body>
-<%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>
