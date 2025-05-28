@@ -1,9 +1,17 @@
 import express, { Router } from "express";
 import fetch from "node-fetch";
-import { Dish } from "../data/types";
-
 
 const router: Router = express.Router();
+
+interface Meal {
+    strMeal: string;
+    strInstructions: string;
+    strCategory: string;
+    strArea: string;
+    strMealThumb: string;
+    idMeal: string;
+    [key: string]: any;
+}
 
 type Recipe = {
     id: number;
@@ -42,9 +50,8 @@ router.get("/search", async (req, res) => {
         return res.status(400).json({ error: "Zoekterm te kort" });
     }
     try {
-        const dishes = await fetchdishs(term.trim());
-
-        res.json({ dishes });
+        const meals = await fetchMeals(term.trim());
+        res.json({ meals });
     } catch (error) {
         res.status(500).json({ error: "Fout bij ophalen maaltijden" });
     }
@@ -52,9 +59,10 @@ router.get("/search", async (req, res) => {
 
 // Functions
 
-async function fetchdishs(term: string): Promise<Dish[]> {
-    const response = await fetch(`https://www.thedishdb.com/api/json/v1/1/search.php?s=${term}`);
-    const data = await response.json() as { dishes?: Dish[] };
-    return data.dishes ?? [];
+async function fetchMeals(term: string): Promise<Meal[]> {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`);
+    const data = await response.json() as { meals?: Meal[] };
+    return data.meals ?? [];
 }
+
 export default router;
