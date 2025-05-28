@@ -1,6 +1,4 @@
-import { ObjectId } from "mongodb";
 export interface Ingredient {
-    _id: ObjectId,
     id: number,
     name: string;
     pricepk: number,

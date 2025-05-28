@@ -1,0 +1,27 @@
+<form action="/storage/add" method="post" class="p2 flex-column space-between fp">
+    <div class="flex-column">
+        <label for="name">Naam</label>
+        <input type="text" name="name" id="nameinput" required>
+    </div>
+    <div class="flex-column kginput">
+        <label for="name">Prijs per kilo</label>
+        <input type="number" name="pricepk" id="pricepkinput" required>
+    </div>
+    <div class="flex-column">
+        <label for="name">Barcode</label>
+        <input type="number" name="barcode" id="barcodeinput">
+    </div>
+    <div class="flex-column unitinput">
+        <label for="name">Prijs per eenheid</label>
+        <input type="text" name="unitprice" id="unitpriceinput">
+    </div>
+    <div class="flex-column unitinput">
+        <label for="name">Aantal</label>
+        <input type="number" name="quantity" id="quantityinput" class="">
+    </div>
+    <div class="flex-column unitinput">
+        <label for="name">Eenheid per kg</label>
+        <input type="number" name="quantityweightkg" id="quantityweightkginput">
+    </div>
+    <button type="submit" class="btn btn-success">toevoegen</button>
+</form>
