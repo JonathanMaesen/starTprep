@@ -33,6 +33,7 @@
     "dotenv": "^16.5.0",
     "ejs": "^3.1.9",
     "express": "^4.21.2",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "marked": "^15.0.11",
     "mongodb": "^6.15.0",

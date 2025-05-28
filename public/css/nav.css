@@ -55,8 +55,8 @@
   transition: background .3s;
 }
 
-.navcontainer a span {
-  font: bold 14px/1;
+.nav-span {
+  font-weight: bold;
   letter-spacing: .5px;
 }
 

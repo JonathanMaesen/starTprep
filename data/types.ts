@@ -1,7 +1,4 @@
-import { ObjectId } from "mongodb";
-
 export interface Ingredient {
-    _id: ObjectId,
     id: number,
     name: string;
     pricepk: number,
@@ -67,7 +64,6 @@ export interface chairAndDish {
     chair: number,
     dish: Dish[]
 }
-
 
 // export interface Token{
 
